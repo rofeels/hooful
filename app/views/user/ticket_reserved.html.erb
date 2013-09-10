@@ -1,0 +1,78 @@
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<ul class="nav">
+			  <li class="active"><a href="/user/ticket">내 티켓</a></li>
+			  <li><a href="/user/order">티켓 구매 내역</a></li>
+			</ul>
+		  </div>
+		</div>
+		<ul class="hTicketmenusub">
+			<li><span>미사용 티켓</span><a href="/user/ticket" class="num"><%=@tcnt[:unuse]%></a><span class="cbox"></span></li>
+			<li class="active"><span>예약 티켓</span><a href="/user/ticket/reserved" class="num"><%=@tcnt[:reserved]%></a><span class="cbox"></span></li>
+			<li><span>사용완료 티켓</span><a href="/user/ticket/old" class="num"><%=@tcnt[:used]%></a><span class="cbox"></span></li>
+			<li><span>포인트</span><span class="num"><%=@user.point.to_i%>p</span><span class="cbox"></span>
+				<div class="pointHistory">
+					<h1>포인트 적립 내역</h1>
+					<h2>* 현재 포인트는 환불과 관련하여 적립됩니다.</h2>
+					<dl class="title">
+						<dd class="date">날짜</dd>
+						<dd class="pmsg">사유</dd>
+						<dd class="point">포인트</dd>
+					</dl>
+					<ul class="history">
+					<%(1..15).each do |i| %>
+						<li>
+							<dl class="content">
+								<dd class="date">06/01</dd>
+								<dd class="pmsg">티켓<%=if i%2 == 0 then "환불" else "구매" end%></dd>
+								<dd class="point <%=if i%2 == 0 then "plus" else "minus" end%>">100pt<%=if i%2 == 0 then "적립" else "사용" end%></dd>
+							</dl>
+						</li>
+					<%end%>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		
+		<dl class="gHead">
+			<dt>
+				<dl class="header">
+					<dd class="ticket">티켓</dd>
+					<dd>수량</dd>
+					<dd>예약일</dd>
+					<dd>예약시간</dd>
+					<dd>상태</dd>
+				</dl>
+			</dt>
+			<dd>
+				<% if @ticket.count > 0 %>
+					<% @ticket.each do |ticket| %>
+					<div class="tmeet">
+						<h3><%=ticket[:uMeet][:mTitle]%></h3>
+							<dl class="tinfo reserve">
+								<dt>
+									<div class="hSmallTicket">
+										<div class="title"><%=ticket[:tName]%></div>
+										<div class="description"><%=ticket[:tDescription]%></div>
+										<div class="code"><%=ticket[:tCode]%></div>
+									</div>
+								</dt>
+								<dd class="quantity">1</dd>
+								<dd class="quantity"><%=ticket[:tReserveDate].to_s.split(",")[0]%></dd>
+								<dd class="quantity">
+									<%if ticket[:tReserveTime].to_s.split(".")[0].to_i > 12%>PM <%=ticket[:tReserveTime].to_s.split(".")[0].to_i-12%><%else%>AM <%=ticket[:tReserveTime].to_s.split(".")[0].to_i%><%end%>:<%if ticket[:tReserveTime].to_s.split(".")[1] == "5"%>30<%else%>00<%end%>
+								</dd>
+								<dd class="quantity">
+									<span><%=ticketState(ticket[:tState])%></span>
+									<span><a href="/<%=ticket[:mCode]%>/reservation" class="btnTicketchange"></a></span>
+								</dd>
+							</dl>
+					</div>
+					<% end %>
+				<% end %>
+			</dd>
+		</dl>
+	</div>
+</div>

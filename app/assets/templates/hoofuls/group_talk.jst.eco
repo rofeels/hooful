@@ -1,0 +1,42 @@
+<div class="groupContents">
+	<h3 class="groupTitle">
+		<div class="profile">
+		</div>
+		<span class="title"><%=@title%></span>
+		<div class="mCancel">그룹나가기</div>
+		<% if @host is userid:%><span class="mEdit">수정</span><%end%>
+	</h3>
+	<ul class="groupInfo">
+		<li class="payInfo">
+			<i class="reserved"></i>예약
+			<i class="paid"></i><%=(if ($("#mPayUse").val() is "1") then "결제" else "확정")%>
+		</li>
+		<li class="startdate">출발일: <span class="date"><%=(if @date then @date[0..9] else "미정" )%></span></li>
+		<li class="totalmember">인원: <span class="partice"><%=@partice%></span>/<span class="member"><%=@member%></span></li>
+
+	</ul>
+	<div class="talkNotice">취침, 술권유, 욕설 등 부적절한 대화를 할 시 영구정지가 될 수 있습니다.</div>
+<%if @company:%>
+	<div class="groupCompany hgCard" code="<%=@company%>" host="<%=@host%>">
+	<a href='/<%=@company%>'><div class='picture' style='background-image:url("http://d3o755op057jl1.cloudfront.net/meetpic/thumb/<%=@company_image%>")'></div></a>
+	<div class='hInfo'>
+		<h3 class='title tEllipsis'><a href='/<%=@company%>'><%=@company_title%></a></h3>
+		<div class='price'>가격:&nbsp;<%=@company_price%></div>
+	</div>
+
+	<div class='profile'>
+		<a href='/user/<%=@host_link%>' target="_blank">
+			<img src="<%=@host_picture%>" title="<%=@host_name%>"  class="thumbnail"/>
+			<span class="name tEllipsis"><%=@host_name%></span>
+			<span class="comment"><%=@host_members%></span>
+		</a>
+	</div>
+	</div>
+<%end%>
+	<div class="groupMember"></div>
+	<div class="groupBody">
+		<div class="talkWrap">
+		</div>
+		<div class="groupSend"><input id="gSend" name="gSend" placeholder="" type="text"><div class="blue btn">보내기</div></div>
+	</div>
+</div>

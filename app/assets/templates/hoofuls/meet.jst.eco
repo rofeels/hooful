@@ -1,0 +1,32 @@
+<% for meet in @meet.models: %>
+<div class='hCard' code='<%=meet.get('mCode')%>' host='<%=meet.get('mHost')%>'>
+	<div class='date'><%=meet.get('mDateS').split('T')[0].split('-')[1]%>/<%=meet.get('mDateS').split('T')[0].split('-')[2]%></div>
+	<a href='/<%=meet.get('mCode')%>'><div class='picture' style='background-image:url("<%=@S3ADDR%>meetpic/<%=meet.get('mPicture')%>");background-position:0 0;'></div></a>
+	<div class='hInfo'>
+		<h3 class='title tEllipsis'><a href='/<%=meet.get('mCode')%>'><%=meet.get('mTitle')%></a></h3>
+		<div class="member"><% for men in [0...meet.get('uMale')]:%><i class="man active"></i><%end%><% for men in [0...(meet.get('mMale')-meet.get('uMale'))]:%><i class="man"></i><%end%><% for woman in [0...meet.get('uFemale')]:%><i class="woman active"></i><%end%><% for woman in [0...(meet.get('mFemale')-meet.get('uFemale'))]:%><i class="woman"></i><%end%></div>
+		<div class="price">가격: <span class="original_price"><%=meet.get('card_origin_price')%></span><span class="real_price"><%=meet.get('card_price')%></span> </div>
+
+	</div>
+	<div class='profile'>
+		<a href='/user/<%=Base64.encode64(meet.get('host').userid + '#hUser')%>' target="_blank">
+			<div class='thumbnail' onfocus='blur();'>
+				<img src='<%=@S3ADDR%>userpic/<%=meet.get('host').userpicname%>' title='<%=meet.get('host').name%>'/>
+			</div>
+			<span class="name tEllipsis"><%=meet.get('host').name%></span>
+		</a>
+	</div>
+	<div class='cInfo'>
+		<h3 class='title tEllipsis'><a href='/<%=meet.get('mCode')%>'><%=meet.get('mTitle')%></a></h3>
+		<div class="member"><% for men in [0...meet.get('uMale')]:%><i class="man active"></i><%end%><% for men in [0...(meet.get('mMale')-meet.get('uMale'))]:%><i class="man"></i><%end%><% for woman in [0...meet.get('uFemale')]:%><i class="woman active"></i><%end%><% for woman in [0...(meet.get('mFemale')-meet.get('uFemale'))]:%><i class="woman"></i><%end%></div>
+		<div class="price">가격: <span class="original_price"><%=meet.get('card_origin_price')%></span><span class="real_price"><%=meet.get('card_price')%></span> </div>
+		<div class="time"><strong>시간:</strong> <%=meet.get('card_time')%></div>
+		<div class="place"><strong>장소:</strong> <%=meet.get('mPlace')%> (<%=meet.get('mAddress')%>)</div>
+		<div class='hoo'>
+			<i class="hoo meet-like-icon <% if meet.get('hooLike') is 'Hoo':%> set<%end%>" code='<%=meet.get('mCode')%>'></i>
+			<div class='meet-like<% if meet.get('hooLike') is 'Hoo':%> set<%end%>' code='<%=meet.get('mCode')%>'><%=meet.get('uHoo')%></div>
+		</div>
+		<div class='meetcmt'><i class="cmt"></i><%=meet.get('uCmtcnt')%></div>
+		<a href='/<%=meet.get('mCode')%>'><div class="btn_enter">입장하기</div></a>
+	</div>
+</div>

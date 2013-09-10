@@ -1,0 +1,117 @@
+<div class="wrap">
+	<h2>예약하기</h2>
+	<h3>본 티켓에 대한 예약을 <%if @ticket.get('tState') is 1:%>진행합니다.<%else:%>변경합니다.&nbsp;&nbsp;<a href="/user/ticket/<%=@ticket.get('orderId')%>/cancel">예약취소</a><%end%></h3>
+	<input id="tCode" name="tCode" type="hidden" value="<%=@ticket.get('tCode')%>">
+	<input id="mCode" name="mCode" type="hidden" value="<%=@ticket.get('uMeet').mCode%>">
+	<input id="tState" name="tState" type="hidden" value="<%=@ticket.get('tState')%>">
+	<input id="mHost" name="mHost" type="hidden" value="<%=@ticket.get('uMeet').mHost%>">
+	<input id="tId" name="tId" type="hidden" value="<%=@tid%>">
+	<input id="tCount" name="tCount" type="hidden" value="<%=@count%>">
+	<input id="tUseDate" name="tUseDate" count="1" scount="1" type="hidden" valid="<%=@ticket.get('uMeet').mDate%>">
+	<input id="tUseTime" name="tUseTime" type="hidden" value="">
+	<div class="rTicketArea">
+		<div class="hPrintTicket">
+			<div class="title"><%=@ticket.get('uMeet').mTitle%></div>
+			<div class="description"><span class="ttitle"><%=@ticket.get('tName')%></span><%=@ticket.get('tDescription')%></div>
+			<div class="sdate"><%=@ticket.get('uMeet').sMonth%>.<%=@ticket.get('uMeet').sDay%></div>
+			<div class="address"><%=@ticket.get('uMeet').mAddress%></div>
+			<div class="code"><%=@ticket.get('tCode')%></div>
+		</div>
+	</div>
+	<dl>
+		<dt>상세내용</dt>
+		<dd>
+			<div class="hSection date">
+				<h2>날짜, 시간 선택</h2>
+				<div class="useDate" target="tUseDate"><span class="tDate">예약날짜</span><span class="caret"></span></div>
+				<div class="useTime"><span class="tTime">예약시간</span><span class="caret"></span>
+				<ul id="useTimelist" name="useTimelist" class="useTimelist">
+					<%if @ticket.get('uMeet').mTimeS <= 0 and 0 <= @ticket.get('uMeet').mTimeE :%><li value="0.0">12:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 0.5 and 0.5 <= @ticket.get('uMeet').mTimeE :%><li value="0.5">12:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 1.0 and 1.0 <= @ticket.get('uMeet').mTimeE :%><li value="1.0">01:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 1.5 and 1.5 <= @ticket.get('uMeet').mTimeE :%><li value="1.5">01:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 2.0 and 2.0 <= @ticket.get('uMeet').mTimeE :%><li value="2.0">02:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 2.5 and 2.5 <= @ticket.get('uMeet').mTimeE :%><li value="2.5">02:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 3.0 and 3.0 <= @ticket.get('uMeet').mTimeE :%><li value="3.0">03:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 3.5 and 3.5 <= @ticket.get('uMeet').mTimeE :%><li value="3.5">03:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 4.0 and 4.0 <= @ticket.get('uMeet').mTimeE :%><li value="4.0">04:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 4.5 and 4.5 <= @ticket.get('uMeet').mTimeE :%><li value="4.5">04:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 5.0 and 5.0 <= @ticket.get('uMeet').mTimeE :%><li value="5.0">05:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 5.5 and 5.5 <= @ticket.get('uMeet').mTimeE :%><li value="5.5">05:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 6.0 and 6.0 <= @ticket.get('uMeet').mTimeE :%><li value="6.0">06:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 6.5 and 6.5 <= @ticket.get('uMeet').mTimeE :%><li value="6.5">06:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 7.0 and 7.0 <= @ticket.get('uMeet').mTimeE :%><li value="7.0">07:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 7.5 and 7.5 <= @ticket.get('uMeet').mTimeE :%><li value="7.5">07:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 8.0 and 8.0 <= @ticket.get('uMeet').mTimeE :%><li value="8.0">08:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 8.5 and 8.5 <= @ticket.get('uMeet').mTimeE :%><li value="8.5">08:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 9.0 and 9.0 <= @ticket.get('uMeet').mTimeE :%><li value="9.0">09:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 9.5 and 9.5 <= @ticket.get('uMeet').mTimeE :%><li value="9.5">09:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 10.0 and 10.0 <= @ticket.get('uMeet').mTimeE :%><li value="10.0">10:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 10.5 and 10.5 <= @ticket.get('uMeet').mTimeE :%><li value="10.5">10:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 11.0 and 11.0 <= @ticket.get('uMeet').mTimeE :%><li value="11.0">11:00 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 11.5 and 11.5 <= @ticket.get('uMeet').mTimeE :%><li value="11.5">11:30 AM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 12.0 and 12.0 <= @ticket.get('uMeet').mTimeE :%><li value="12.0">12:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 12.5 and 12.5 <= @ticket.get('uMeet').mTimeE :%><li value="12.5">12:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 13.0 and 13.0 <= @ticket.get('uMeet').mTimeE :%><li value="13.0">01:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 13.5 and 13.5 <= @ticket.get('uMeet').mTimeE :%><li value="13.5">01:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 14.0 and 14.0 <= @ticket.get('uMeet').mTimeE :%><li value="14.0">02:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 14.5 and 14.5 <= @ticket.get('uMeet').mTimeE :%><li value="14.5">02:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 15.0 and 15.0 <= @ticket.get('uMeet').mTimeE :%><li value="15.0">03:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 15.5 and 15.5 <= @ticket.get('uMeet').mTimeE :%><li value="15.5">03:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 16.0 and 16.0 <= @ticket.get('uMeet').mTimeE :%><li value="16.0">04:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 16.5 and 16.5 <= @ticket.get('uMeet').mTimeE :%><li value="16.5">04:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 17.0 and 17.0 <= @ticket.get('uMeet').mTimeE :%><li value="17.0">05:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 17.5 and 17.5 <= @ticket.get('uMeet').mTimeE :%><li value="17.5">05:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 18.0 and 18.0 <= @ticket.get('uMeet').mTimeE :%><li value="18.0">06:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 18.5 and 18.5 <= @ticket.get('uMeet').mTimeE :%><li value="18.5">06:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 19.0 and 19.0 <= @ticket.get('uMeet').mTimeE :%><li value="19.0">07:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 19.5 and 19.5 <= @ticket.get('uMeet').mTimeE :%><li value="19.5">07:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 20.0 and 20.0 <= @ticket.get('uMeet').mTimeE :%><li value="20.0">08:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 20.5 and 20.5 <= @ticket.get('uMeet').mTimeE :%><li value="20.5">08:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 21.0 and 21.0 <= @ticket.get('uMeet').mTimeE :%><li value="21.0">09:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 21.5 and 21.5 <= @ticket.get('uMeet').mTimeE :%><li value="21.5">09:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 22.0 and 22.0 <= @ticket.get('uMeet').mTimeE :%><li value="22.0">10:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 22.5 and 22.5 <= @ticket.get('uMeet').mTimeE :%><li value="22.5">10:30 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 23.0 and 23.0 <= @ticket.get('uMeet').mTimeE :%><li value="23.0">11:00 PM</li><%end%>
+					<%if @ticket.get('uMeet').mTimeS <= 23.5 and 23.5 <= @ticket.get('uMeet').mTimeE :%><li value="23.5">11:30 PM</li><%end%>
+				</ul></div><br />
+			</div>
+			<div class="hSection">
+				<h2>사용자 정보</h2>
+				<div class="hSectionArea">
+					<dl>
+						<dt>휴대전화</dt>
+						<dd><%=@ticket.get('uHost').phone%></dd>
+					</dl>
+					<dl>
+						<dt>생년월일</dt>
+						<dd><%=@ticket.get('uHost').dob%></dd>
+					</dl>
+					<dl>
+						<dt>직업(소속)</dt>
+						<dd><%=@ticket.get('uHost').job%> <%=@ticket.get('uHost').members%></dd>
+					</dl>
+				</div>
+				<div class="inform"> 입력사항은 개인정보에 자동으로 반영됩니다.</div>
+			</div>
+			<div class="hSection">
+				<h2>추가 메시지</h2>
+				<textarea class="hSectionArea" holder="추가정보입력 (키,체중)" id="tReserveText" name="tReserveText" type="text"></textarea> 
+				<div class="inform"> 패러글라이딩은 사전에 키, 몸무게를 입력해야 합니다. 해당정보는 저장되지 않습니다.</div>
+
+			</div>
+
+
+		</dd>
+	</dl>
+	<dl>
+		<dt>사용자 유의사항</dt>
+		<dd class="inform">
+			* 예약신청이 완료되면 해당 업주에게 예약 문자가 전송되며, 업주가 예약을 승인하면 예약이 완료됩니다.<br/>
+* 최소 예약일 이전까지 예약변경 기능을 통해 1회 예약변경을 할 수 있습니다. <br/>
+* 예약 취소나 변경 없이 활동을 하지 않았을 경우 티켓은 사용처리 됩니다.<br/>
+* 날씨, 업체의 사정 등 불가피한 사유로 활동이 불가한 경우 티켓을 보존됩니다.<br/>
+		</dd>
+	</dl>
+	<div class="btnNext btn_reservation step2">다음</div>
+</div>

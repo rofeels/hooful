@@ -1,0 +1,13 @@
+<% if @sales.models.length > 0: %>
+<% for sales in @sales.models: %><tr>
+	<td class="ctr"><%=sales.get('create_date')%></td>
+	<td class="ctr">계좌이체</td>
+	<td class="ctr"><%=sales.get('mPrice')%></td>
+	<td class="ctr"><%=sales.get('mState')%></td>
+</tr>		
+<% end %>
+<% else: %>
+<tr>
+  <td colspan="4" class="ctr">신청 내역이 없어요.</td>
+</tr>
+<% end %>

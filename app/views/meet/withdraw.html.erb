@@ -1,0 +1,85 @@
+<div id="hContainer" class="gray">
+	<div id="manageMeet">
+		<div class="wrap"><a href="/meet/manage">돌아가기</a></div>
+	</div>
+	<div class="hManage none" mCode="" mHost="<%=session[:user_id]%>" mRefund="<%=@mwith[:accRefund]%>">
+		<div class="mWithdraw">
+			<div class="wCount">
+				<dl>
+					<dt>누적 매출</dt>
+					<dd><%=@mwith[:accSalesPrice]%>원</dd>
+				 </dl>
+				<dl>
+					<dt>출금 완료</dt>
+					<dd><%=@mwith[:accRefundEnd]%>원</dd>
+				 </dl>
+				<dl class="available">
+					<dt>출금 금액</dt>
+					<dd><%=@mwith[:accRefund]%>원</dd>
+				 </dl>
+				<div class="title">요약정보</div>
+			</div>	
+			<div class="wPrice">
+				<dl>
+					<dt>방법</dt>
+					<dd>계좌이체</dd>
+				 </dl>
+				<dl>
+					<dt>은행</dt>
+					<dd><input type="text" class="input withdraw" name="txtBank" id="txtBank" value="<%=@wAcc[:mBank]%>" /></dd>
+				 </dl>
+				<dl>
+					<dt>예금주</dt>
+					<dd><input type="text" class="input withdraw" name="txtHolder" id="txtHolder" value="<%=@wAcc[:mHolder]%>" /></dd>
+				 </dl>
+				<dl>
+					<dt>계좌번호</dt>
+					<dd><input type="text" class="input withdraw" name="txtAccount" id="txtAccount" value="<%=@wAcc[:mAccount]%>" /></dd>
+				 </dl>
+				<%if @mwith[:accRefund].to_i > 0%><div class="btnWithdrawBig">출금신청</div><%end%>
+				<div class="title">출금방법</div>
+			</div>	
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="htHeader">
+			<div class="title">매출정보</div>
+		</div>
+		<table class="hTable">
+			<thead>
+				<tr>
+					<th>티켓명</th>
+					<th class="fName">구매자</th>
+					<th class="fType">구매수단</th>
+					<th class="fType">구매금액</th>
+					<th class="fMoney">구매 수수료(원)</th>
+					<th class="fMoney">후풀 수수료(원)</th>
+					<th class="fMoney">최종금액(원)</th>
+				</tr>
+			</thead>
+			<tbody class="hSales">
+				<tr>
+					<td class="ctr" colspan="7">팔린 티켓이 없어요.</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="htHeader">
+			<div class="title">출금신청내역</div>
+		</div>
+		<table class="hTable">
+			<thead>
+				<tr>
+					<th>출금신청일</th>
+					<th>출금방법</th>
+					<th class="fMoney">출금액</th>
+					<th class="fMoney">상태</th>
+				</tr>
+			</thead>
+			<tbody class="hRefunds">
+				<tr>
+					<td class="ctr" colspan="4">신청 내역이 없어요.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,139 @@
+<script>
+$(function(){
+	$(".redactor").redactor({imageUpload:'/api/editorupload?userid='+userid});
+});
+</script>
+<%=flash[:notice]%>
+<div id="hContainer">
+	<div class="hDetailCategory">
+		<div class="wrap">
+			<h1>활동 만들기</h1>
+			<div class="hdcInfo">
+				48시간 이내에 등록에 대한 답변을 드립니다.
+			</div>
+		</div>
+	</div>
+	<div id="reOpen">
+		<div class="wrap">
+		<div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			재개최
+			<span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+
+		  </ul>
+		</div>
+		</div>
+	</div>
+	<div id="hCreate">
+		<div class="wrap">
+		<fieldset>
+			<%= form_tag( {:action => 'create'}, :multipart => true, :id=>'hMeetfrm', :class => 'form-horizontal') do %>
+			<%= hidden_field_tag 'hMethod', 'generate' %>
+			<%= hidden_field_tag 'mHost', session[:user_id] %>
+			<%= hidden_field_tag :mCategory, ''%>
+			<%= hidden_field_tag :mPicture, ''%>
+			<%= hidden_field_tag :mPicturename, ''%>
+			<%= hidden_field_tag 'mLat', ''%>
+			<%= hidden_field_tag 'mLng', ''%>
+			<%= hidden_field_tag :mDate, '', :limit => Date.today.strftime('%Y-%m-%d') %>
+			<%= hidden_field_tag :mPayUse, 0%>
+			<%= hidden_field_tag :mCodeValid, 0%>
+			<%= hidden_field_tag 'tuid', (@user.tuid.blank?)?"0":"1"%>
+			<%= hidden_field_tag 'fuid', (@user.fuid.blank?)?"0":"1"%>
+			<h2>개최자 정보 입력</h2>
+			<h3><span class="number">0</span>소개글 입력</h3>
+			<div class="detail">
+				<%= text_area_tag :mSummary, nil%>
+			</div>
+			<h2>활동 정보 입력</h2>
+			
+			<h3><span class="number">1</span>활동 기본정보 입력</h3>
+			<div class="default">
+				<div class="picture">
+					<img src="<%=S3ADDR%>hooful/meet_image.png"/>
+				</div>
+				<dl data-toggle="tooltip" title="관심사 카테고리를 선택한 후, 활동명을 입력해 주세요.">
+					<dt><i class="title"></i>상품명</dt>
+					<dd>
+						<div class="category btn-group">
+						  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">관심사<span class="caret"></span></a>
+						  <ul class="dropdown-menu"></ul>
+						</div>
+						<div class="title">
+							<%= text_field_tag :mTitle, '', :class => 'pinput'%>
+							<span class="pholder" target="mTitle">활동명을 입력해 주세요.</span>
+						</div>
+					</dd>
+				</dl>
+				<dl data-toggle="tooltip" title="‘달력’을 클릭하여 날짜를 선택한 후, 시간을 입력해 주세요.">
+					<dt><i class="date"></i>일정</dt>
+					<dd class="date">
+						<div class="btn " target="mDate">달력<span class="caret"></span></div>
+						<%= select_tag(:mTimeS, options_for_select(@meet_time), :prompt=>'시작') %>
+					</dd>
+				</dl>
+				<dl>
+					<dt><i class="date"></i>가격</dt>
+					<dd class="date">
+						<div class="title">
+							<%= text_field_tag :mPrice, '', :class => 'pinput'%>
+							<span class="pholder" target="mPrice">가격을 입력해 주세요.</span>
+						</div>
+					</dd>
+				</dl>
+				<dl>
+					<dt><i class="date"></i>인원</dt>
+					<dd class="date">
+						<div class="title">
+							남자:<%= text_field_tag :mMale, '', :class => 'pinput'%>&nbsp;여자:<%= text_field_tag :mFemale, '', :class => 'pinput'%>
+						</div>
+					</dd>
+				</dl>
+				<dl data-toggle="tooltip" title="‘‘지도검색’을 클릭하여 장소를 선택한 후, 상세한 주소를 입력해 주세요.">
+					<dt><i class="place"></i>장소</dt>
+					<dd class="place">
+						<div class="btn" target="mAddress">지도 검색<span class="caret"></span></div>
+						<div class="place">
+							<%= text_field_tag :mPlace, '', :class => 'pinput'%>
+							<span class="pholder" target="mPlace">상호명이나 장소명을 입력해주세요.</span>
+						<div>
+					</dd>
+				</dl>
+			</div>
+			<h3><span class="number">2</span>활동 상세내용 입력</h3>
+			<div class="detail">
+				<%= text_area_tag :mDescription, nil, :class => 'redactor'%>
+			</div>
+			<h3><span class="number">3</span>티켓 정보 입력</h3>
+			<div class="ticket_wrap">
+				<div class="tickets" data-toggle="tooltip" title="‘‘티켓명과 수량, 금액을 입력해 주세요. ‘설정’을 통해 티켓에 대한 자세한 설정을 할 수 있어요."></div>
+				<dl>
+					<dt>예약일 설정</dt>
+					<dd> 활동 <%= text_field_tag :mTimelmt, ''%>시간 전까지 예약 가능</dd>
+				</dl>
+			</div>
+			<h3><span class="number">4</span>추가설정</h3> 
+			<div class="addition">
+				<dl>
+					<dt>SNS 공유설정</dt>
+					<dd class="sns"  data-toggle="tooltip" title="SNS를 통해 내 활동을 알리세요.">
+						<%=raw @user.snslist_share%>
+					</dd>
+				</dl>
+				<dl>
+					<dt>URL 설정</dt>
+					<dd class="url">
+						http://www.hooful.com/<%= text_field_tag :mCode, '', :style => 'width:100px;'%>
+					</dd>
+				</dl>
+			<%= submit_tag '등록하기', :class=>'btn create', :id => 'meetSubmit' %>
+			</div>
+			<% end %>
+		</fieldset>
+		</div>
+	</div>
+	<%= javascript_include_tag("https://apis.daum.net/maps/maps3.js?apikey=6361b3de6ad2a80ccd646018d87abaec3a2dfb2e") %>
+	<%= javascript_include_tag("http://maps.google.com/maps/api/js?sensor=false") %>
+</div>

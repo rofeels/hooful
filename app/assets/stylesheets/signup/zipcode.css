@@ -1,0 +1,18 @@
+.bgzipcode {position:fixed;top:0;left:0;width:100%;height:100%;background-color:#ffffff;opacity: 0.8;filter: alpha(opacity=80);z-index:999;display:none;}
+.popzipcode {position:fixed;;width:372px;height:460px;top:50%;left:50%;margin-top:-230px;margin-left:-176px;z-index:9999;display:none;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:5px 5px 5px rgba(0,0,0,.3);-moz-box-shadow:5px 5px 5px rgba(0,0,0,.3);box-shadow:0 0 10px rgba(0,0,0,.3);}
+.popzipcode .title {width:371px;height:38px;background:url('http://cdn.hooful.com/newhooful/preregist/zipcode_title.png') 0 0 no-repeat; text-align:center; color:#ffffff !important; line-height:38px;}
+.popzipcode .area {width:371px;height:420px;background:url('http://cdn.hooful.com/newhooful/preregist/zipcode_bg.png') 0 0 no-repeat;z-index:9999;}
+.popzipcode .area  .content {position:relative;width:315px;margin:0 auto 0;}
+.popzipcode .area .subtitle {height:30px;font-size:14px;color:#58595b;font-weight:bold;padding-top:30px;}
+.popzipcode .area .input {display:inline-block;width:240px;height:40px;margin: 0 auto 15px;background:url('http://cdn.hooful.com/newhooful/preregist/zipcode_input.png') no-repeat;position:relative;font-family:NanumGothicWeb;}
+.popzipcode .area .input:hover, .popzipcode .area .input.set {background-position: 0 -40px;}
+.popzipcode .area .input input {display:inline-block;width:240px;height:25px;margin:2px 0 0 15px;border:0;box-shadow:inset 0 0 0;-webkit-box-shadow:inset 0 0 0;-webkit-transition:0;-moz-transition:0;-o-transition:0;transition:0;background-color:transparent;}
+.popzipcode #btnZipcode {width:67px;height:30px;background:url('http://cdn.hooful.com/newhooful/preregist/zipcodesearch_btn.png') 0 0 no-repeat;text-indent: -9999px;padding:0;margin:2px 0 0 0;}
+.popzipcode #btnZipcode:hover {background-position: 0 -30px;-webkit-transition: none;-moz-transition: none;-o-transition: none;transition: none;}
+.popzipcode .closebtn {position:absolute;bottom:15px;right:20px;width:30px;height:20px;font-size:14px;color:#ce1e17;cursor:pointer;}
+.popzipcode .closebtn:hover {text-decoration:underline;}
+
+.zipcodeResult {display:none;width:315px;min-height:25px;z-index:99999;}
+.zipcodeResult ul {width:100%;height:270px;overflow-y:scroll;list-style:none;margin:0 auto;padding:0;}
+.zipcodeResult ul li {text-indent:15px;text-align:left;margin:0;padding:0;height:35px;line-height:35px;border-bottom:1px solid #ededed;cursor:pointer;}
+.zipcodeResult ul li:hover {background-color:#ce1e17;color:#ffffff;}

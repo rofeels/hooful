@@ -1,0 +1,25 @@
+<div id="hContainer">
+	<div id="hReview">
+		<h2>만나고싶어요</h2>
+	<%@hope.each do |review|%>
+	<%if review["rcode"]%>
+		<div class="review">
+			<div class="title tEllipsis">
+				<%=link_to review["title"], "h/"+review["rcode"].to_s%>
+			</div>
+			<div class="summary">
+			언제&nbsp;:&nbsp;<%=review["when"]%><br />
+			어디서&nbsp;:&nbsp;<%=review["where"]%><br />
+			무엇을&nbsp;:&nbsp;<%=review["what"]%>
+			</div>
+			<ul class="status">
+				<li class="date"><%=review["created_at"]%> ago</li>
+				<li class="reply"><span class="icon"></span><%=review["reviewcmt"]%></li>
+				<li class="like"><span class="icon"></span><%=review["likecnt"]%></li>
+			</ul>
+		</div>
+	<% end%>
+	<% end%>
+	<a href="/hwrite"><div class="btn big blue">후기작성</div></a>
+	</div>
+</div>

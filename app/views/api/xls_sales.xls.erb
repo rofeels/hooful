@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40"
+  xmlns:encoding="utf-8">
+  <Styles>
+	  <Style ss:ID="bg">
+  	   <Interior ss:Color="#ffffff" ss:Pattern="Solid" />
+	  </Style>
+	  <Style ss:ID="sTitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Size="25" ss:Bold="1" />
+	  </Style>
+	  <Style ss:ID="sSubtitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Size="15" ss:Bold="1" />
+	  </Style>
+
+	  <Style ss:ID="sMinorTitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Bold="1" />
+  	   <Interior ss:Color="#ffffff" ss:Pattern="Solid" />
+	  </Style>
+
+	  <Style ss:ID="sTh">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Bold="1" />
+  	    <Interior ss:Color="#c0c0c0" ss:Pattern="Solid" />
+	    <Borders>
+		  <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+ 	    </Borders>
+	  </Style>
+	  <Style ss:ID="sTd">
+	    <Borders>
+		  <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+ 	    </Borders>
+	  </Style>
+	  <Style ss:ID="sTdCenter" ss:Parent="sTd">
+		<Alignment ss:Horizontal="Center" />
+	  </Style>
+  </Styles>
+  <Worksheet ss:Name="참가자 명단">
+    <Table ss:StyleID="bg">
+	  <Column ss:Index="2" ss:AutoFitWidth="1" ss:Width="100"/>
+	  <Column ss:Index="3" ss:AutoFitWidth="1" ss:Width="200"/>
+	  <Column ss:Index="4" ss:AutoFitWidth="1" ss:Width="80"/>
+	  <Column ss:Index="8" ss:AutoFitWidth="1" ss:Width="80"/>
+
+	  <Row>
+      </Row>
+      <Row ss:Height="30">
+        <Cell ss:StyleID="sTitle" ss:MergeAcross="11"><Data ss:Type="String">"<%=@meet.mTitle%>" 판매 현황</Data></Cell>
+      </Row>
+      <Row>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sMinorTitle"><Data ss:Type="String">일정</Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mDate%> <%=@meet.mTimeS%>:00</Data></Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sMinorTitle"><Data ss:Type="String">장소</Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mPlace%></Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mAddress%></Data></Cell>
+      </Row>
+      <Row>
+      </Row>
+      <Row ss:Height="25">
+        <Cell ss:StyleID="sSubtitle" ss:MergeAcross="1"><Data ss:Type="String">판매 현황</Data></Cell>
+      </Row>
+
+      <Row>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">번호</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">티켓명</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">구매자</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">구매수단</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">구매금액</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">구매수수료</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">후풀수수료</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">최종금액</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">비고</Data></Cell>
+      </Row>
+	<% if @sales_c.to_i > 0  %>
+	<% sPrice = 0 %>
+	<% sTax = 0 %>
+	<% hTax = 0 %>
+	<% fPrice = 0 %>
+	<% @sales.each_with_index do |p, i| %>
+      <Row>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=(i+1).to_s%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:tickets][0]["tName"]%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:mUserid]%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String">구매수단</Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:sPrice]%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:sTax]%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:hTax]%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:fPrice]%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"></Data></Cell>
+      </Row>
+	<% sPrice += p[:sPrice] %>
+	<% sTax += p[:sTax] %>
+	<% hTax += p[:hTax] %>
+	<% fPrice += p[:fPrice] %>
+	<% end %>
+	<Row>
+        <Cell ss:MergeAcross="3" ss:StyleID="sTh"><Data ss:Type="String">합계</Data></Cell>
+		<Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=sPrice%></Data></Cell>
+		<Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=sTax%></Data></Cell>
+		<Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=hTax%></Data></Cell>
+		<Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=fPrice%></Data></Cell>
+		<Cell ss:StyleID="sTdCenter"><Data ss:Type="String"></Data></Cell>
+	</Row>
+	<% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

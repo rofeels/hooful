@@ -1,0 +1,13 @@
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3>그룹 나가기</h3>
+</div>
+<div class="modal-body">
+<span id="confirmTitle">그룹을 나가시겠습니까? 그룹에서 나갈 시<br/> 다시 참여는 가능하지만 이전의 대화를 볼 수 없으며<br/> 방장의 권한을 잃게 됩니다.</span>
+</div>
+<div class="modal-footer">
+	<div class="btn grey" id="confirm" >나가기</div>
+	<div class="btn grey" data-dismiss="modal" aria-hidden="true">취소</div>
+	<div id="modalResponse" data-dismiss="modal" aria-hidden="true">완료확인</div>
+</div>
+</div>

@@ -1,0 +1,14 @@
+<% for ticket in @ticket.models: %>
+	<% if ticket.get('next'): %>
+		<div class="more">더보기</div>
+	<% else: %>
+	<div class="hSmallTicket" tid="<%=ticket.get('_id')%>">
+		<div class="title"><%=ticket.get('tName')%></div>
+		<div class="description"><%=ticket.get('tDesignated')%></div>
+		<!--<div class="sdate"><%=ticket.get('sMonth')%>.<%=ticket.get('sDay')%></div>
+		<div class="address"><%=ticket.get('mAddress')%></div>-->
+		<div class="code"><%=ticket.get('tCode')%></div>
+		<div class="usestamp"></div>
+	</div>
+	<% end %>
+<% end %>

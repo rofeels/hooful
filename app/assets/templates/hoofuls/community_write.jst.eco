@@ -1,0 +1,38 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3>활동설명 작성하기</h3>
+</div>
+<div class="modal-body">
+	<fieldset>
+		<form enctype="multipart/form-data" id="uploadForm" name="uploadForm" action="/api/upload" method="post" target="uploadFrame">
+			<input id="hMethod" name="hMethod" type="hidden" value="generate" />
+			<input id="mWriter" name="mWriter" type="hidden" value="<%= @options.userid %>" />
+			<input id="mReviewCode" name="mReviewCode" type="hidden" value="" />
+			<dl data-toggle="tooltip">
+				<dt>활동설명 제목</dt>
+				<dd class="title">
+					<input id="mTitle" maxlength="25" name="mTitle" type="text" value="" />
+				</dd>
+				<dt>활동설명 이미지</dt>
+				<dd>
+						<input id="uploadFile" name="uploadFile" type="file">
+						<input id="uploadPath" name="uploadPath" type="hidden" value="<%= @options.type %>">
+						<input id="uploadURL" name="uploadURL" type="hidden" value="noimage.png">
+						<input id="uploadvURL" name="uploadvURL" type="hidden" value="noimage.png">
+						<input id="userid" name="userid" type="hidden" value="<%= @options.userid %>">
+						<img src="http://d3o755op057jl1.cloudfront.net/meetpic/noimage.png" class="preview" alt="preview">
+					
+				</dd>
+				<dd class="detail">
+					<textarea class="redactor" id="mContents" name="mContents"></textarea>
+				</dd>
+			</dl>
+		</form>
+	</fieldset>
+	<iframe style="width:0px; height:0px;border:0;display:none;" src="about:blank" id="uploadFrame" name="uploadFrame"></iframe>
+</div>
+<div class="modal-footer">
+<div class="btn_next complete">완료</div>
+<div id="uploadResponse">업로드확인</div>
+<div id="modalResponse" data-dismiss="modal" aria-hidden="true">완료확인</div>
+</div>

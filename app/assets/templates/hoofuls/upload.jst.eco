@@ -1,0 +1,25 @@
+
+
+<div class="modal hide fade" id="uploader">
+	 <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>이미지업로드</h3>
+	</div>
+	<div class="modal-body">
+		<p>내 컴퓨터에서 이미지 선택하기</p>
+		<form enctype="multipart/form-data" id="uploadForm" name="uploadForm" action="/api/upload" method="post" target="uploadFrame">
+			<input id="uploadFile" name="uploadFile" type="file">
+			<input id="uploadPath" name="uploadPath" type="hidden" value="<%= @options.type %>">
+			<input id="uploadURL" name="uploadURL" type="hidden" value="noimage.png">
+			<input id="uploadvURL" name="uploadvURL" type="hidden" value="noimage.png">
+			<input id="userid" name="userid" type="hidden" value="<%= @options.userid %>">
+			<img src="http://d3o755op057jl1.cloudfront.net/meetpic/preregist_noimage.png" class="preview" alt="preview">
+		</form>
+	</div>
+	<div class="modal-footer">
+		<div class="btn grey" id="uploadComplete">업로드</div>
+		<div class="btn" id="uploadResponse">업로드확인</div>
+		<div id="modalResponse" data-dismiss="modal" aria-hidden="true">완료확인</div>
+	</div>
+	<iframe style="width:0px; height:0px;border:0;display:none;" src="about:blank" id="uploadFrame" name="uploadFrame"></iframe>
+</div>

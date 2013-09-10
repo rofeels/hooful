@@ -1,0 +1,28 @@
+		<div class="header">알림</div>	
+		<ul>
+			<% count = 0 %>
+			<% for notification in @notification.models: %>
+				<% count += 1 %>
+				<li nid="<%=notification.get(1).id%>" <%="class='uncheck'" unless notification.get(1).check == '1' %>><div>
+					<div class="profile">
+						<a href="/users/<%=notification.get(1).subject%>" class="thumbnail" onfocus="blur();" target="_blank" >
+							<img src="<%=notification.get(1).spicture%>" title="<%=notification.get(1).sname%>" width="48" height="48">
+						</a>
+					</div>
+					<% if notification.get(1).type is "hooful": %>
+						<div class="message">
+							<% if notification.get(1).mcode:%><a href="<%=notification.get(1).mcode%>"><%-notification.get(1).message%></a>
+							<% else: %><%-notification.get(1).message%>
+							<% end %>
+						</div>
+					<% else: %>
+						<div class="message"><%-notification.get(1).message%></div>
+					<% end %>
+				</div></li>
+				<% break if count is @size or count is @notification.length-1%>
+			<% end %>
+			<% if count is 0 : %>
+				<li class="none"><div>알림이 없습니다.</div></li>
+			<% end %>
+		</ul>
+		<div class="more" <% if @notification.length <= (@size+1) :%>style="display:none"<% end %>>더보기<img src="http://d3o755op057jl1.cloudfront.net/images/notification_more.png"></div>

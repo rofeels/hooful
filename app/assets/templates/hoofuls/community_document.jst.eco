@@ -1,0 +1,8 @@
+<% for cdoc in @cdoc.models: %>
+<li class="doc" code="<%=cdoc.get('_id')%>">
+	<dl>
+		<dt><img src="http://d3o755op057jl1.cloudfront.net/docpic/<%=cdoc.get('mPicture')%>" /></dt>
+		<dd><%=cdoc.get('mTitle')%></dd>
+	</dl>
+</li>
+<%end%>

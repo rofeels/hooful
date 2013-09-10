@@ -1,0 +1,3 @@
+<% for meet in @meet.models: %>
+	<li code="<%=meet.get('mCode')%>"><%=meet.get('mTitle')%><span class="address"><%=meet.get('mAddress')%></span></li>
+<% end %>

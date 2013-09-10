@@ -1,0 +1,15 @@
+<div class="wrap">
+	<div class="hManageCode">
+		<div class="mcTitle">아래의 코드를 입력하여 참여자를 검색해 주세요.</div>
+		<div class="mcCodeArea">
+			<input id="mcCode" name="mcCode" type="text" />
+			<input type="button" value="검색" class="btn btnSearchCode" />
+		</div>
+		<div class="mcTicketArea"></div>
+	</div>
+	<div class="hManageCodeReserve">
+		<h1>최근 예약내역</h1>
+		<div class="hTicket"></div>
+	</div>
+	<div class="hManageCodeLine">&nbsp;</div>
+</div>

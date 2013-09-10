@@ -1,0 +1,1 @@
+class Hooful.Models.Groups extends Backbone.Model

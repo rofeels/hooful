@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>추천 그룹 참여하기</h3>
+</div>
+<div class="modal-body">
+	<div class="withoutDate">날짜는 상관없어요</div>
+	<div class="divider"></div>
+	<dl class="reccomend" data-toggle="tooltip" title="관심사 카테고리를 선택한 후, 활동명을 입력해 주세요.">
+		<dt>달력에서 참여하고 싶은 날짜를 선택해 주세요.</dt>
+		<dd id="groupCalendar" target="particeDate">
+			<input id="particeDate" name="particeDate" type="hidden" value="" count=1>
+		</dd>
+		 <div class="btn_next complete" id="recommendComplete">완료</div>
+	</dl>
+</div>

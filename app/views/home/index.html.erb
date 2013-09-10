@@ -1,0 +1,43 @@
+<div id="hContainer" class="gray" mHost="<%=session[:user_id]%>">
+	<div id="hBanner"></div>
+
+	<h2 class="maintitle">
+			<span class="tline"></span>
+			<span class="title"><%if session[:user_id]%><%=@user.name%>님에게 <%end%>레저를 추천해 드려요</span>
+		</h2>
+
+	<div id="hMoim">
+
+		<%#= render :partial => 'card', :collection => @meets%>
+	</div>
+	<div id="hMore">더보기<i class="moreIcon"></i></div>
+</div>
+<% if flash[:tutorial] %>
+<% flash[:tutorial]=nil %>
+<div class="bgTutorial">
+	<div class="step1">
+		<p>그럼 후풀 첫 화면에 대해 간단히 알아볼까요?</p>
+		<div class="btnTnext"></div>
+	</div>
+	<div class="step2">
+		<div class="tbox">
+			<p>레저 활동을 함께 할 사람을<br/>찾을 수 있어요</p>
+			<div class="btnTnext"></div>
+			<div class="arrow"></div>
+		</div>
+		<div class="leftBg"></div>
+		<div class="rightBg"></div>
+		<div class="bottomBg"></div>
+	</div>
+	<div class="step3">
+		<div class="tbox">
+			<p>각 상품에서 레저 활동을 하기 위한<br/>티켓을 구매할 수 있어요.<br /><br />이제 시작해 볼까요?</p>
+			<div class="btnTlets"></div>
+			<div class="arrow"></div>
+		</div>
+		<div class="leftBg"></div>
+		<div class="rightBg"></div>
+		<div class="bottomBg"></div>
+	</div>
+</div>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="modal-body">
+	<div class="top">
+		<%=@detail.models[0].get('tWdate')%> 정산 내역
+	</div>
+	<div class="description">
+		<table class="dTable">
+			<colgroup>
+				<col width="30px">
+				<col width="150px">
+				<col width="350px">
+				<col width="140px">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>사용일</th>
+					<th>티켓</th>
+					<th>금액</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%totno = @detail.models.length%>
+			<% for detail in @detail.models: %>
+			<tr>
+				<td class="ctr"><%=totno--%></td>
+				<td class="ctr"><%=detail.get('tUseDate')%></td>
+				<td class="ctr"><%=detail.get('tName')%></td>
+				<td class="ctr"><%=detail.get('tPrice')%></td>
+			</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="modal-footer">
+ <div class="btn blue" data-toggle="modal" data-target="#calendar_modal">닫기</div>
+</div>

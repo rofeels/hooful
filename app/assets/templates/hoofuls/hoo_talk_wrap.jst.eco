@@ -1,0 +1,11 @@
+
+<div class="talkinput">
+	<div class="profile">
+		<div class='thumbnail' onfocus='blur();'>
+			<img src='<%=@userpic%>' title=''/>
+		</div>
+	</div>
+	<input name="hootalkInput" id="hootalkInput" type="text"/><div id="hootalkbtn" type="button">작성</div>
+</div>
+<div class="talklist">
+</div>

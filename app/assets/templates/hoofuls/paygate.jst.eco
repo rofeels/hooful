@@ -1,0 +1,55 @@
+
+<h3>결제수단</h3>
+<div class="mPayselect">
+	<% if @pay.phone is 1 :%>
+		<div class="checkbox" target = "payMethodType" value="801">핸드폰 결제</div>
+	<% end %>
+	<% if @pay.card is 1 :%>
+		<div class="checkbox active" target = "payMethodType" value="card">카드 결제</div>
+	<% end %>
+	<input type="hidden" name="mPaytype" value="card" id="mPaytype"/>
+</div>
+<div id="openPaygate" class="blue btn">결제</div>
+<div id="payBackground" class="modal hide fade">
+	 <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>결제하기</h3>
+	</div>
+	<div id="PGIOscreen" class="modal-body"></div>
+</div>
+<form name="PGIOForm" id="hPGfrm">
+  <input type="hidden" name="mid" value="ndysjo" />
+  <input id="payMethodType" type="hidden" name="paymethod" value="card" />
+  <input type="hidden" name="goodname" value="<%=@title%>" />
+  <input type="hidden" name="unitprice" id="payPrice" value="" />
+  <input type="hidden" name="langcode" value="KR" />
+  <input type="hidden" name="goodcurrency" value="WON" />
+  <input type="hidden" name="cardquota" value="" />
+  <input type="hidden" name="cardexpiremonth" />
+  <input type="hidden" name="cardexpireyear" />
+  <input type="hidden" name="cardsecretnumber" />
+  <input type="hidden" name="cardownernumber" />
+  <input type="hidden" name="cardtype" />
+  <input type="hidden" name="cardnumber" />
+  <input type="hidden" name="cardauthcode" />
+  <input id="rName" type="hidden" name="receipttoname" value="" />
+  <input id="rEmail" type="hidden" name="receipttoemail" value="" />
+  <input type="hidden" name="replycode" value="" />
+  <input type="hidden" name="replyMsg" value="" />
+  <input type="hidden" name="ticketInfo" id="ticketInfo" value="" />
+  <input type="button" id="callback"/>
+</form>
+<script>
+
+	function getPGIOresult() {
+	  return verifyReceived(getPGIOElement("tid"), "callbacksuccess", "callbackfail");
+	}
+	
+	function callbackfail() {
+		alert("paygate system error");
+	}
+	
+	function callbacksuccess() {
+		$("#callback").click()
+	}
+</script>

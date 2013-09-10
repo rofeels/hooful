@@ -1,0 +1,53 @@
+<div class="add"><div class="btn free">무료</div> <div class="btn pay">유료</div></div>
+<table summary="티켓 정보 입력" cellpadding="0" cellspacing="0">
+	<caption>티켓 정보 입력</caption>
+	<colgroup>
+		<col/>
+		<col width="100px" />
+		<col width="150px" />
+		<col width="150px" />
+		<col width="150px" />
+		<col width="90px" />
+		<col width="90px" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>티켓명</th>
+			<th>수량</th>
+			<th>정가(원)</th>
+			<th>금액(원)</th>
+			<th>공급가(원)</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<td colspan="6">
+				<div id="addTicket" type="button">티켓추가</div>
+			</td>
+		</tr>
+	</tfoot>
+</table> 
+<table summary="결제 정보 입력" cellpadding="0" cellspacing="0" id="paySelect">
+	<caption>결제 정보 입력</caption>
+	<colgroup>
+		<col/>
+		<col width="660px" />
+	</colgroup>
+
+	<tbody>
+		<tr>
+			<td>결제방식</td>
+			<td>
+				<div class="checkbox active">카드 결제<input type="hidden" name="mPaytype[card]" value="1" id="mPaytype_card"/></div>
+				<div class="checkbox active">핸드폰 결제<input type="hidden" name="mPaytype[801]" value="1" id="mPaytype_801"/></div>
+				<div class="checkbox">계좌이체<input type="hidden" name="mPaytype[4]" value="1" id="mPaytype_4"/></div>
+			</td>
+		</tr>
+	</tbody>
+</table> 

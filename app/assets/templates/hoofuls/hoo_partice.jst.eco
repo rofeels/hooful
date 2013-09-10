@@ -1,0 +1,15 @@
+<% for partice in @partice.models: %>
+	<% if partice.get('next'): %>
+		<!--<div class="more">더보기</div>-->
+	<% else: %>
+		<div class="profile">
+			<a href='/user/<%=partice.get('link')%>' target="_blank">
+				<div class='thumbnail' onfocus='blur();'>
+					<img src='<%=partice.get('picture')%>' title='<%=partice.get('name')%>'/>
+				</div>
+				<span class="name tEllipsis"><%=partice.get('name')%><% if partice.get('group') is 1: %><i class="grouptalking"></i></span><%end%>
+				<% if partice.get('ticket') is 1: %><span class="state">참여확정</span><%end%>
+			</a>
+		</div>
+	<% end %>
+<% end %>

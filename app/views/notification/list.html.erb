@@ -1,0 +1,44 @@
+<div id="hContainer" class="whitegray">
+	<div id="hNotification">
+		<div class="wrap">
+			<h2>후풀알림</h2>
+			<div id="hNoticeList">
+				<ul>
+					<%
+					@notification = Notification.load(session[:user_id]) 
+					if @notification.length >0
+						@notification.first(20).each do |i, notification| 
+							if notification%>
+							<li nid="<%=notification[:id]%>" <%="class=uncheck" unless notification[:check] == 1 %>><div>
+			
+								<div class="profile">
+									<a href="/users/<%=notification[:subject]%>" class="thumbnail" onfocus="blur();" target="_blank" data-original-title="">
+										<img src="<%=notification[:spicture]%>" title="<%=notification[:sname]%>">
+									</a>
+								</div>
+								<% if notification[:type] == "hooful" %>
+									<div class="message">
+										<% if notification[:mcode].blank? %><%= raw notification[:message]%>
+										<% else %>
+											<a href="<%=notification[:mcode]%>"><%= raw notification[:message]%></a>
+										<% end %>
+									</div>
+								<% else %>
+									<div class="message"><%= raw notification[:message]%></div>
+								<% end %>
+							</div></li>
+						<% 
+							end
+						end%>
+						
+					<% else %>
+						<li class="none"><div>알림이 없습니다.</div></li>
+					<% end %>
+				</ul>
+				<div class="more" 
+				<%if @notification.length <= 20%>style="display:none;" <% end %>>더보기&#9660;</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

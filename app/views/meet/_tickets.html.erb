@@ -1,0 +1,25 @@
+					<tr>
+						<td><%=tickets.tName%></td>
+						<td><%=tickets.tDescription%></td>
+						<td><%=tickets.price%></td>
+						<td>
+						<%if tickets.quantity_left != 0 %>
+								<select class="ticket_quantity" name="ticket_quantity[]">
+									<option value="1">1 장</option>
+								<!--<option value="0">선택</option>
+								<%for i in 1..tickets.quantity_limit%>
+									<option value="<%=i%>"><%=i%> 장</option>
+								<%end%>-->
+								</select>
+							<%else%>
+								품절
+							<input class="ticket_quantity" name="ticket_quantity[]" value="0" type="hidden" >
+
+							<%end%>
+							<input class="ticket_id" name="ticket_id[]" value="<%=tickets._id%>" type="hidden" >
+							<input class="ticket_name" name="ticket_name[]" value="<%=tickets.tName%>" type="hidden" >
+							<input class="ticket_price" name="ticket_price[]" value="<%=tickets.tPrice%>" type="hidden">
+							<input class="ticket_oprice" name="ticket_oprice[]" value="<%=tickets.tSupplyPrice%>" type="hidden">
+							<input class="ticket_description" name="ticket_description[]" value="<%=tickets.tDescription%>" type="hidden">						
+						</td>
+					</tr>

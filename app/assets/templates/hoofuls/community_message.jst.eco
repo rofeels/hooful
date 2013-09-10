@@ -1,0 +1,24 @@
+<% for talk in @talks: %>
+  <% if @date isnt talk.get('date') : %>
+    <%@date = talk.get('date')%>
+<div class="noticeDate">
+	<span><%=@date%></span>
+	<div class="signDivider"></div>
+</div>
+  <% end %>
+<div class="talk">
+	<div class="profile">
+		<a href="/user/<%=Base64.encode64(talk.get('userid') + '#hUser')%>" target="_blank">
+			<div class="thumbnail">
+				<img src="<%=talk.get('picture')%>" title="<%=talk.get('name')%>">
+			</div>
+		</a>
+	</div>
+	<div class="msg">
+		<span class="name tEllipsis"><%=talk.get('name')%></span>
+		<%=talk.get('gMessage')%>
+		<div class="time"><%=talk.get('created')%></div>
+	</div>
+	<div class="clr"></div>
+</div>
+<% end %>

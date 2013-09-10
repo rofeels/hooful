@@ -1,0 +1,28 @@
+<% for talk in @talks: %>
+	<% if talk.prev: %>
+		<div class="more">더 보기 &#9650;</div>
+	<% else: %>
+		<!--<div class="talk <%if talk.sex is 2:%>right<%else:%>left<%end%><%if talk.userid is userid:%> user<%end%>" tid="<%=talk.tid%>">-->
+		<div class="talk left<%if talk.userid is userid:%> user<%end%>" tid="<%=talk.tid%>">
+			<%if talk.type is "enter" or talk.type is "leave" : %>
+				<div class="notice"><span><%-talk.msg%></span></div>
+			<%else if talk.type is "date": %>
+				<div class="alert"><span><%-talk.msg%></span></div>
+			<% else : %>
+				<div class="profile">
+					<a href="/user/<%=talk.link%>" target="_blank">
+						<img src="<%=talk.picture%>" title="<%=talk.name%>" class="thumbnail"/>
+					</a>
+					<span class="name tEllipsis"><%=talk.name%></span>
+
+				</div>
+				<div class="msgwrap">
+					<div class="msgcontents">
+						<div class="msg"><%=talk.msg%></div>
+						<div class="time"><%=talk.created%></div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+<% end %>

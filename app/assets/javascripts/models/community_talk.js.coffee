@@ -1,0 +1,1 @@
+class Hooful.Models.CommunityTalks extends Backbone.Model

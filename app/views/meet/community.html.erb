@@ -1,0 +1,103 @@
+<div id="hContainer" class="gray">
+	<%= hidden_field_tag :mCode, @category[:code] %>
+	<%= hidden_field_tag :cHost, (session[:user_id] if session[:user_id]) %>
+	<%= hidden_field_tag :userinfo, ("#{@user.phone}/#{@user.dob}/#{@user.job}/#{@user.local}" if session[:user_id]) %>
+	<div class="hcHeader <%=@category[:code]%>">
+		<div class="wrap">
+			<div class="hcProfile">
+				<div class="category"></div>
+				<div class="wrap"></div>
+			</div>
+			<h1><%=@category[:name]%>
+				<span id="hooLike">
+					<div class="hoo-plugin" hoo-user="<%=session[:user_id]%>" hoo-url="<%="#{request.protocol}#{request.host_with_port}#{request.fullpath}"%>" hoo-code="">
+						<table class="uiTable" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td class="liketxt">
+										<button type="button"><i class="hoo-btn hoo-like"></i></button>
+									</td>
+									<td class="likecount">
+										<div class="hoo-count-left"></div><div class="hoo-count-right"></div><div class="hoo-count-heart"></div>
+										<div class="hoo-count-txt"></div>
+										<div class="hoo-action"></div>
+									</td>
+									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</span>
+			</h1>
+			<h2><%=@category[:description]%></h2>
+			<div class="hcInfo">
+				<div class="group"><i></i> 그룹 <span class="num"><%=@category[:group]%></span></div>
+				<div class="like"><i></i> 좋아하는 사람 <span class="num"><%=@likeinfo[:count]%></span></div>
+			</div>
+		</div>
+	</div>
+	<div class="hcContents ">
+		<dl class="hchPerson">
+			<dt><span class="icon like"></span><%=@category[:name]%>을 좋아하는 회원</dt>
+			<dd>
+				<%
+				@hoolike.each do |hoolike| 
+				huser = User.info(hoolike.mUserid)
+				%>
+					<div class="profile">
+						<a href="/user/<%=huser.link%>">
+							<img src="<%=huser.picture%>" title="<%=huser.name%>" class="thumbnail"/>
+						</a>
+						<div class="tooltip fade top in">
+							<div class="tooltip-arrow" style="left: 100%;"></div>
+							<div class="tooltip-inner">							
+								<span class="name"><%=huser.name%></span>
+								<span class="members"><%=huser.members%></span>
+							</div>
+						</div>
+					</div>
+
+				<% end %>
+			</dd>
+		</dl>
+		<dl>
+			<dt><span class="icon activity"></span>후풀에서의 활동은 이렇게 이루어져요</dt>
+			<dd class="hcActivity">
+				<div class="talk">
+					<i></i>
+					<span>직접 그룹톡을 만들어<br/> 활동을 함께할 사람을<br/> 모을 수 있답니다.</span>
+				</div>
+				<div class="group">
+					<i></i>
+					<span>그룹톡에 참여해서<br/> 설레는 활동과 만남을<br/> 해보세요.</span>
+				</div>
+				<div class="ticket">
+					<i></i>
+					<span>날짜와 장소가 정해지면<br/> 업체 페이지에 들어가 티켓을<br/> 구매해야 활동에 참여할 수<br/> 있겠죠?</span>
+				</div>
+				<div class="play">
+					<i></i>
+					<span>원하는 날짜에 예약신청을<br/> 하시면 보다 쉽게 활동을<br/> 할 수 있어요.</span>
+				</div>
+			</dd>
+		</dl>
+		<dl>
+			<dt><span class="icon document"></span><%=@category[:name]%>은(는)?&nbsp;
+				<%if session[:user_id]=="hooful@hooful.com" %><div class="docReg">자료등록</div><%end%>
+			</dt>
+			<dd class="hcDocuments">
+						
+			</dd>
+		</dl>
+		<dl>
+			<dt><span class="icon group"></span>함께가요!</dt>
+			<dd class="hcGroupList">
+			</dd>
+		</dl>
+		<dl>
+			<dt><span class="icon review"></span>후기<div id="hcReviewWrite">작성</div></dt>
+			<dd class="hcReviewList">
+			</dd>
+		</dl>
+	</div>
+</div>

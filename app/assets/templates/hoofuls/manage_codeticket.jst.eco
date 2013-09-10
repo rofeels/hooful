@@ -1,0 +1,24 @@
+<% if @status == "1": %>
+	<% if @tickets.models.length > 0: %>
+	<% for tickets in @tickets.models: %>
+	<div class="uminfo" code="<%=tickets.get('tCode')%>">
+		<div class="title">참여자를 찾았습니다. 확인 후 티켓 사용승인을 해 주세요.</div>
+		<img src="<%=tickets.get('uHost').picture%>" alt="<%=tickets.get('uHost').name%>" />
+		<strong class="name"><%=tickets.get('uHost').name%></strong>
+		<span class="phone">연락처 : <%=tickets.get('uHost').phone%></span>
+		<span class="meet">참여활동 : <%=tickets.get('uMeet').mTitle%></span>
+		<span class="ticket">티켓 : <%=tickets.get('tName')%></span>
+		<span class="date">예약일 : <%=tickets.get('tReserveDate')%></span>
+		<%if tickets.get('tUse') == 0:%>
+		<div class="btnTicket" state="<%=tickets.get('tUse')%>">사용 승인</div>
+		<% else: %>
+		<div class="btnTicket" state="<%=tickets.get('tUse')%>">사용 취소</div>
+		<% end %>
+	</div>
+	<%end%>
+	<% else: %>
+	<div class="uminfo empty">티켓번호를 다시 확인해 주세요.</div>
+	<% end %>
+<% else: %>
+<div class="uminfo empty">티켓을 검색중입니다.</div>
+<% end %>

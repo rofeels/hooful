@@ -1,0 +1,1 @@
+class Hooful.Models.Hoopartices extends Backbone.Model

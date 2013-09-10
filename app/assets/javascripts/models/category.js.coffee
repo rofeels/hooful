@@ -1,0 +1,1 @@
+class Hooful.Models.Category extends Backbone.Model

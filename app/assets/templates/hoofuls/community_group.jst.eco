@@ -1,0 +1,33 @@
+<% for group in @group.models: %>
+	<% if group.get('next'): %>
+		<div id="hMore">더보기<i class="moreIcon"></i></div>
+	<% else: %>
+	<ul><%=group.get('gTitle')%>
+		<li class="date"><%=group.get('gDate')%></li>
+		<li class="participate"><div class="btn green" id="<%=group.get('_id')%>" mcode="<%=group.get('mCode')%>" valid="<%=group.get('gMembers').length%>">참여</div></li>
+		<li class="number"><%=group.get('gMembers').length%>/10</li>
+		<li class="members">
+			<% for members in group.get('gMembers'): %>
+				<div class="profile">
+					<a href="/user/<%=members.userid%>">
+						<div class="thumbnail" onfocus="blur();">
+							<img src="<%=members.picture%>" title="<%=members.name%>">
+						</div>
+						<span class="name tEllipsis"><%=members.name%></span>
+						<span class="comment"><%=members.comment%></span>
+					</a>
+				</div>
+			<% end %>
+		</li>
+	</ul>
+	<% end %>
+<% end %>
+<div class="modal hide fade in" id="particeStep">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3><i class="partice"></i>참가하기</h3>
+	</div>
+	<div class="modal-body">
+		
+	</div>
+</div>

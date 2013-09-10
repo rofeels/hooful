@@ -1,0 +1,29 @@
+<div class="wrap">
+	<div class="hmsHeader">
+		서비스에 대한 제안사항이나 궁금한 사항 등을 자유롭게 문의 해 주세요.<br />
+		CS관련 워딩..
+		<a class="btn grey">작성하기</a>
+	</div>
+	<ul class="hmsMenu">
+		<li>고객센터</li>
+		<li class="faq">자주묻는질문</li>
+	</ul>
+	<div class="hmsRight">
+		<table class="dTable">
+			<colgroup>
+				<col width="30px">
+				<col width="550px">
+				<col width="110px">
+				<col width="140px">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>답변여부</th>
+					<th>날짜</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

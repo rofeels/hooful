@@ -1,0 +1,16 @@
+<td colspan="7">
+	<div>
+		<input class="ticket_name" name="ticket_name[]" value="" type="text">
+		<span class="tholder" target="ticket_name">티켓명을 입력해주세요.</span>
+	</div>
+	<div><input class="ticket_quantity" name="ticket_quantity[]" value="" type="text"></div>
+	<div><input class="ticket_origin_price" name="ticket_origin_price[]" value="0" type="text"><span class="free">무료</span></div>
+	<div><input class="ticket_price" name="ticket_price[]" value="0" type="text"><span class="free">무료</span></div>
+	<div><input class="ticket_supply_price" name="ticket_supply_price[]" value="0" type="text"><span class="free">무료</span></div>
+	<div><span class="description">설정&#9660;</span></div>
+	<div><button class="close" type="button">×</button></div>
+	<dl class="description">
+		<dt>티켓 상세설명</dt>
+		<dd><textarea name="ticket_description[]" class="ticket_description" /></dd>
+	</dl>
+</td>

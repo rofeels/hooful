@@ -1,0 +1,7 @@
+<div class="modal-header" style="background-image:url('http://d3o755op057jl1.cloudfront.net/docpic/<%=@detail.models[0].get('mPicture')%>');">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3><%=@detail.models[0].get('mTitle')%></h3>
+</div>
+<div class="modal-body">
+		<%-@detail.models[0].get('mContents')%>
+</div>

@@ -1,0 +1,28 @@
+<div class="wCount">
+	<dl>
+		<dt>누적 총 판매량</dt>
+		<dd><%=@winfo.models[0].get('accSales')%></dd>
+	 </dl>
+	<dl>
+		<dt>누적 사용량</dt>
+		<dd><%=@winfo.models[0].get('accUse')%></dd>
+	 </dl>
+</div>	
+<div class="wPrice">
+	<dl>
+		<dt>누적 매출</dt>
+		<dd><%=@winfo.models[0].get('accSalesPrice')%></dd>
+	 </dl>
+	<dl>
+		<dt>출금 완료</dt>
+		<dd><%=@winfo.models[0].get('accRefundEnd')%></dd>
+	 </dl>
+	<dl>
+		<dt>출금 중</dt>
+		<dd><%=@winfo.models[0].get('accRefunding')%></dd>
+	 </dl>
+	<dl class="available">
+		<dt>출금 가능</dt>
+		<dd><%=@winfo.models[0].get('accRefund')%></dd>
+	 </dl>
+</div>

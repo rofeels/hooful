@@ -1,0 +1,118 @@
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<ul class="nav">
+			  <li class="active"><a href="/user/ticket">내 티켓</a></li>
+			  <li><a href="/user/order">티켓 구매 내역</a></li>
+			</ul>
+		  </div>
+		</div>
+
+		<dl class="gHead">
+			<dt>
+				<dl class="header">
+					<dd class="ticket">티켓</dd>
+					<dd>수량</dd>
+					<dd>유효기간</dd>
+				</dl>
+			</dt>
+			<dd>
+				<% if @ticket.count > 0 %>
+					<% @ticket.each do |tmeet| %>
+					<% @tinfo = TicketSold.listGroupTicket(tmeet["mUserid"],tmeet["mCode"]) %>
+					<div class="tmeet">
+						<h3><%=link_to tmeet["mTitle"], "/#{tmeet['mCode']}", :target => '_blank'%></h3>
+						<% @tinfo.each do |tinfo| %>
+							<dl class="tinfo">
+								<dt>
+									<div class="hSmallTicket">
+										<div class="title"><%=link_to tinfo["tName"], "/user/ticket/#{tinfo['orderId']}"%></div>
+										<div class="description"><%=tinfo["tDescription"]%></div>
+										<div class="code"><%=tinfo["sales"][0]["tCode"]%></div>
+									</div>
+								</dt>
+								<dd class="quantity"><%=tinfo["tCount"]%></dd>
+								<dd class="limit"><%=tinfo["limit"]%></dd>
+							</dl>
+						<% end %>
+						<a href="/<%=tmeet["mCode"]%>/reservation"><div class="btnReserve"></div></a>
+					</div>
+					<% end %>
+				<% end %>
+			</dd>
+		</dl>
+
+		<dl class="gHead">
+			<dt><span>결제정보</span></dt>
+			<dd>
+				<table class="rTable margin">
+					<colgroup>
+						<col width="20%" />
+						<col width="15%" />
+						<col />
+						<col width="20%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>결제일</th>
+							<th>결제방법</th>
+							<th>결제금액</th>
+							<th>현재상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="date"><%=@payinfo[:created_at].strftime("%Y-%m-%d %H:%M:%S")%></td>
+							<td class="time">
+								<% case @payinfo[:paymethod].to_s
+									when "card" 
+										@type = "신용카드"
+									when "100" 
+										@type = "신용카드" 
+									when "101" 
+										@type = "신용카드" 
+									when "102" 
+										@type = "신용카드" 
+									when "103" 
+										@type = "신용카드"
+									when "4" 
+										@type = "실시간계좌이체"
+									when "801" 
+										@type = "휴대폰"
+								end %>
+								<%=@type%>
+							</td>
+							<td class="time"><%=number_to_currency(@payinfo[:unitprice], :separator => ",", :format => "%n%u")%></td>
+							<td><%=ticketState(@ticket[0]["tState"])%></td>
+						</tr>
+					</tbody>
+				</table>
+			</dd>
+		</dl>
+
+		<dl class="gHead">
+			<dt><span>참여신청 정보</span></dt>
+			<dd>
+				<table class="dTable margin">
+					<tbody>
+						<tr>
+							<th>휴대전화</th>
+							<td><%=@user[:phone]%></td>
+						</tr>
+						<tr>
+							<th>생년월일</th>
+							<td><%=@user[:dob]%></td>
+						</tr>
+						<tr>
+							<th>직업(소속)</th>
+							<td><%=@user[:job]%></td>
+						</tr>
+					</tbody>
+				</table>
+			</dd>
+		</dl>
+		<%=link_to "돌아가기", "/user/ticket", :class => "btnBackpageG margin"%>
+		<div class="h50"></div>
+	</div>
+</div>

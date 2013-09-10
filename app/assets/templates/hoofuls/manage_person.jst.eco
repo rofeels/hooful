@@ -1,0 +1,25 @@
+<% if @person.models.length > 0: %>
+<% for person in @person.models: %>
+<tr userid="<%=person.get('uHost').userid%>" state="<%=person.get('tState')%>" use="<%=person.get('tUse')%>" tcode="<%=person.get('tCode')%>">
+	<td><img src="<%=person.get('uHost').picture%>" width="37" height="37" alt="<%=person.get('uHost').name%>" /></td>
+	<td><%=person.get('uHost').name%></td>
+	<td class="ctr"><%=person.get('uHost').sextxt%></td>
+	<td class="ctr"><%=person.get('uHost').age%></td>
+	<td class="ctr"><%=person.get('uHost').name%></td>
+	<td class="ctr"><%=person.get('uHost').local%></td>
+	<td class="ctr"><%=person.get('uHost').phone%></td>
+	<td class="ctr"><%=person.get('tName')%></td>
+	<td class="ctr"><i class="hManage <% if person.get('tUse') > 0 :%>iCheckup<% else:%>iCheck<% end %>"></i><span class="udate"><%=person.get('tUseDate')%></span></td>
+	<td class="ctr nonePrint">
+		<i class="hManage iChange"></i>
+		<i class="hManage iPhone"></i>
+		<i class="hManage iEmail"></i>
+		<i class="hManage iRemove"></i>
+	</td>
+</tr>
+<% end %>
+<% else: %>
+<tr>
+  <td colspan="10" class="ctr">아무도 없습니다.</td>
+</tr>
+<% end %>

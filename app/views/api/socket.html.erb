@@ -1,0 +1,91 @@
+<%if session[:user_id] and session[:user_id]=="hooful@hooful.com"%>
+	<%= javascript_include_tag "http://cafe.hooful.com:6530/socket.io/socket.io.js" %>
+	<script>
+/*
+updatenotice
+updatechat
+updatemem
+updateinfo
+
+adduser
+addgroupuser
+*/
+		var userid = "admin"
+		var socket = io.connect('http://cafe.hooful.com:6530');
+		socket.on('connect', function(){// on connection to server, ask for user's name with an anonymous callback
+			socket.emit('adduser', 'admin');		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		});
+
+		socket.on('updatenotice', function (username, data) {			// listener, whenever the server emits 'updatechat', this updates the chat body
+			if (typeof username !="undefined")
+				$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+		});
+
+		socket.on('updateusers', function(data) {							// listener, whenever the server emits 'updateusers', this updates the username list
+			$('#users li').remove();
+
+			$.each(data, function(key, value) {
+				$('#users').append('<li><a href="javascript:getid(\''+value.trim()+'\');" class = "tEllipsis" ><span class="label label-info">' + value + '</span>[' + key + ']</a></li>');
+			});
+		});
+
+		socket.on('updategroupusers', function(data) {							// listener, whenever the server emits 'updateusers', this updates the username list
+			$('#groupusers li, #groupusers ul').remove();
+
+			$.each(data, function(groupid, groupmember) {
+				$('#groupusers').append('<li>'+groupid+'<ul groupid="'+groupid+'"></ul></li>');
+				$.each(groupmember, function(key, value) {
+					$('#groupusers ul[groupid="'+groupid+'"]').append('<li><a href="javascript:getid(\''+value.trim()+'\');" class = "tEllipsis" ><span class="label label-info">' + value + '</span>[' + key + ']</a></li>');
+				});
+			});
+		});
+
+	function getid(id){
+		$('#userid').val(id);
+	}
+	</script>
+<div class="span10">
+	<div>
+		<h1>회원공지</h1>
+		<p></p>
+	</div>
+	<div class="row-fluid">
+		<div id="user_connection">
+			<ul id="users" class="dropdown-menu">
+			  <h5>USERS</h5>
+			  <li>disconnected</li>
+			</ul>
+			<div id="conversation"></div>
+		</div>
+		<!--<div id="input">
+			<input id="userid" name="userid" placeholder="User ID" type="text" class="input-small">
+			<input id="link" name="link" placeholder="Link" type="text" class="input-xlarge">
+			<input id="data" name="data" placeholder="Message" type="text" class="input-xxlarge">
+			<input type="button" id="datasend" value="send" class="btn"/>
+		</div>-->
+	</div><!--/row-->
+</div><!--/span-->
+
+
+<div class="span10">
+	<div>
+		<h1>그룹채팅</h1>
+		<p></p>
+	</div>
+	<div class="row-fluid">
+		<div id="group_connection">
+			<ul id="groupusers" class="dropdown-menu">
+			  <h5>GROUP_USERS</h5>
+			  <li>disconnected</li>
+			</ul>
+			<div id="grouptalk"></div>
+		</div>
+		<!--<div id="input">
+			<input id="userid" name="userid" placeholder="User ID" type="text" class="input-small">
+			<input id="link" name="link" placeholder="Link" type="text" class="input-xlarge">
+			<input id="data" name="data" placeholder="Message" type="text" class="input-xxlarge">
+			<input type="button" id="datasend" value="send" class="btn"/>
+		</div>-->
+	</div><!--/row-->
+</div><!--/span-->
+<% end %>

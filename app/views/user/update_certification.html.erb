@@ -1,0 +1,69 @@
+<% if flash[:update_txt] %>
+<script type="text/javascript">
+$(function(){
+alertView("<%=flash[:update_txt]%>");
+});
+</script>
+<% end %>
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="userMenu">
+			<a class="hUserMenu set" href="/user/edit">프로필 수정</a>
+			<a class="hUserMenu" href="/user/edit/category">관심사 변경</a>
+			<a class="hUserMenu" href="/user/edit/password">비밀번호 변경</a>
+			<a class="hUserMenu" href="/user/edit/sns">SNS 연동</a>
+			<a class="hUserMenu" href="/user/edit/notification">알림 설정</a>
+		</div>
+	</div>
+	<div class="signinTitle">
+		<div class="signDivider"></div>
+	</div>
+	<div class="sHoofuluser">
+		<div class="wrap">
+			<div class="certTitle">
+				<h1>소속 재인증</h1>
+				<h2>소속 인증자료는 검증자료의 용도로만 쓰이고 후풀이 보관하며 절대 외부로 공개하지 않습니다.</h2>
+			</div>
+			<div id="cUsercert">
+			<%= form_tag( "/user/edit/certification", :method => "post", :multipart => true, :id=>'hUserCert', :class => 'form-horizontal') do |f| %>
+				<fieldset class="certForm">
+					<%= hidden_field_tag :userid, session[:user_id] %>
+					<%= hidden_field_tag :certpic,nil %>
+					<%= hidden_field_tag :certpicname,nil %>
+					<%= hidden_field_tag :job,@user[:job] %>
+					<h3 class="interest_title">후풀은 다양한 사람이 실제로 만나<br/> 함께 즐기는 서비스 입니다.</h3>
+					<div class="subscription">
+						후풀팀은 서비스를 만들면서 ‘회원님들이 만났을 때 서로를 <br/>신뢰할 수 있게끔 하려면 무엇이 필요할까’에 대해 늘 고민해<br/>왔습니다. 만약 회원님이 새로운 사람과 친해지기 전, 서로에 <br/>대한 믿을 수 있는 정보를 얻을 수 있다면 어떨까요?
+					</div>
+					<h4 class="interest_subtitle">그래서 후풀은 서로를 믿고 만날 수 있도록<br/>직업에 대한 정보를 받고 있습니다.</h4>
+					
+						
+					<div id ="idcard" class="picture profile" path="certificatioin">
+						<img src="" />
+						<div class="wrap">
+							<h4>소속사진 올리기</h4>
+							<div class="subtitle">자신의 직업을 표현할 수 있는 [이름, 소속명, 휴대전화 번호]가 포함된 [명함, 학생증, 사원증] 등의 사진을 올려주세요.</div>
+						</div>						
+					</div>
+					<div class="group">
+						<div class="input-title">분류</div>
+						<div class="category btn-group">
+						  <a class="btn jobtoggle dropdown-toggle" data-toggle="dropdown" href="#"><%=(@user[:job].nil?)?'분류':@user[:job]%><span class="caret"></span></a>
+						  <ul class="dropdown-menu">
+							<li class="job">직장인</li>
+							<li class="job">학생</li>
+							<li class="job">자유인</li>
+						  </ul>
+						</div>
+						<div class="input-title">소속</div>
+						<div class="title">
+							<%= text_field_tag :members, @user[:members], :maxlength => 25, :class => 'pinput', :placeholder => '소속'%>
+						</div>
+					</div>
+					<%= submit_tag '완료', :type=>'button', :class=>'hbtn complete', :id => 'certSubmit' %>
+				</fieldset>
+			<%end%>
+		</div>
+		</div>
+	</div>
+</div>

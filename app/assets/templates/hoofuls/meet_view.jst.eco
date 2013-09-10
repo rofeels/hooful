@@ -1,0 +1,3 @@
+<% for i in [1..3]: %>
+	<li code="<%=@meet.models[i].get('mCode')%>"><%=@meet.models[i].get('mTitle')%></li>
+<% end %>

@@ -1,0 +1,1302 @@
+
+/* intro */
+	#hIntro {width:100%;min-height:700px;height:90%;background-image:url('http://cdn.hooful.com/hooful/intro_1.jpg');background-repeat:no-repeat;background-position:center top;-webkit-background-size:auto 100%;-moz-background-size:auto 100%;-o-background-size:auto 100%;background-size:auto 100%;position:relative;}
+		#hIntro.bg1 {background-image:url('http://cdn.hooful.com/hooful/intro_1.jpg');}
+		#hIntro.bg2 {background-image:url('http://cdn.hooful.com/hooful/intro_2.jpg');}
+		#hIntro.bg3 {background-image:url('http://cdn.hooful.com/hooful/intro_3.jpg');}
+		#hIntro.bg4 {background-image:url('http://cdn.hooful.com/hooful/intro_4.jpg');}
+		#hIntro.bg5 {background-image:url('http://cdn.hooful.com/hooful/intro_5.jpg');}
+		#hIntro.bg6 {background-image:url('http://cdn.hooful.com/hooful/intro_6.jpg');}
+		#hIntro.bg7 {background-image:url('http://cdn.hooful.com/hooful/intro_7.jpg');}
+		#hIntro.bg8 {background-image:url('http://cdn.hooful.com/hooful/intro_8.jpg');}
+		#hIntro.bg9 {background-image:url('http://cdn.hooful.com/hooful/intro_9.jpg');}
+		#hIntro.bg10 {background-image:url('http://cdn.hooful.com/hooful/intro_10.jpg');}
+		.introHeader {position:relative;min-height:1256px;height:100%;}
+		.introHeader h1.logo {position:absolute;display:block;top:30px;left:0;width:186px;height:55px;background:url('http://cdn.hooful.com/newhooful/hooful_logo.png') no-repeat;}
+			.introHeader .sign {position:absolute;top:50%;left:50%;width:776px;height:320px;margin:-160px 0 0 -388px;}
+				.introHeader .sign .introsign {width:776px;height:208px;margin-left:14px;background:url('http://cdn.hooful.com/newhooful/intro_sign.png') no-repeat;}
+				.introHeader .sign .btnLets {position:absolute;top:289px;left:260px;display:block;width:292px;height:72px;background:url('http://cdn.hooful.com/newhooful/btn_intro_letshooful.png') no-repeat;margin:0;}
+					.introHeader .sign .btnLets:hover {background-position:0 -72px;}
+				.introHeader .sign .glowWrap {position:relative;width:230px;height:100px;margin:30px auto 0;}
+				.introHeader .sign .btnTwinkle {position:absolute;width:230px;height:108px;left:50%;margin-left:-101px;background:url('http://cdn.hooful.com/hooful/btnIntroTwinkle.png') no-repeat center top;}
+				.introHeader .sign .glow{opacity:0;-webkit-animation-name:glow-trans;-webkit-animation-timing-function:ease-in-out;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate;-webkit-animation-duration:1s;-webkit-animation-delay:1s;-moz-animation-name:glow;-moz-animation-timing-function:ease-in-out;-moz-animation-iteration-count:infinite;-moz-animation-direction:alternate;-moz-animation-duration:1s;-moz-animation-delay:1s}
+		.hIntroStatus {position:relative;height:330px;border-bottom:1px solid #dedfe0;}
+			.hIntroStatus.none {border-bottom:0;}
+			.hIntroStatus .introStatus {height:75px;position:relative;}
+			.hIntroStatus .introStatus .txtWrap {position:absolute;top:100px;left:50%;width:700px;margin:0 0 0 -350px;text-align:center;}
+			.hIntroStatus .introStatus .txtStandard {position:absolute;top:160px;left:50%;margin:0 0 0 -90px;width:160px;font-size:12px;color:#a7a9ac;}
+			.hIntroStatus .introStatus .txtStatus {display:inline-block;height:49px;line-height:39px;font-size:18px;color:#939598;margin:0 2px;}
+			.hIntroStatus .introStatus span.status {display:inline-block;vertical-align: bottom;width:27px;height:39px;background:url('http://cdn.hooful.com/hooful/bgStatus.png') no-repeat center top;color:#2d3538;font-size:30px;line-height:49px;text-align:center;font-weight:bold;font-family:"HelveticaNeue-CondenseBold";}
+				.hIntroStatus .introStatus span.status .no0 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/0.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no1 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/1.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no2 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/2.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no3 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/3.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no4 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/4.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no5 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/5.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no6 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/6.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no7 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/7.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no8 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/8.png') no-repeat -1px 0;}
+				.hIntroStatus .introStatus span.status .no9 {display:inline-block;width:29px;height:39px;background:url('http://cdn.hooful.com/hooful/9.png') no-repeat -1px 0;}
+			.hIntroStatus .wrap {height:330px;}
+			.hIntroStatus .introFooter {position:absolute;top:100px;left:0;width:100%;}
+			.hIntroStatus .introFooter .btnLets {position:absolute;top:16px;left:14px;display:block;width:204px;height:77px;background:url('http://cdn.hooful.com/hooful/btn_letshooful.png') no-repeat;margin:0;}
+					.hIntroStatus .introFooter .btnLets:hover {background-position:0 -77px;}
+					.hIntroStatus .introFooter .btnLets:active {background-position:0 -154px;}
+				.hIntroStatus .introFooter .glowWrap {position:relative;width:230px;height:100px;margin:30px auto 0;}
+		h2.introtitle{color:#2d3538;font-size:20px;line-height:40px;width:1000px;margin:0 auto 10px;}
+
+/* signin */
+
+	#cSign {width:296px;margin:0 auto;}
+		#cSign .snsSignin {margin-top:60px;}
+		#cSign .signin.btnFacebook{display: inline-block;width:300px;text-indent:-9999px;height:56px;margin-top:60px;background:url('http://cdn.hooful.com/newhooful/btn_facebook.png') no-repeat;}
+		#cSign .signin.btnFacebook:hover{background-position-x:-300px;}
+
+		#cSign .btnSignin {text-indent:-9999px;background:url('http://cdn.hooful.com/newhooful/btn_signin.png') no-repeat;width:298px;height:43px;;border:0;margin-bottom:15px;}
+			#cSign .btnSignin:hover {}
+		#cSign .btnSignup {font-family:NanumGothicWeb;display:inline-block;width:296px;text-decoration:none;line-height:40px;text-align:center;height:40px;border:0;background:#d1d3d4;font-size:14.5px;color:#48484a;text-indent:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+			#cSign .btnSignup:hover {background-color:#f47b67;}
+		#cSign .signinForm .input {width:297px;height:35px;margin-bottom:23px;background:url('http://cdn.hooful.com/hooful/bgInput.png') no-repeat;}
+			#cSign .signinForm .input:hover, #cSign .signinForm .input.set {width:297px;height:35px;margin-bottom:23px;background:url('http://cdn.hooful.com/newhooful/bgInput_active.png') no-repeat;background-color:#fff;}
+			#cSign .signinForm .input input {display:inline-block;width:245px;height:25px;line-height:20px;margin:-25px 0 0 0;border:0;box-shadow:inset 0 0 0;-webkit-box-shadow:inset 0 0 0;-webkit-transition:0;-moz-transition:0;-o-transition:0;transition:0;background-color:transparent;}
+		#cSign .signinForm .input .iconsign {display:inline-block;width:30px;height:35px;background:url('http://cdn.hooful.com/hooful/icon_sign.png') no-repeat;}	
+			
+		#cSign .signinForm .input input:focus {margin:-25px 0 0 -30px;}
+		#cSign .signinForm .input.set input {margin:-25px 0 0 -30px;}
+				
+			#cSign .signinForm .input.set .iconsign {background-position:0 -35px;}
+			#cSign .signinForm .input .iconsign.userid {background-position:-30px 0;}
+				#cSign .signinForm .input.set .iconsign.userid {background-image:none;}
+			#cSign .signinForm .input .iconsign.password {background-position:-60px 0;}
+				#cSign .signinForm .input.set .iconsign.password {background-image:none;}
+
+		#cSign .signinTitle {width:100%;border-top:1px solid #d1d3d4;margin:30px 0;position:relative;}
+			#cSign .signinTitle span {display:block;position:absolute;width:20px;left:140px;top:-12px;color:#a7a9ac;text-align:center;background-color:#f4f4f5;}
+			#cSign .signinTitle .signDivider {border-top:1px solid #fff;}
+		
+		#cSign .resetPwd,#cSign .goSignup {display:inline-block;width:300px;text-align:center;line-height:25px;color:#8a8c8e;font-size:12.5px;}
+		#cSign .goSignup {text-decoration:underline;}
+/* signup */
+	.mNav{height:90px;border-bottom:1px solid #ffffff;}
+	.mNav .navDivider {border-bottom:1px solid #d1d3d4;}
+	.mNav ul{list-style:none;width:350px;margin:0 auto;}
+	.mNav ul li{display:inline-block;font-size:13px;color:#a7a9ac;line-height:89px;}
+	.mNav ul .bar{padding: 0 3px;}
+	.mNav ul .set{color:#3fbad8;}
+	.mNav ul .step{font-weight:bold;letter-spacing:-1px;padding-right:5px;}
+	#cSignup {width:545px;margin:0 auto 40px;}
+		#cSignup .signupForm {margin-top:60px;position:relative;}
+		#cSignup .snsSignin {margin-top:60px;text-align:center;color:#9d9fa2;}
+		#cSignup #btnAuthcheck, #cSignup #btnAuthsend {font-family:NanumGothicWeb;display:inline-block;width:66px;height:27px;line-height:27px;text-align:center;border:0;background:#d1d3d4;font-size:12.5px;color:#58595b;text-indent:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+		#cSignup #btnAuthcheck:hover, #cSignup #btnAuthsend :hover {background-color:#f47b67;}
+		#cSignup #btnAuthsend.complete{background-color:#f4f4f5;border:2px solid #f47b67;color:#f47b67;width: 63px;height: 23px;line-height: 23px;}
+		#cSignup .signin {display:block;line-height:20px;padding:0;text-indent:-9999px;background:url('http://cdn.hooful.com/hooful/btnSns.png') no-repeat;}
+		#cSignup .btnSignup {width:119px;height:52px;margin:60px auto;background:url('http://cdn.hooful.com/hooful/btn_next.png') no-repeat;border:0;}
+			#cSignup .btnSignup:hover {background-position:0 -52px;}
+			#cSignup .btnSignup:active {background-position:0 -104px;}
+		#cSignup .btnFacebook {width:296px;height:57px;margin-bottom:24px;background-position:-296px 0;}
+			#cSignup .btnFacebook:active {background-position:-296px -57px;}
+		#cSignup .btnTwitter {width:296px;height:57px;background-position:-888px 0;}
+			#cSignup .btnTwitter:active {background-position:-888px -57px;}
+		
+		#cSignup .signupForm .picture {position:absolute;top:0;left:0;cursor:pointer;}
+		#cSignup .signupForm .input {width:297px;height:35px;margin:0 0 23px 240px;background:url('http://cdn.hooful.com/hooful/bgInput.png') no-repeat;position:relative;}
+			#cSignup .signupForm .input:hover, #cSignup .signupForm .input.set {width:297px;height:35px;margin-bottom:23px;background:url('http://cdn.hooful.com/hooful/bgInput_active.png') no-repeat;}
+			#cSignup .signupForm .input input {display:inline-block;width:245px;height:25px;margin:-25px 0 0 0;border:0;box-shadow:inset 0 0 0;-webkit-box-shadow:inset 0 0 0;-webkit-transition:0;-moz-transition:0;-o-transition:0;transition:0;background-color:transparent;}
+			#cSignup .signupForm .input .btn {position:absolute;right:-107px;top:0;}
+			#cSignup .signupForm .input.authcode {display:none;}
+			#cSignup .signupForm .authmsg {width:300px;margin:0;font-size:11px;}
+			#cSignup .signupForm .authmsg .success {color:#468847;}
+			#cSignup .signupForm .authmsg .error {color:#b94a8;}
+	
+		#cSignup .signupForm .input:hover input::-webkit-input-placeholder{color:#ffffff;}
+		#cSignup .signupForm .input:hover input:-moz-placeholder{color:#ffffff;}
+		#cSignup .signupForm .input:hover input::-moz-placeholderc{color:#ffffff;}
+		#cSignup .signupForm .input:hover input:-ms-input-placeholder{color:#ffffff;}
+		#cSignup .signupForm .input input:focus {margin:-25px 0 0 -30px;}
+		#cSignup .signupForm .input.set input {margin:-25px 0 0 -30px;}
+			#cSignup .signupForm .input.small {width:190px;}
+			#cSignup .signupForm .input.small input {width:130px;}
+		
+		#cSignup .signupForm .input .iconsign {display:inline-block;width:30px;height:35px;background:url('http://cdn.hooful.com/hooful/icon_sign.png') no-repeat;}
+			#cSignup .signupForm .input .iconsign.name {background-position:0 0;}
+				#cSignup .signupForm .input:hover .iconsign.name {background-position:0 -35px;}
+				#cSignup .signupForm .input.set .iconsign.name {background-image:none;}
+			#cSignup .signupForm .input .iconsign.userid {background-position:-30px 0;}
+				#cSignup .signupForm .input:hover .iconsign.userid {background-position:-30px -35px;}
+				#cSignup .signupForm .input.set .iconsign.userid {background-image:none;}
+			#cSignup .signupForm .input .iconsign.password {background-position:-60px 0;}
+				#cSignup .signupForm .input:hover .iconsign.password {background-position:-60px -35px;}
+				#cSignup .signupForm .input.set .iconsign.password {background-image:none;}
+			#cSignup .signupForm .input .iconsign.phone {background-position:-90px 0;}
+				#cSignup .signupForm .input:hover .iconsign.phone {background-position:-90px -35px;}
+				#cSignup .signupForm .input.set .iconsign.phone {background-image:none;}
+		#cSignup .signupForm .sex {width:284px;height:20px;margin:10px 0 25px 240px;}
+		#cSignup .agree {width:100%;height:35px;margin-bottom:20px;}
+		
+		#cSignup .signinTitle {width:100%;border-top:1px solid #d1d3d4;margin:30px 0;position:relative;}
+			#cSignup .signinTitle span {display:block;position:absolute;width:20px;left:140px;top:-12px;color:#a7a9ac;text-align:center;background-color:#f4f4f5;}
+			#cSignup .signinTitle .signDivider {border-top:1px solid #fff;}
+		
+		#cSignup .checkbox {padding:0 0 0 25px;background-position-x:left;color:#808285;font-size:12px;}
+		#cSignup .agreetxt , #cSignup .login {width:100%;padding:0;text-align:center;background-position-x:left;color:#808285;font-size:12.5px;line-height:30px;}
+		#cSignup .agreetxt a, #cSignup .login a{color:#3fbad8}
+		#cSignup .emailSignup {display:block;width:100%;text-align:center;margin:15px 0 30px;font-size:16px;color:#2e3539;}	
+/* category */
+
+	.hcHeader {width:100%;height:300px;margin:0 0 0 0;}
+	.hcHeader .hcProfile {float:left;margin:28px 0 0 -20px;width:248px;height:250px;background:url('http://cdn.hooful.com/newhooful/coommunity_profile_bg_small.png') no-repeat;}
+	.hcHeader .hcProfile .category {position:absolute;background:url('http://cdn.hooful.com/newhooful/icon_category_big.png') center center no-repeat;width:250px;height:250px;background-size:190px;}
+	.hcHeader.paragliding .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_paragliding.png') center center no-repeat;}
+	.hcHeader.bungeejump .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_bungeejump.png') center center no-repeat;}
+	.hcHeader.flyboard .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_flyboard.png') center center no-repeat;}
+	.hcHeader.rafting .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_rafting.png') center center no-repeat;}
+	.hcHeader.skinscuba .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_skinscuba.png') center center no-repeat;}
+	.hcHeader.skydiving .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_skydiving.png') center center no-repeat;}
+	.hcHeader.wakeboard .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_wakeboard.png') center center no-repeat;}
+	.hcHeader.wateractivity .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_wateractivity.png') center center no-repeat;}
+	.hcHeader.waterskiing .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_waterskiing.png') center center no-repeat;}
+	.hcHeader.yacht .hcProfile .category {background:url('http://cdn.hooful.com/communitypic/community_icon_yacht.png') center center no-repeat;}
+
+		//.hcHeader .hcProfile .wrap {position:absolute;background:url('http://cdn.hooful.com/newhooful/coommunity_profile_front_small.png') center center no-repeat;width:250px;height:250px;}
+
+		.hcHeader.paragliding {background:url('http://cdn.hooful.com/communitypic/community_bg_paragliding.jpg') center bottom no-repeat;}
+		.hcHeader.bungeejump {background:url('http://cdn.hooful.com/communitypic/community_bg_bungeejump.jpg') center bottom no-repeat;}
+		.hcHeader.flyboard {background:url('http://cdn.hooful.com/communitypic/community_bg_flyboard.jpg') center bottom no-repeat;}
+		.hcHeader.rafting {background:url('http://cdn.hooful.com/communitypic/community_bg_rafting.jpg') center bottom no-repeat;}
+		.hcHeader.skinscuba {background:url('http://cdn.hooful.com/communitypic/community_bg_skinscuba.jpg') center bottom no-repeat;}
+		.hcHeader.skydiving {background:url('http://cdn.hooful.com/communitypic/community_bg_skydiving.jpg') center bottom no-repeat;}
+		.hcHeader.wakeboard {background:url('http://cdn.hooful.com/communitypic/community_bg_wakeboard.jpg') center bottom no-repeat;}
+		.hcHeader.wateractivity {background:url('http://cdn.hooful.com/communitypic/community_bg_wateractivity.jpg') center bottom no-repeat;}
+		.hcHeader.waterskiing {background:url('http://cdn.hooful.com/communitypic/community_bg_waterskiing.jpg') center bottom no-repeat;}
+		.hcHeader.yacht {background:url('http://cdn.hooful.com/communitypic/community_bg_yacht.jpg') center bottom no-repeat;}
+
+	.hcHeader .hcInfo{left: 260px;position: absolute;top: 205px;}
+	.hcHeader .hcInfo i{display:inline-block;width:20px;height:20px;background:url('http://cdn.hooful.com/newhooful/icon_community_top_dark.png') no-repeat;
+margin: 6px 0 -6px 0;}
+	.hcHeader .hcInfo .group {margin-right:10px;}
+	.hcHeader .hcInfo .like i {background-position: 0 -20px;}
+	.hcHeader .hcInfo div {display:inline-block;font-size:12.5px;color:#414042;text-shadow: 0 1px 1px rgba(255,255,255,0.3);line-height:50px;background-color:rgba(255,255,255,0.35);-webkit-border-radius:50px;-moz-border-radius: 50px;border-radius:50px;padding:0 20px;}
+	.hcHeader .hcInfo .num {margin-left:5px;font-size:30px;letter-spacing:-3px;font-weight:bold;text-shadow: 0 1px 1px rgba(255,255,255,0.3);vertical-align: top;
+margin: -2px 0 2px 5px;display:inline-block;}
+
+	.hcHeader #hooLike {display:inline-block;vertical-align: bottom;margin: 3px 0 -3px 8px;}
+	.hcHeader #hooLike .likecount{display:none;}
+	
+	.hcHeader h1 {float:left;margin:45px 0 0 30px;width:638px;font-size:32px;color:#ffffff;font-weight:bold;text-shadow: 2px 2px 3px #666;}
+	.hcHeader h2 {float:left;margin-left: 30px;width:638px;font-size:14px;color:#ffffff;font-weight:normal;text-shadow: 2px 2px 3px #666;}
+	.hcHeader .cImg {position:relative;width:192px;height:192px;margin:25px 10px 25px 0;background:url('http://cdn.hooful.com/hooful/icon_category.png') no-repeat;overflow:hidden;cursor:pointer;}
+		.hcHeader .cImg.paragliding {background-position:0 0;}
+		.hcHeader .cImg.skydiving {background-position:0 -192px;}
+		.hcHeader .cImg.bungeejump {background-position:0 -384px;}
+		.hcHeader .cImg.firing {background-position:0 -576px;}
+		.hcHeader .cImg.rockclimbing {background-position:0 -768px;}
+		.hcHeader .cImg.waterskis {background-position:0 -960px;}
+		.hcHeader .cImg.jetskis {background-position:0 -1152px;}
+		.hcHeader .cImg.kayak {background-position:0 -1344px;}
+		.hcHeader .cImg.scubadiving {background-position:0 -1536px;}
+		.hcHeader .cImg.camping {background-position:0 -1728px;}
+
+	.hcTicket {width:100%;height:245px;background-color:#ffffff;border-top:1px solid #bfc1c3;border-bottom:1px solid #bfc1c3;overflow:hidden;}
+	.hcTicket .wrap {min-height:245px;height:100%;}
+		.hcTicket .hcSidebar {position:absolute;top:57px;right:0;width:15px;height:100%;background-color:#fbfbfb;border-left:1px solid #e8e8e8;border-top:1px solid #e8e8e8;}
+
+	.hcContents {width:1000px;margin:25px auto 200px;}
+	.hcContents #hMore {width:88%;margin-left:15px;}
+	.hcContents .icon {display:inline-block;width:20px;height:20px;background:url('http://cdn.hooful.com/newhooful/icon_community.png') no-repeat;margin-right:5px;vertical-align: bottom;}
+		.hcContents .icon.like {background-position:0 0;}
+		.hcContents .icon.activity {background-position:0 -20px ;}
+		.hcContents .icon.document {background-position:0 -40px;}
+		.hcContents .icon.group {background-position:0 -60px;}
+		.hcContents .icon.review {background-position:0 -80px;}
+		.hcContents > dl {background-color:#fbfbfb;border:1px solid #cfcfcf;-webkit-border-radius:7px;-moz-border-radius: 7px;border-radius:7px;margin-bottom:15px;clear:both;}
+		.hcContents > dl > dt {margin:25px 45px;font-size:14px;color:#c4161c;}
+	.docReg,#hcReviewWrite{background:url('http://cdn.hooful.com/newhooful/btn_coommunity_review_write.png');width:36px;height:32px;float: right;margin-top: -5px;text-indent:-9999px;cursor:pointer;}
+	.docReg:hover,#hcReviewWrite:hover{background-position:-36px 0 ;}
+	.hcContents .hcDocuments ul {display:inline-block;list-style:none;margin-left:45px;margin-bottom:25px;}
+		.hcContents .hcDocuments li {display:inline-block;cursor:pointer;margin:0 18px 15px 0;float:left;}
+		.hcContents .hcDocuments dl {position:relative;width:100%;margin:0;}
+			.hcContents .hcDocuments dl dt {border:6px solid #e8e8e8;-webkit-box-shadow:0 1px 10px rgba(0,0,0,0.3);-moz-box-shadow:0 1px 10px rgba(0,0,0,0.3);-webkit-border-radius:15px;-moz-border-radius: 15px;border-radius:15px;width:140px;height:140px;}
+			.hcContents .hcDocuments dl dt img {-webkit-border-radius:9px;-moz-border-radius: 9px;border-radius:9px;width:100%;height:100%;}
+			.hcContents .hcDocuments dl dd {width:140px;height:30px;margin:5px 0 0 0;text-align:center;font-size:13px;color:#414042;line-height:30px;overflow:hidden;text-overflow:ellipsis;}
+	.hcContents .hcActivity > div{width:210px;margin-left:25px;margin-bottom:50px;display:inline-block;font-size:13px;color:#9d9fa2;text-align:center;vertical-align: top;}
+	.hcContents .hcActivity > div > i{background:url('http://cdn.hooful.com/newhooful/community_info.png') no-repeat;width:110px;height:96px;display:block;margin:10px auto 25px;}
+	.hcContents .hcActivity > .group > i{background-position:-110px 0;}
+	.hcContents .hcActivity > .ticket > i{background-position:-220px 0;}
+	.hcContents .hcActivity > .play > i{background-position:-330px 0;}
+
+	.hcContents .hchPerson {margin:0;padding:0;}
+	.hcContents .hchPerson dd{margin:0 45px 25px;}
+	.hcContents .profile{display:inline-block;}
+	.hcContents .profile .thumbnail{width:67px;height:67px;border:1px solid #c8c8c8;padding:2px;background-color:#f0f0f0;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;-webkit-box-shadow:0 1px 5px rgba(0,0,0,0.2);-moz-box-shadow:0 1px 5px rgba(0,0,0,0.2);box-shadow:0 1px 5px rgba(0,0,0,0.2);margin-left:15px;}
+	.hcContents .profile a{color:#58595b;}
+	.hcContents .profile .thumbnail img{width:100%;height:100%;}
+	.hcContents .profile .info{display:inline-block;list-style:none;width:100%;padding:0;margin:0;}
+	.hcContents .profile > .tooltip{margin: -145px 0 0 50px;}
+
+
+	/* mypage grouptalk*/
+
+	.hcGroupList #groupMake{float:right;cursor:pointer;width:129px;height:44px;background:url('http://cdn.hooful.com/newhooful/btn_community_group.png') 0 -44px no-repeat;
+margin: -30px 75px 0 0;}
+	.hcGroupList #groupMake:hover{background-position:-129px -44px;}
+	.hcGroupList #groupMake:active{background-position:-258px -44px;}
+
+	.hcGroupList #groupReccommend{float:right;cursor:pointer;width:129px;height:44px;background:url('http://cdn.hooful.com/newhooful/btn_community_group.png') 0 0 no-repeat;
+margin: -30px 10px 0 0;}
+	.hcGroupList #groupReccommend:hover{background-position:-129px 0;}
+	.hcGroupList #groupReccommend:active{background-position:-258px 0;}
+
+
+	#groupList{display:inline-block;
+margin: 10px 0 100px 35px;}
+	#groupList dl{
+vertical-align: top;
+margin-left: 28px;margin-bottom:18px;display:inline-block;text-align:left;width:410px;height:242px;background:url('http://cdn.hooful.com/newhooful/group_card_bg.png') no-repeat;}
+	#groupList dl > span{float:left;text-align:left;font-size:12px;color:#6d6e71;height:25px;line-height:25px;}
+
+	#groupList dl dt{font-size:12.5px;height:37px;padding:15px 20px;}
+	#groupList dl dt .participate{float:right;background:url('http://cdn.hooful.com/newhooful/btn_group_enter.png');width:101px;height:37px;border:0;padding:0;
+-webkit-transition:none;
+-moz-transition:none;
+-o-transition:none;
+transition:none;
+margin: 0 0 5px;}
+	#groupList dl dt .participate:hover{background-position:0 -37px;}
+	#groupList dl dt .title{display:inline-block;font-size:14px;line-height:35px;text-indent:10px;text-shadow: 0 1px 1px #ffffff;color:#414042;vertical-align:top;
+overflow: hidden;
+width: 200px;
+height:35px;}
+
+
+	#groupList .profile{display:inline-block;}
+	#groupList .profile .thumbnail{height:37px;width:37px;-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;-webkit-box-shadow:0 1px 1px rgba(255,255,255,0.8);-moz-box-shadow:0 1px 1px rgba(255,255,255,0.8);box-shadow:0 1px 1px rgba(255,255,255,0.8);padding:0;border:0;background-color:transparent;padding:0;margin:0;}
+	#groupList .profile .thumbnail img{width:100%;height:100%;}
+	#groupList .profile a{color:#58595b;}
+	#groupList .profile > .tooltip{margin: -110px 0 0 20px}
+
+	#groupList dl dd > div{line-height:20px;margin:3px 0;width:115px;float:right;font-size:12.5px;color:#414042; padding-left:20px;background:url('http://cdn.hooful.com/newhooful/icon_group.png') no-repeat;}
+
+	#groupList dl div.date{background-position:0 0px;
+margin-top: 15px;}
+	#groupList dl div.number{background-position:0 -20px;}
+	#groupList dl div.place{background-position:0 -40px;width:170px;
+margin-top: 15px;}
+	#groupList dl div.place .address{display:block;margin-top:5px;font-size:12.5px;color:#414042; line-height:20px;height:30px;}
+	#groupList dl dd > i{float:right !important;margin:15px 20px;}
+
+	i.complete{display:inline-block;width:20px;height:20px;background:url('http://cdn.hooful.com/newhooful/icon_group_state.png') no-repeat;}
+	i.wating{display:inline-block;width:20px;height:20px;background:url('http://cdn.hooful.com/newhooful/icon_group_state.png') 0 -20px no-repeat;}
+
+
+	#groupList dl dd > .members{float:left;padding:5px 0 0 5px;background-image:none;margin: 35px 0 0 10px;width: 365px;white-space:nowrap;display:inline-block;list-style:none;border:1px solid #d1d3d4;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;background-color:#fff;}
+	#groupList dl dd > .members ul{list-style:none;margin: 0 17px;width: 365px;height:49px;overflow:hidden;}
+	#groupList dl dd > .members ul.slide{margin:0 30px;width: 305px;}
+	#groupList dl .members > span{float:left;text-align:left;font-size:12px;color:#6d6e71;height:25px;line-height:25px;color:#808285;text-shadow: 0 1px 1px #ffffff;margin-top: -30px;text-indent: 5px;}
+	#groupList dl .members .arrow{cursor:pointer;width:11px;height:16px;margin:17px 9.5px;position:absolute;background:url('http://cdn.hooful.com/newhooful/group_talk_arrow.png')}
+	#groupList dl .members .arrow.right{background-position:-11px 0 ;
+margin-left: 345px;}
+	#groupList dl .members .profile{margin:6px 0 0  6px;}
+	#groupList dl dd > .members ul.slide .profile{margin:6px 0 0  3px;}
+	#groupList dl .members .profile > .tooltip{ margin:-110px 0 0 20px;}
+	#groupList dl .participate .btn{margin-left:-10px;width:55px;}
+
+	.profile > .tooltip{display:none;position:absolute;margin: -90px 0 0 20px;}
+	.profile > .tooltip .name{font-weight:bold;text-indent:0;display:block;}
+	.profile:hover > .tooltip{display:block;}
+
+	#groupList .more{float:left;width: 92%;text-align: right;font-size: 12px;color: #ba131a;line-height: 30px;cursor:pointer;margin-bottom:10px;}
+	#groupList .more:hover{text-decoration:underline;}
+
+/* review */
+	.hcContents .hcReviewList{margin:45px 75px;border-top:2px solid #d1d3d4;border-bottom:1px solid #d1d3d4;}
+	
+.hcContents .hcReviewList .profile > .tooltip{margin: -110px 0 0 20px}
+	.hcContents .hcReviewList .profile .thumbnail{display:inline-block;height:37px;width:37px;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;-webkit-box-shadow:0 1px 1px rgba(255,255,255,0.8);-moz-box-shadow:0 1px 1px rgba(255,255,255,0.8);box-shadow:0 1px 1px rgba(255,255,255,0.8);padding:0;border:0;background-color:transparent;padding:0;margin:0;}
+	.hcContents .hcReviewList .profile a > .name{display:inline-block;font-size:14px;color:#4083b1;font-weight:bold;}
+	.hcContents .hcReviewList .profile a:hover{text-decoration:none;}
+	.hcContents .hcReviewList .review .status, .hcContents .hcReviewList .review .summary{float:left;text-align:left;margin-left:45px;width:803px;}
+	.hcContents .hcReviewList .next{width:100%;text-align: center;
+font-size: 12.5px;
+color: #808285;
+cursor: pointer;
+line-height: 45px;}
+	.hcContents .hcReviewList .next:hover{text-decoration:underline;}
+/* reservation */
+	.hSectionHeader{width:100%;min-height:100%;margin:0 auto;border-top:1px solid #ffffff;}
+	.hSectionHeader h2{color:#414042;font-size:20px;border-bottom:1px solid #b1b3b6;font-weight:bold;margin-top:45px;line-height:45px;text-shadow: 2px 2px 3px #ffffff;-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 1);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 1);box-shadow: 0 1px 1px rgba(255, 255, 255, 1);}
+	.hSectionHeader h2.complete{border-bottom: 0;text-align: center;margin: 125px 0;-webkit-box-shadow: 0 0 0;-moz-box-shadow: 0 0 0 ;box-shadow: 0 0 0;}
+	.hSectionHeader h3 {color:#ba131a;font-size:14px;font-weight:normal;text-shadow: 2px 2px 3px #ffffff;}
+	.hSectionHeader .rTicketArea{width:100%;}
+	.hSectionHeader .rTicketArea .hPrintTicket{margin:0 auto;}
+
+	.hSection{clear:both;margin:30px 50px;text-align:left;border-bottom:1px solid #dcddde;padding-bottom:30px;}
+	.hSection:last-child{border-bottom:0;}
+	.hSection h2{color:#ba131a;font-size:12.5px;font-weight:bold;line-height:35px;border-bottom:0;}
+
+	.hSection.date .useDate {width:160px;height:28px;text-align:30px;display:inline-block;border:0;background-color:#ffffff;color:#808285;font-size:12.5px;cursor:pointer;border:1px solid #b1b3b6;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,.2);-moz-box-shadow: 2px 2px 3px rgba(0,0,0,.2);box-shadow: 2px 2px 3px rgba(0,0,0,.2);margin-right:13px;}
+	.hSection.date .useDate:hover .caret,.hSection.date .useTime:hover .caret{background-position-y:-32px;}
+	.hSection.date .useTime:hover .useTimelist {display:block;}
+	.hSection.date .useDate:hover .calendar{display:block;margin: -1px 0 0 0;}
+		.hSection.date .useDate .caret, .hSection.date .useTime .caret{float:right;background:url('http://cdn.hooful.com/newhooful/btngroup_caret.png') no-repeat;width:38px;height:32px;border: 0;margin: -1px -2px 0 0;}
+	.hSection.date .useTime {width:162px;height:28px;text-align:30px;display:inline-block;border:0;background-color:#ffffff;color:#808285;font-size:12.5px;cursor:pointer;position:relative;border:1px solid #b1b3b6;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,.2);-moz-box-shadow: 2px 2px 3px rgba(0,0,0,.2);box-shadow: 2px 2px 3px rgba(0,0,0,.2);}
+	.hSection.date .useTimelist {display:none;width:160px;height:200px;margin:0;overflow-y:scroll;list-style:none;position:absolute;top:28px;left:0;background-color:#ffffff;border:1px solid #b1b3b6;}
+		.hSection.date .useTime .useTimelist li {height:20px;padding-left:30px;}
+		.hSection.date .useTime .useTimelist li:hover {color:#ffffff;background-color:#bb131a;}
+
+.hSection .useDate .tDate{display: inline-block;background:url('http://cdn.hooful.com/newhooful/icon_detail.png') 5px 2px no-repeat;line-height: 30px;height: 30px;padding: 0 0 0 35px;}
+.hSection .useTime .tTime{display: inline-block;background:url('http://cdn.hooful.com/newhooful/icon_detail.png') 5px -98px no-repeat;line-height: 30px;height: 30px;padding: 0 0 0 35px;}
+
+	.hSectionHeader .wrap > dl{clear:both;margin:25px auto;border: 1px solid #d1d3d4;border-collapse: separate;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;}
+	.hSectionHeader .wrap > dl > dt{text-align:left;text-indent:50px;font-size:12.5px;text-shadow: 2px 2px 3px #ffffff;color:#4d4d4f;height: 40px;line-height: 40px;text-indent: 50px;-webkit-border-radius: 6px 6px 0 0;-moz-border-radius: 6px 6px 0 0;border-radius: 6px 6px 0 0;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);}
+	.hSectionHeader .wrap > dl > dd{display: inline-block;
+background-color: #ffffff;width:100%;margin:0;-webkit-border-radius: 0 0 6px 6px;-moz-border-radius: 0 0 6px 6px;border-radius: 0 0 6px 6px;text-align:center;}
+	.hSectionHeader .wrap > dl > dd.inform{width:898px;text-align:left;color:#58595b;line-height:30px;padding: 25px 50px;text-indent:0;}
+
+
+	.dtTitle {clear:both;margin:30px 0;font-size:22px;color:#3fbad8;font-weight:bold;}
+		.dtTitle.small {margin:-20px 0 20px 138px;font-size:12px;font-weight:normal;}
+	.bgDt {width:100%;padding:40px 0 40px 40px;background-color:#f3f4f4;}
+
+#hPaybg .hPrintTicket{margin:90px auto 0;text-align:left;}
+.pTicketArea{margin: -179px auto 0;position: relative;z-index: 1;width: 1000px;}
+.pTicketArea .hPrintTicket{float: left;
+margin: 30px 40px 30px 50px;}
+	.hPrintTicket {margin:0 0 15px 0;background:url('http://cdn.hooful.com/newhooful/ticket.png') no-repeat;width:409px;height:358px;position:relative;}
+		.hPrintTicket > div{position:absolute;}
+		.hPrintTicket .title{white-space: nowrap;text-overflow: ellipsis;overflow:hidden;text-align:center;top:40px;left:37px;width:335px;line-height:60px;font-weight:bold;color:#02598b;font-size:20px;text-shadow: 2px 2px 3px #ffffff;}
+		.hPrintTicket .description{white-space: nowrap;text-overflow: ellipsis;overflow:hidden;text-align:center;top:85px;left:37px;width:335px;line-height:25px;font-weight:bold;color:#77787b;font-size:14px;text-shadow: 2px 2px 3px #ffffff;}
+		.hPrintTicket .description .ttitle{padding-right:10px;font-weight:bold;color:#d4a927;font-size:16px;text-shadow: 2px 2px 3px #ffffff;}
+		
+		.hPrintTicket .address{top:165px;left:65px;width:170px;line-height:25px;font-weight:bold;color:#02598b;font-size:15px;text-shadow: 2px 2px 3px #ffffff;}
+		.hPrintTicket .sdate{top: 165px;left:263px;line-height: 30px;height: 30px;width: 100px;text-align: center;font-weight:bold;color:#ba131a;font-size:28px;text-shadow: 2px 2px 3px #ffffff;}
+		.hPrintTicket .code{display: inline-block;width: 300px;top: 280px;left:55px;text-align:center;font-weight:bold;color:#ba131a;font-size:18px;text-shadow: 2px 2px 3px #ffffff;}
+		.hPrintTicket .usestamp {position:absolute;bottom:20px;right:25px;width:155px;height:155px;background:url('http://cdn.hooful.com/newhooful/stampUse.png') 0 0 no-repeat;z-index:5;}
+		.hPrintTicket .status {bottom:40px;right:3px;width:110px;height:105px;background:url('http://cdn.hooful.com/newhooful/bg_tribbon.png');text-align:center;}
+		.hPrintTicket .status > span {display:block;width:80px;font-size:14px;color:#ffffff;font-weight:bold;margin:45px 0 0 23px;}
+
+	.hSectionArea {width:100%;background-color:#fbfbfb;border:1px solid #c6c6c6;}
+	.hSectionArea.none {width:100%;background-color:#ffffff;border:none;background-color:#f4f4f5;}
+		.hSectionArea dl {margin:0;color:#a7a9ac;overflow:auto;clear:both;background-color:#fbfbfb;}
+		.hSectionArea.none dl {margin: 0;color:#a7a9ac;overflow:auto;clear:both;}
+
+		.hSectionArea dt {float:left;color:#4d4d4f;font-size:12.5px;width:110px;text-align:center;height:45px;line-height:45px;text-shadow: 2px 2px 3px #ffffff;background-color:#f3f4f4;}
+		.hSectionArea dd {float:left;height:45px;line-height:45px;text-indent:30px;color:#4d4d4f;font-size:12.5px;text-shadow: 2px 2px 3px #ffffff;}
+		.hSectionArea.complete{padding:25px 30px;width: 938px;border:0;
+display: inline-block;background-color:#ffffff;}
+.hSectionArea.complete dl{background-color:#ffffff;}
+		.hSectionArea.complete dt {background-color:#ffffff;}
+		.hSectionArea.complete dd {color:#037ab6;}
+
+		.hSection .inform{color:#808285;text-indent:3px;}
+
+.rTicketArea{float:left;margin:30px 40px 30px 50px;}
+.rTicketArea.noresult{width: 100%;text-align: center;}
+.hTicketStatus{text-align:center;}
+.hTicketStatus span a{margin-right:15px;line-height:18px;font-size:12.5px;color:#808285;}
+.hTicketStatus span a:hover{color:#d91920;text-decoration:none;}
+
+.hTicketStatus .status{display:none;}
+.hTicketStatus span i{vertical-align: bottom;display:inline-block;background:url('http://cdn.hooful.com/newhooful/icon_ticket.png') no-repeat;width:18px;height:18px;}
+.hTicketStatus span:hover i{background-position-y:-18px;}
+.hTicketStatus .print i{background-position-x:-18px;}
+.hTicketStatus .btn_reservation{display:block;text-indent:-9999px;margin:20px auto;width:123px;height:45px;background:url('http://cdn.hooful.com/newhooful/btn_reservation.png') }
+.hTicketStatus .btn_reservation.change{background-position-y:-45px;}
+.hTicketStatus .btn_reservation:hover{background-position-x:-123px;}
+
+.rTable{margin:25px auto;border: 1px solid #d1d3d4;border-collapse: separate;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;width:100%;}
+	.rTable.margin {width:95%}
+
+.rTable th{font-size:12.5px;text-shadow: 2px 2px 3px #ffffff;color:#4d4d4f;height: 40px;line-height: 40px;-webkit-border-radius: 6px 6px 0 0;-moz-border-radius: 6px 6px 0 0;border-radius: 6px 6px 0 0;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2)}
+
+.inform{font-size:14px;text-indent:20px;margin-top:20px;color:#ba131a;}
+.rTable tr{background-color:#ffffff;margin:0;text-align:center;height:40px;line-height:40px;cursor:pointer;}
+.rTable tr:hover{background-color:#faf0ef;}
+.rTable tr td{border-bottom:1px solid #d1d3d4;}
+.rTable tr:last-child td{border-bottom:0;-webkit-border-radius: 0 0 6px 6px;-moz-border-radius: 0 0 6px 6px;border-radius: 0 0 6px 6px;}
+
+/* pg style */
+
+#opa_form_title {}
+#opa_form_content {}
+	#opa_form_content input.tmpccno {border:1px solid #cccccc;}
+	#opa_form_content input.tmpexpm {width:35px;border:1px solid #cccccc;}
+	#opa_form_content input.tmpexpy {width:35px;border:1px solid #cccccc;}
+	#opa_form_content input.tmpsecno {width:35px;border:1px solid #cccccc;}
+	#opa_form_content input.tmpownerno {border:1px solid #cccccc;}
+#opa_form_command {}
+
+#agreemetParg {}
+#on_screen_keyboard {}
+#webkeylabel{}
+#close_osk {}
+
+
+/* card management */
+
+	#manageMeet{width:100%;min-height:100%;margin:0 auto;border-bottom:1px solid #dcddde;height:75px;line-height:75px;}
+	#manageMeet .btn-group .btn{text-align:left;min-width:146px;height:24px;border:0;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#dddddd));background-image: -webkit-linear-gradient(top, #f1f1f1, #dddddd);backgrtound-image: -o-linear-gradient(top, #f1f1f1, #dddddd);background-image: linear-gradient(to bottom, #f1f1f1, #dddddd);color:#4a4949;font-size:14px;line-height:24px;font-weight:bold;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;text-shadow:0 0 0;position:relative;border:1px solid #dfdfdf;
+}
+    #manageMeet .btn-group.open .btn,#reOpen .btn-group:hover .btn{
+		text-shadow:0 0 0;
+	  -webkit-box-shadow:0 0 0;
+		 -moz-box-shadow:0 0 0;
+			  box-shadow:0 0 0;
+	}
+    #manageMeet .dropdown-menu{min-width:168px;width:auto;margin-top:-22px;-webkit-border-radius: 0;
+		 -moz-border-radius: 0;
+			  border-radius: 0;color:#58595b;border:1px solid #c3c3c4;padding:0;}
+    #manageMeet .dropdown-menu li{height:35px;line-height:35px;margin:0;padding:0 10px 0 0;text-indent:10px;cursor:pointer;background-color:#e9e9e9;color:#4d4d4f;}
+    #manageMeet .dropdown-menu li:hover{background-color:#d5d7d8;color:#808285;-webkit-box-shadow:inset 1px 1px 1px 1px rgba(0,0,0,0.1);-moz-box-shadow:inset 1px 1px 1px 1px rgba(0,0,0,0.1);box-shadow:inset 1px 1px 1px 1px rgba(0,0,0,0.1);}
+    #manageMeet .btn-group.open .caret, #reOpen .btn-group:hover .caret{border-top-color:#4a4949;}
+	#manageMeet .btn-group .mmTitle{position:relative;margin-right:20px;}
+	#manageMeet .btn-group .caret{position:absolute;top:5px;right:10px;border-top:8px solid #4a4949;border-right:8px solid transparent;border-left:8px solid transparent;}
+	#manageMeet .viewTitle {float:right;display:inline-block;width:60px;height:32px;padding-top:3px;color:#ba131a;font-size:13px;font-weight:bold;}
+	#manageMeet .meetview {float:right;margin:25px 10px 0 0;padding:0;list-style:none;}
+		#manageMeet .meetview li {float:left;min-width: 146px;height: 32px;color: #58595b;
+font-size: 13px;
+line-height: 32px;
+font-weight: bold; text-align:center; padding:0 5px;margin-right:10px;text-decoration:underline;cursor:pointer;}
+
+	.hManage{width:100%;height:260px;clear:both;position:relative;z-index: 2;}
+	.hManage:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-image: url('http://cdn.hooful.com/newhooful/black_linen_bg.png');
+		opacity: 0.6;
+	}
+	.hManage.none:before{background:none;}
+
+	.hManage .wCount {float:left;width:187px;height:175px;margin:20px 15px 0 0;background-color:#e9e9e9;position:relative;;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+	.hManage.none .wCount{position:relative;margin-top:60px;background-color:#ffffff;border:1px solid #d1d3d4;}
+	.hManage.none .wCount .title {position:absolute;top:-30px;left:10px;color:#333132;font-size:16px;font-weight:bold;margin-bottom:30px;}
+	.hManage .wPrice {float:left;width:325px;height:175px;margin:20px 15px 0 0;position:relative;background-color:#e9e9e9;position:relative;;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+	.hManage.none .wPrice{position:relative;margin-top:60px;margin-left:40px;background-color:#ffffff;border:1px solid #d1d3d4;}
+	.hManage.none .wPrice .title {position:absolute;top:-30px;left:10px;color:#333132;font-size:16px;font-weight:bold;}
+		.hManage .btnWithdraw {position:absolute;left:230px;bottom:15px;width:80px;height:33px;background:url('http://cdn.hooful.com/newhooful/btn_withdraw.png') no-repeat;text-indent:-9999px;}
+		.hManage .btnWithdrawBig {position:absolute;left:510px;bottom:0;width:244px;height:60px;background:url('http://cdn.hooful.com/newhooful/btn_withdraw_big.png') no-repeat;cursor:pointer;text-indent:-9999px;}
+			.hManage .btnWithdrawBig:hover {background-position:0 -60px;}
+		.hManage .toQuestion {position:absolute;left:500px;top:0px;width:320px;font-size:13px;}
+			.hManage .toQuestion .btnQuestion {display:inline-block;font-size:14px;height:19px;line-height:18px;font-weight:bold;color:#ffffff;border-bottom:1px solid #ffffff;cursor:pointer;}
+				.hManage .toQuestion .btnQuestion:after {content: "";position: absolute;top:2px;left:-23px;width:17px;height:17px;background-image: url('http://cdn.hooful.com/newhooful/icon_question.png');}
+				.hManage .toQuestion .btnQuestion:hover {text-decoration:none;}
+			.hManage .toQuestion span {display:block;margin-top:5px;color:#231f20;font-weight:bold;text-shadow: 0px 0px 2px #fafafa;}
+	.hManage .mWithdraw{clear:both;height:245px;width:1000px;min-height:100%;margin:0 auto;position:relative;}
+	.hManage .mWithdraw dl, .hManage .mWithdraw dt, .hManage .mWithdraw dd{float:left;}
+	.hManage .mWithdraw dt{width:88px;}
+	.hManage.none .mWithdraw dt{width:70px;}
+		.hManage .mWithdraw .wPrice dl{width:200px;}
+		.hManage .mWithdraw .wPrice dt{width:70px;}
+		.hManage .mWithdraw .wPrice dd{width:120px;}
+	.hManage .mWithdraw dl{margin:0 0 10px 30px;padding:0;font-size:13px;color:#636466;width:180px;}
+	.hManage.none .mWithdraw dl{margin:0 0 10px 20px;width:150px;}
+	.hManage .mWithdraw dl.available{margin:20px 0 10px 30px;}
+	.hManage.none .mWithdraw dl.available{margin:30px 0 10px 10px;background-color:#f9d8d9;padding:10px;}
+		.hManage .mWithdraw dl.available dd {font-size:18px;color:#4d4d4f;font-weight:bold;}
+	.hManage .mWithdraw dl:first-child {margin-top:20px;}
+		.hManage.none .mWithdraw dd{width:70px;text-align:right;}
+
+	.hManage .mInfo{clear:both;height:245px;width:1000px;min-height:100%;margin:0 auto;position:relative;}
+	.hManage .mInfo .picture{float:left;margin:45px 15px 75px;border:2px solid #58595b;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;max-width:147px;max-height:109px;}
+	.hManage .mInfo h2{float:left;margin:45px 30px 20px 30px;width:600px;font-size:20px;line-height:25px;color:#414042;}
+	.hManage .mInfo dl, .hManage .mInfo dt, .hManage .mInfo dd{float:left;}
+	.hManage .mInfo dl{margin:0 0 10px 30px;padding:0;font-size:13px;color:#636466;width:630px;}
+	.hManage .mInfo dt{width:25px;height:25px;line-height:25px;text-indent:25px;overflow:hidden;background:url('http://cdn.hooful.com/hooful/icon_manage.png') no-repeat;}
+	.hManage .mInfo .date dt{background-position: -25px 0;}
+	.hManage .mInfo .people dt{background-position: -50px 0;}
+	.hManage .mInfo .price dt{background-position: -75px 0;}
+	.hManage .mInfo dd{width:520px;height:25px;padding:0px 10px;line-height:25px;position:relative;}
+	.hManage .mInfo dd span.lText {font-size:24px;font-weight:bold;}
+	
+	.hManage .hFunction {position:absolute;width:150px;height:25px;top:45px;right:30px;color:#636466;}
+	.hManage .hFunction a {color:#636466;text-decoration:none;}
+		.hManage .hFunction .hfInfo {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -100px 0 no-repeat;margin-right:80px;cursor:pointer;}
+		.hManage .hFunction .hfRemake {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -125px 0 no-repeat;cursor:pointer;}
+			.hManage .hFunction .hfInfo:hover {background-position:-100px -25px;color:#3fbad8;}
+			.hManage .hFunction .hfRemake:hover {background-position:-125px -25px;color:#3fbad8;}
+		.hManage .hFunction span {display:inline-block;width:100px;margin-left:25px;font-weight:bold;padding-top:3px;}
+	
+	.hManage #hManageMenu{position:absolute;width:100%;height:28px;left:0;bottom:1px;z-index:0;}
+	.hManage #hManageMenu ul{list-style:none;padding:0;border-left:1px solid #fff;border-right:1px solid #fff;}
+	.hManage #hManageMenu ul li{font-size:14px;float:left;color:#414042;line-height:28px;width:85px;border-left:1px solid #848587;border-right:1px solid #848587;border-top:1px solid #848587;border-bottom:none;text-align:center;-webkit-border-radius: 5px 5px 0 0;-moz-border-radius: 5px 5px 0 0;border-radius: 5px 5px 0 0;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e3e3e5), to(#c0c2c4));background-image: -webkit-linear-gradient(top, #e3e3e5, #c0c2c4);backgrtound-image: -o-linear-gradient(top, #e3e3e5, #c0c2c4);background-image: linear-gradient(to bottom, #e3e3e5, #c0c2c4);margin-right:2px;cursor:pointer;}
+	.hManage #hManageMenu ul li:hover, .hManage #hManageMenu ul li.current{background:url('http://cdn.hooful.com/newhooful/furley_bg.png');color:#2d3538;font-weight:bold;border-left:1px solid #b0b2b3;border-right:1px solid #b0b2b3;border-top:1px solid #b0b2b3;border-bottom:none;}
+
+	.hManageDetail {clear:both;position:relative;width:100%;height:100%;background:url('http://cdn.hooful.com/newhooful/furley_bg.png');padding-top:50px;}
+		.hManageDetail .wrap:after { 
+		   content: " ";
+		   display: block; 
+		   height: 0; 
+		   clear: both;
+		}
+		.hManageDetail .hmStatus {width:100%;height:66px;background-color:#ffffff;border:1px solid #a7a9ac;list-style:none;margin:0;padding:0;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;}
+		.hManageDetail .hmStatus li {display:inline-block;width:330px;}
+			.hManageDetail .hmStatus.report li {width:220px;}
+			.hManageDetail .hmStatus .hdStatus {width:300px;margin:20px auto;text-align:center;}
+			.hManageDetail .hmStatus .hdStatus dt {display:inline-block;width:80px;text-align:right;margin-right:10px;color:#6d6e71;font-size:14px;}
+			.hManageDetail .hmStatus .hdStatus dd {display:inline-block;color:#2d3538;font-size:30px;font-weight:bold;}
+			.hManageDetail .hmStatus .hdStatus dd.money {color:#f47b67;}
+			.hManageDetail .hmStatus .hdStatus .unit {color:#6d6e71;font-size:14px;margin-left:5px;}
+			
+		.hManageDetail .hManageUser {width:100%;position:relative;}
+			.hManageDetail .hManageUser.report {margin:0 0 20px;}
+			.hManageDetail .hManageUser .hmuHeader {overflow:auto;margin-top:35px;border-top:1px solid #b1b3b6;}
+			.hManageDetail .hManageUser .hdmFile {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -4px 0 no-repeat;margin:10px 5px 0 0;cursor:pointer;}
+			.hManageDetail .hManageUser .hdmFileT {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -379px 0 no-repeat;margin:10px 5px 0 0;cursor:pointer;}
+			.hManageDetail .hManageUser .hdmFileS {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -404px 0 no-repeat;margin:10px 5px 0 0;cursor:pointer;}
+			.hManageDetail .hManageUser .hdmFileR {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -429px 0 no-repeat;margin:10px 5px 0 0;cursor:pointer;}
+			.hManageDetail .hManageUser .hdmParticipants {float:left;font-size:14px;color:#58595b;line-height:20px;margin:13px 30px 0 0;cursor:pointer;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmBar {float:left;margin:13px 30px 0 0;}
+			.hManageDetail .hManageUser .hdmWaittings {float:left;font-size:14px;color:#58595b;line-height:20px;margin:13px 30px 0 0;cursor:pointer;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmActivity {float:left;font-size:14px;color:#58595b;line-height:20px;margin:13px 30px 0 0;cursor:pointer;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmPerson {float:left;font-size:14px;color:#58595b;line-height:20px;margin:13px 30px 0 0;cursor:pointer;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmTicket {float:left;font-size:14px;color:#58595b;line-height:20px;margin:13px 30px 0 0;cursor:pointer;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmParticipants:hover, .hManageDetail .hManageUser .hdmParticipants.set,
+			.hManageDetail .hManageUser .hdmActivity:hover, .hManageDetail .hManageUser .hdmActivity.set,
+			.hManageDetail .hManageUser .hdmPerson:hover, .hManageDetail .hManageUser .hdmPerson.set,
+			.hManageDetail .hManageUser .hdmTicket:hover, .hManageDetail .hManageUser .hdmTicket.set,
+			.hManageDetail .hManageUser .hdmWaittings:hover, .hManageDetail .hManageUser .hdmWaittings.set {color:#ba131a;text-decoration:none;font-weight:bold;}
+			.hManageDetail .hManageUser .hdmSearch {float:left;margin:8px 10px 0 30px;}
+			.hManageDetail .hManageUser .hdmParticipants.allstate {color:#23769d;}
+			
+			.hManageDetail .hManageUser .hdmFunction {position:absolute;width:120px;height:25px;top:10px;right:0;color:#636466;}
+			.hManageDetail .hManageUser .hdmFunction.alone {width:50px;}
+			.hManageDetail .hManageUser .hdmFunction a {color:#636466;text-decoration:none;}
+				.hManageDetail .hManageUser .hdmFunction .hExcel {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -150px 0 no-repeat;margin-right:40px;cursor:pointer;}
+				.hManageDetail .hManageUser .hdmFunction .hPrint {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -175px 0 no-repeat;cursor:pointer;}
+				.hManageDetail .hManageUser .hdmFunction .hEdit {float:left;width:25px;height:25px;background:url('http://cdn.hooful.com/hooful/icon_manage.png') -450px 0 no-repeat;margin-right:40px;cursor:pointer;}
+					.hManageDetail .hManageUser .hdmFunction .hExcel:hover {background-position:-150px -25px;color:#3fbad8;}
+					.hManageDetail .hManageUser .hdmFunction .hPrint:hover {background-position:-175px -25px;color:#3fbad8;}
+					.hManageDetail .hManageUser .hdmFunction .hEdit:hover {background-position:-450px -25px;color:#3fbad8;}
+				.hManageDetail .hManageUser .hdmFunction span {display:inline-block;width:70px;margin-left:25px;font-size:12px;font-weight:bold;padding-top:3px;}
+			
+		.rTicketBox {position:relative;width:690px;height:245px;margin:40px 0 0 0;background-color:#ffffff;border:1px solid #cacaca;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+		.rTicketBox:last-child {margin-bottom:100px;}
+		.rTicketBox.empty {border:0;background-color:transparent;text-align:left;color:#939598;font-weight:bold;font-size:13px;text-shadow: 2px 2px 3px #ffffff;}
+		.rTicketBox .thost {position:absolute;top:0;right:0;width:130px;height:244px;}
+		.rTicketBox .thost:before{
+			content: "";
+			width:100%;
+			height:244px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background-image: url('http://cdn.hooful.com/newhooful/black_linen_bg.png');
+			opacity: 0.1;
+			-webkit-border-radius:0 5px 5px 0;-moz-border-radius:0 5px 5px 0;border-radius:0 5px 5px 0;
+		}
+			.rTicketBox .thost .btnbox {position:absolute;top:0;left:0;width:130px;height:244px;text-align:center;}
+			.rTicketBox .thost .btnbox .btn {width:70px;margin-bottom:10px;}
+			.rTicketBox .thost img {width:70px;height:70px;margin:30px 0 45px 0;border: 2px solid #b3b3b3;-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,.2);-moz-box-shadow: 2px 2px 3px rgba(0,0,0,.2);box-shadow: 2px 2px 3px rgba(0,0,0,.2);}
+
+			.rTicketBox .thost .ticketStatus {width:60px;height:60px;margin:0 auto;background:url('http://cdn.hooful.com/newhooful/ticket_status.png') 0 0 no-repeat;}
+			.rTicketBox .thost .ticketStatus.state5 {background-position:0 0;}
+			.rTicketBox .thost .ticketStatus.state3 {background-position:0 -60px;}
+			.rTicketBox .thost .ticketStatus.state7 {background-position:0 -120px;}
+			.rTicketBox .thost .ticketStatus.state10 {background-position:0 -180px;}
+			.rTicketBox .thost .ticketStatus.used {margin:-70px 0 0 -90px;width:155px;height:155px;background:url('http://cdn.hooful.com/newhooful/stampUse.png') no-repeat;z-index:999;}
+			
+			#activityChart {width:1000px;height:400px;margin:40px 0 0 0;background:url('http://cdn.hooful.com/hooful/manage_grid.png') repeat;border:1px solid #d1d3d4;overflow:auto;}
+				#activityChart .menuChart {float:left;width:125px;margin:25px 20px 0 0;padding:0;list-style:none;}
+					#activityChart .menuChart li {height:20px;padding:25px 0;line-height:20px;text-indent:25px;border-bottom:1px solid #b1b3b6;font-size:12px;vertical-align:top;cursor:pointer;}
+					#activityChart .menuChart li:hover {background-color:#3fbad8;color:#fff;}
+					#activityChart .menuChart li i {display:inline-block;width:20px;height:20px;margin:0 10px 0 0;background:url('http://cdn.hooful.com/hooful/icon_report.png') no-repeat;}
+					#activityChart .menuChart li.partice i {background-position:0 0;}
+						#activityChart .menuChart li.partice:hover i {background-position:0 -20px;}
+					#activityChart .menuChart li.pageview i {background-position:-20px 0;}
+						#activityChart .menuChart li.pageview:hover i {background-position:-20px -20px;}
+					#activityChart .menuChart li.share i {background-position:-40px 0;}
+						#activityChart .menuChart li.share:hover i {background-position:-40px -20px;}
+					#activityChart .menuChart li.hooicon i {background-position:-60px 0;}
+						#activityChart .menuChart li.hooicon:hover i {background-position:-60px -20px;}
+					#activityChart .menuChart li.hootalk i {background-position:-80px 0;}
+						#activityChart .menuChart li.hootalk:hover i {background-position:-80px -20px;}
+				#activityChart #chartWrap {float:left;width:820px;height:350px;margin:25px 0 0 10px;background-color:#fff;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;-webkit-box-shadow:2px 2px 2px 2px #a4a4a4;-moz-box-shadow:2px 2px 2px 2px #a4a4a4;box-shadow:2px 2px 2px 2px #a4a4a4;}
+					#activityChart #chart {width:800px;height:300px;margin:25px auto 0;}
+
+	.hManageCode {float:left;width:690px;}
+		.hManageCode .mcTitle {font-weight:bold;color:#58595b;}
+		.hManageCode .mcCodeArea {width:425px;height:70px;margin:30px 0;background:url('http://cdn.hooful.com/newhooful/input_hmcode.png') 0 0 no-repeat;}
+		.hManageCode .mcCodeArea #mcCode {margin:15px 0 0 10px;width:350px;height:35px;font-size:30px;border:0;text-shadow:0 0 0;
+		  -webkit-box-shadow:0 0 0;
+			 -moz-box-shadow:0 0 0;
+				  box-shadow:0 0 0;}
+		.hManageCode .mcCodeArea:hover {background-position:0 -70px;}
+		.hManageCode .mcCodeArea .btnSearchCode {width:24px;height:30px;background:url('http://cdn.hooful.com/newhooful/btn_hmcode_search.png') 0 0 no-repeat;text-indent:-9999px;border:0;margin:15px 0 0 0;}
+
+		.hManageCode .mcTicketArea .uminfo {}
+
+	.hManageCodeReserve {float:left;width:290px;}
+		.hManageCodeReserve h1 {font-size:15px;color:#666666;margin:0;padding:0;}
+	
+	.hManageCodeReserve .preticket {position:relative;width:320px;height:135px;margin-top:20px;background-color:#ffffff;border:1px solid #d3d5d6;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
+	.hManageCodeReserve .preticket:before{content: "";position:absolute;width:8px;height:7px;top:24px;left:-29px;background-color:#6d6e71;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;z-index:10;}
+		.hManageCodeReserve .preticket img {position:absolute;width:38px;height:38px;top:-15px;left:17px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;}
+		.hManageCodeReserve .preticket .uhost {float:left;width:115px;height:40px;margin:25px 10px 10px 10px;border-right:1px solid #d1d3d4;}
+			.hManageCodeReserve .preticket .uhost strong {display:block;width:110px;font-size:12px;color:#58595b;white-space: nowrap;text-overflow: ellipsis;}
+			.hManageCodeReserve .preticket .uhost span {display:block;width:110px;font-size:12px;color:#808285;}
+		.hManageCodeReserve .preticket .uticket {float:left;width:180px;height:40px;margin:25px 0 0 0;}
+			.hManageCodeReserve .preticket .uticket strong {display:block;width:170px;font-size:12px;color:#58595b;}
+			.hManageCodeReserve .preticket .uticket span {display:block;width:170px;font-size:12px;color:#808285;}
+		.hManageCodeReserve .preticket .btnarea {position:relative;clear:both;width:100%;height:55px;left:0;bottom:0;z-index:20;}
+		.hManageCodeReserve .preticket .btnarea:before{
+			content: "";
+			width:100%;
+			height:55px;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			background-image: url('http://cdn.hooful.com/newhooful/black_linen_bg.png');
+			opacity: 0.1;
+			-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;
+		}
+			.hManageCodeReserve .preticket .btnarea .btnbox {position:absolute;top:5px;left:0;width:100%;height:50px;line-height:50px;text-align:center;}
+		
+		.hManageCodeLine{
+			content: "";
+			width:2px;
+			position: absolute;
+			top:-50px;
+			bottom: 0;
+			left: 665px;
+			background-color:#d1d3d4;
+			z-index:1;
+		}
+
+	#meetPrint,#salesPrint {width:1000px;height:600px;margin-left:-500px;overflow-y:scroll;}
+	.hSidecontrol {position:absolute;display:none;width:33px;height:125px;right:-43px;top:248px;background-color:#ffffff;border:1px solid #c5c5c5;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:2px 2px 3px rgba(0,0,0,.2);-moz-box-shadow:2px 2px 3px rgba(0,0,0,.2);box-shadow:2px 2px 3px rgba(0,0,0,.2);}
+
+	.hmsHeader {position:relative;margin:0 0 20px 0;}
+	.hmsMenu {float:left;width:150px;list-style:none;margin:0 20px 0 0;padding:0;}
+		.hmsMenu li {height:30px;line-height:30px;text-align:center;background-color:#ffffff;border-bottom:1px solid #ededed;cursor:pointer;}
+	.hmsRight {float:left;width:830px;}
+		.hmsRight .dTable {margin:0;}
+
+/* certification 
+	#cUsercert {width:610px;margin:40px auto 40px;}
+	#cUsercert .group{width:610px;}
+	#cUsercert .head{font-size:22px;color:#3fbad8;margin:50px 0 55px;}
+	#cUsercert .subscription{font-size:14px;color:#808285;line-height:40px;margin-bottom:140px;}
+	#cUsercert .subtitle{font-size:12.5px;width:384px;color:#808285;line-height:30px;display:inline-block;margin:0 0 60px 20px;}
+
+		#cUsercert .certForm {position:relative;}
+		#cUsercert .certForm .picture {float:left;width:206px;}
+		#cUsercert .btn-group .btn{text-align:left;
+width:70px;height:35px;line-height:35px;
+color:#3fbad8;padding: 0 10px 0 15px;border:0;background-image:none;background-color:#ffffff;font-size:14px;text-shadow:0 0 0;
+-webkit-border-radius: 0;
+		 -moz-border-radius: 0;
+			  border-radius: 0;}
+		#reOpen .btn-group:hover .btn{
+			background-color:#dce8db;color:#a7a9ac;
+			text-shadow:0 0 0;
+		  -webkit-box-shadow:0 0 0;
+			 -moz-box-shadow:0 0 0;
+				  box-shadow:0 0 0;
+		}
+		#cUsercert .caret{float:right;margin-top:14px;border-top:9px solid #3fbad8;border-right:9px solid transparent;border-left:9px solid transparent;}
+
+		#cUsercert .btn-group:hover .btn{
+			background-color:#3fbad8;color:#ffffff;
+			text-shadow:0 0 0;
+		  -webkit-box-shadow:0 0 0;
+			 -moz-box-shadow:0 0 0;
+				  box-shadow:0 0 0;
+		}
+		#cUsercert .btn-group:hover .caret{border-top:9px solid #fff;}
+		#cUsercert .dropdown-menu{-webkit-border-radius: 0;
+			 -moz-border-radius: 0;
+				  border-radius: 0;color:#58595b;border:1px solid #c3c3c4;padding:0;min-width:94px;margin-top:-2px;}
+		#cUsercert .dropdown-menu li{font-size:12.5px;height:30px;line-height:30px;margin:0;text-indent:15px;}
+		#cUsercert .dropdown-menu li:hover, #hCreate .dropdown-menu li.active{background-color:#2d3538;color:#ffffff;}
+		#cUsercert #members{width:258px;height:27px;line-height:27px;
+				-webkit-border-radius: 3px;
+				 -moz-border-radius: 3px;
+					  border-radius: 3px;border:0;-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3) !important; -moz-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3) !important;box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.3) !important;font-family:NanumGothicWeb;font-size:14px;}
+		#reOpen .btn-group:hover .caret{border-top-color:#a7a9ac;}
+		#cUsercert div.category {margin-left:18px;}
+		#cUsercert div.title {margin-left:15px;display:inline-block;}
+		#cUsercert .btn.create{margin:110px 250px;font-family:NanumGothicWeb;width:120px;height:50px;line-height:50px;padding:0;font-weight:bold;
+			display:inline-block;
+			font-size:19px;color:#ffffff;
+			text-shadow:0px 0px 0px;
+			text-indent:0;
+				text-align:center;
+				vertical-align:middle;
+				cursor: pointer;
+				background-image:none;
+				background-color: #3fbad8;
+				*background-color: #3fbad8;
+				-webkit-border-radius: 50px;
+				 -moz-border-radius: 50px;
+					  border-radius: 50px;border:0;}*/
+
+/* user edit */
+	.wrap .userMenu {width:600px;height:40px;margin:25px auto;-webkit-border-radius: 3px;
+				 -moz-border-radius: 3px;
+					  border-radius: 3px;border:0;-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3) !important; -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3) !important;box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3) !important;}
+	.hUseredit {clear:both;width:100%;height:100%;min-height:127px;margin:0;position:relative;}
+		.wrap.margin {padding:60px 0 60px;border-top:2px solid #ffffff;color:#636466;}
+		.wrap.margin.none{border:0;}
+		.hUseredit .sHeader {width:100%;height:60px;border-top:5px solid #2d3538;border-bottom:2px solid #d1d3d4;position:absolute;top:60px;left:0;}
+		.hUseredit .sHeader.none {border-bottom:0;}
+			.hUseredit .sHeader h1 {position:absolute;left:0;top:-10px;color:#2d3538;font-size:20px;font-weight:bold;}
+	.sHoofuluser {width:100%;height:100%;overflow:auto;}
+
+	#cUseredit {width:600px;margin:-40px auto 40px;}
+		#cUseredit .signupForm {margin-top:60px;}
+		#cUseredit .snsSignin {margin-top:60px;}
+		#cUseredit .btnSave {display:block;width:121px;height:33px;margin:0 auto;border:0;line-height:20px;padding:0;text-indent:-9999px;background:url('http://cdn.hooful.com/newhooful/btn_save.png') no-repeat;}
+			#cUseredit .btnSave:hover {background-position:0 -33px;}
+		#cUseredit .btnFacebook {width:296px;height:57px;margin-bottom:24px;background-position:-296px 0;}
+			#cUseredit .btnFacebook:active {background-position:-296px -57px;}
+		#cUseredit .btnTwitter {width:296px;height:57px;background-position:-888px 0;}
+			#cUseredit .btnTwitter:active {background-position:-888px -57px;}
+		
+		#cUseredit .signupForm .editline {margin:10px 0;}
+		#cUseredit .signupForm .editline.large {height:40px;line-height:40px;vertical-align:top;}
+		#cUseredit .signupForm .csTitle {display:inline-block;width:115px;height:25px;vertical-align:top;padding-top:5px;line-height:20px;color:#58595b;font-size:14px;font-weight:bold;margin-bottom:10px;}
+		#cUseredit .signupForm .csTitle.large {height:32px;line-height:32px;vertical-align:top;}
+		#cUseredit .signupForm .csSubject {display:inline-block;width:150px;font-size:14px;font-weight:bold;color:#58595b;text-align:center;}
+		#cUseredit .signupForm .input {display:inline-block;width:284px;height:25px;margin-bottom:10px;}
+		#cUseredit .signupForm .picture {display:inline-block;margin:0 0 30px 0;cursor:pointer;}
+		#cUseredit .signupForm .picture2 {display:inline-block;margin:0 0 30px 0;cursor:pointer;}
+			#cUseredit .signupForm .picture.profile{margin:0;}
+			#cUseredit .signupForm .picture.profile img {max-width:250px;}
+			#cUseredit .signupForm .picture img {max-width:450px;}
+			#cUseredit .signupForm .picture2 img {max-width:450px;}
+		#cUseredit .signupForm .picture.change {display:block;text-align:right;margin:5px 0 0 120px;color:#808285;font-size:12.5px;cursor:pointer;}
+		#cUseredit .signupForm .picture2.change {display:block;text-align:right;margin:5px 0 0 120px;color:#808285;font-size:12.5px;cursor:pointer;}
+			#cUseredit .signupForm .picture.change:hover {text-decoration:underline;}
+		#cUseredit .signupForm #userpicMenu {display:block;margin:5px 0 30px 120px;cursor:pointer;}
+			#cUseredit .signupForm #userpicMenu span.facebook {display:inline-block;width:32px;height:32px;text-indent:-9999px;background:url('http://cdn.hooful.com/hooful/btn_facebook.png') no-repeat;margin-right:5px;}
+			#cUseredit .signupForm #userpicMenu span.twitter {display:inline-block;width:32px;height:32px;text-indent:-9999px;background:url('http://cdn.hooful.com/hooful/btn_twitter.png') no-repeat;}
+		#cUseredit .signupForm .authmsg {width:300px;margin:0 0 15px 130px;}
+			#cUseredit .signupForm .authmsg .success {color:#468847;}
+			#cUseredit .signupForm .authmsg .error {color:#b94a8;}
+		#cUseredit .signupForm .authcode {display:none;}
+		#cUseredit .signupForm .detail {display:inline-block;margin:0 0 30px 0;}
+		#cUseredit .signupForm .sex {width:284px;height:20px;margin:10px 0 25px;}
+		#cUseredit .signupForm .comment {width:320px;height:155px;}
+		#cUseredit .agree {width:284px;height:35px;margin-bottom:20px;}
+		
+		#cUseredit .signinTitle {width:100%;border-top:1px solid #d1d3d4;margin:30px 0;position:relative;}
+			#cUseredit .signinTitle span {display:block;position:absolute;width:20px;left:140px;top:-12px;color:#a7a9ac;text-align:center;background-color:#f4f4f5;}
+			#cUseredit .signinTitle .signDivider {border-top:1px solid #fff;}
+		
+		#cUseredit .checkbox {padding:0 0 0 25px;background-position-x:left;color:#808285;font-size:12px;}
+		#cUseredit .emailSignup {display:block;width:100%;text-align:center;margin:15px 0 30px;font-size:16px;color:#2e3539;}	
+
+		#cUseredit .btn-group {vertical-align:top;}
+		#cUseredit .btn-group .btn{text-align:left;text-indent:10px;width: 80px;padding: 0 40px 0 0;height: 28px;line-height: 28px;background-image: none;text-align:30px;display:inline-block;border:0;background-color:#ffffff;color:#808285;font-size:12.5px;cursor:pointer;border:1px solid #b1b3b6;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;margin-right:13px;}
+		#cUseredit .dropdown-menu{-webkit-border-radius: 0;
+			 -moz-border-radius: 0;
+				  border-radius: 0;color:#58595b;border:1px solid #c3c3c4;padding:0;min-width:120px;}
+		#cUseredit .dropdown-menu li{font-size:12.5px;height:25px;line-height:25px;margin:0;text-indent:10px;cursor:pointer;}
+		#cUseredit .dropdown-menu li:hover, #hCreate .dropdown-menu li.active{background-color:#2d3538;color:#ffffff;}
+		#cUseredit .btn-group.open .caret, #reOpen .btn-group:hover .caret{background-position-y:-32px;}
+		#cUseredit .caret{position: absolute;top: 0;right: 0;background:url('http://cdn.hooful.com/newhooful/btngroup_caret.png') no-repeat;width:38px;height:32px;border: 0;margin: -1px -2px 0 0;}
+		
+
+/* ticket */
+	.navbar{margin:16px auto 22px;width:1006px;height:46px;background:url('http://cdn.hooful.com/newhooful/navbar_bg.png') no-repeat;}
+	.navbar-inner{width:1000px;height:40px;padding:2px 0 0 1px;background-image:none;background-color:transparent;margin:0 0 0 1px;border:0;}
+	.navbar .nav{width:1000px;webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;overflow:hidden;}
+.navbar .nav > li:first-child a{webkit-border-radius: 7px 0 0 7px;-moz-border-radius: 7px 0 0 7px;border-radius: 7px 0 0 7px;}
+	.navbar .nav > li > a{border-right:1px solid #dcddde;font-weight:bold;margin:0;font-size:14px;color:#414042;letter-spacing:0;padding:10px 30px;}
+	.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{background-color:#c4161c;color:#ffffff;text-shadow:0 0 0;}
+	.navbar .nav > li > a:hover, .navbar .nav > li > a:focus{text-decoration:underline;}
+	
+	.navsub{list-style:none;margin:30px 0 0 50px;}
+	.navsub li{display:inline-block;}
+	.navsub li.divider{padding:0 5px;}
+	.navsub a{color:#6d6e71;font-size:14px;text-shadow: 2px 2px 3px #ffffff;}
+	.navsub > li.active a, .navsub > li > a:hover{color:#ba131a;text-decoration:none;}
+
+	.hTicketmenusub {width:1000px;height:85px;background:url('http://cdn.hooful.com/newhooful/bg_tsbox.png') 0 0 repeat-x;border:1px solid #c2c2c2;list-style:none;margin:10px 0 0 0;padding:0;-webkit-border-radius: 7px;-moz-border-radius: 7px;border-radius: 7px;}
+		.hTicketmenusub > li{display:inline-block;position:relative;width:246px;height:85px;background:url('http://cdn.hooful.com/newhooful/bar_tsbox.png') right top no-repeat;;text-align:left;vertical-align:bottom;font-weight:normal;color:#6d6e71;font-size:14px;text-indent:37px;}
+		.hTicketmenusub > li:last-child {background:none;}
+		.hTicketmenusub > li > span {display:block;width:250px;line-height:30px;color:#414042;font-weight:bold;}
+		.hTicketmenusub > li > span:first-child {margin-top:10px;}
+		.hTicketmenusub > li > .cbox {display:none;position:absolute;bottom:0;left:0;width:245px;height:5px;background-color:#c7181f;}
+		.hTicketmenusub > li.active > .cbox {display:block;}
+		.hTicketmenusub > li:first-child > .cbox {-webkit-border-radius: 0 0 0 7px;-moz-border-radius: 0 0 0 7px;border-radius: 0 0 0 7px;}
+		.hTicketmenusub > li:last-child > .cbox {width:253px;left:-3px;-webkit-border-radius: 0 0 7px 0 ;-moz-border-radius: 0 0 7px 0;border-radius: 0 0 7px 0;}
+		.hTicketmenusub > li:nth-child(2) > .cbox {width:247px;left:-3px;}
+		.hTicketmenusub > li:nth-child(3) > .cbox {width:247px;left:-3px;}
+		.hTicketmenusub > li > .num{width:250px;display:block;font-family:verdana;color:#ba131a;font-size:26px;line-height:30px;font-weight:bold;vertical-align:top;cursor:pointer;}
+		.hTicketmenusub > li:last-child .num{cursor:pointer;}
+		.hTicketmenusub > li:last-child:hover .pointHistory {display:block;}
+
+			.hTicketmenusub .pointHistory {display:none;
+margin: 0px 0 0 -32px;position:absolute;text-indent:0;width:260px;height:270px;padding:5px 10px;background-color:#ffffff;border:1px solid #ededed;z-index:9999;text-align:left;-webkit-box-shadow:  1px 1px 3px rgba(0, 0, 0, 0.3) !important; -moz-box-shadow:  1px 1px 3px rgba(0, 0, 0, 0.3) !important;box-shadow:  1px 1px 3px rgba(0, 0, 0, 0.3) !important;}
+				.hTicketmenusub .pointHistory h1 {font-size:14px;color:#c4161c;height:25px;line-height:25px;margin:0 0 0 12px;}
+				.hTicketmenusub .pointHistory h2 {font-size:11px;color:#939598;height:25px;line-height:25px;margin:0 0 0 4px;}
+				.hTicketmenusub .pointHistory dl.title {width:260px;margin:5px auto 0;background-color:#ffffff;border-top:1px solid #dcddde;border-bottom:1px solid #dcddde;overflow:auto;}
+				.hTicketmenusub .pointHistory dl.title dd {float:left;color:#58595b;font-size:11.5px;text-align:center;margin:0;padding:0;height:25px;line-height:25px;font-weight:bold;}
+				.hTicketmenusub .pointHistory dl.title dd.date{width:60px;}
+				.hTicketmenusub .pointHistory dl.title dd.pmsg{width:105px;}
+				.hTicketmenusub .pointHistory dl.title dd.point{width:75px;}
+				.hTicketmenusub .pointHistory dl.content {display: inline-block;margin: 0;width:240px;background-color:#ffffff;border:0;}
+				.hTicketmenusub .pointHistory dl.content dd {float:left;font-size:11.5px;text-align:center;margin:0;padding:0;font-weight:normal;color:#58595b;line-height: 25px;height: 25px;}
+				.hTicketmenusub .pointHistory dl.content dd.date{width:60px;}
+				.hTicketmenusub .pointHistory dl.content dd.pmsg{width:105px;}
+				.hTicketmenusub .pointHistory dl.content dd.point{width:75px;color:#02689c;}
+				.hTicketmenusub .pointHistory dl.content dd.point.minus{color:#d91920;}
+				.hTicketmenusub .pointHistory .history {height:180px;margin:0 auto;padding:0;list-style:none;overflow-y:scroll;}
+	
+/* sucscription */
+	.sSubscription {width:100%;overflow:auto;}
+		.sSubscription .sWording {width:550px;margin:80px auto 40px;}
+		.sSubscription h2 {width:100%;color:#3fbad8;font-size:30px;font-weight:bold;text-align:center;margin:40px 0;}
+		.sSubscription .article {line-height:30px;font-size:15px;color:#808285;text-align:center;}
+
+
+/* support */
+	.hSupport{width:1000px;text-align:center;height:100%;margin:0 auto;-webkit-box-shadow:  0 1px 0 rgba(255, 255, 255, 0.4);-moz-box-shadow:  0 1px 0 rgba(255, 255, 255, 0.4);box-shadow:  0 1px 0 rgba(255, 255, 255, 0.4);}
+	.hSupport .nav{list-style:none;display:inline-block;margin: 12px 0 6px;}
+	.hSupport .nav li{float:left;color:#fff;}
+	.hSupport .nav li.divider{padding:6px;}
+
+	.hSupport .nav li a{font-size:14px;color:#fff;padding:6px 14px;margin:0;}
+	.hSupport .nav li a:hover,.hSupport .nav li a.set{color:#fff !important;text-decoration:none;background-color:#bb131a;letter-spacing:0;}
+
+#hContainer.support .wrap{text-align:center;}
+#hContainer.support .support_tutorial_01{margin:60px 0;}
+#hContainer.support h3{margin:50px 0;font-size:30px;line-height:45px;color:#fff;text-shadow: 0 1px 1px rgba(0,0,0,0.4);}
+#hContainer.support h3.first{margin-top:160px;}
+#hContainer.support h3.second{margin-top:80px;}
+#hContainer.support p{margin:40px 0;font-size:18px;line-height:35px;font-weight:bold;color:#58595b;text-shadow: 0 1px 1px rgba(255,255,255,0.4);}
+#hContainer.support .tutorial_ticket{margin-right:40px;}
+
+#hContainer.support .line_divider {
+-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+height: 2px;
+display: inline-block;
+width: 100%;
+border-top: 1px solid #788b95;
+}
+#hContainer.support .btn_support {width:292px;height:72px;background:url('http://cdn.hooful.com/newhooful/btn_support.png');display:inline-block;cursor:pointer;margin:20px 0 100px}
+#hContainer.support .btn_support:hover{background-position-x:292px;}
+
+#hContainer.bbs .hSupport{border-bottom:0;-webkit-box-shadow:  0 0 0;-moz-box-shadow:  0 0 0;box-shadow:  0 0 0;}
+#hContainer.bbs .hSupport .nav li a,#hContainer.bbs .hSupport .nav li{color:#58595b;}
+
+	#sBanner{clear:both;width:1000px;height:230px;margin:10px auto;background:url('http://cdn.hooful.com/newhooful/support_banner.png') no-repeat center top;text-align:center;}
+
+	#hContainer #sBanner.hooful{background:url('http://cdn.hooful.com/newhooful/support_hooful.png') no-repeat center top;}
+	#hContainer #sBanner.partner{background:url('http://cdn.hooful.com/newhooful/support_partner.png') no-repeat center top;}
+	#hContainer #sBanner.news{background:url('http://cdn.hooful.com/newhooful/support_news.png') no-repeat center top;text-align:left;}
+	#sBanner h3 {font-size:24px;line-height:30px;color:#fff;text-shadow: 0 1px 1px rgba(0,0,0,0.4);margin:100px 0;display:inline-block;text-indent:35px;}
+	#sBanner h3.left{width:1000px;text-align:left;margin:50px 0 20px;}
+	#sBanner p{text-align:left;font-size:14px;line-height:30px;color:#fff;text-shadow: 0 1px 1px rgba(0,0,0,0.4);margin:0;display:inline-block;float:left;padding-left: 35px;}
+		
+	.sHooful .hMenu{width:168px;float:left;list-style:none;padding:0;margin: 20px 0;border: 0;text-align:left;text-indent:40px;}
+	.sHooful .hMenu li{font-weight:bold;line-height:50px;color:#58595b;}
+	.sHooful .hMenu li.set{color:#c4161c;}
+	
+	.supportBox{width:746px;border:1px solid #d1d3d4;background-color:#f8f8f8;padding:30px 42px;margin-bottom:20px;display: inline-block;-webkit-border-radius:10px;-moz-border-radius:10px;-o-border-radius:10px;ms-border-radius:10px;border-radius:10px;font-size:14px;float:right;font-weight:normal;color:#6d6e71;}
+	.sHooful .hNotice{width:746px;border:1px solid #d1d3d4;background-color:#f8f8f8;padding:12px 42px 32px;display: inline-block;-webkit-border-radius:10px;-moz-border-radius:10px;-o-border-radius:10px;ms-border-radius:10px;border-radius:10px;font-size:14px;float:right;font-weight:normal;color:#6d6e71;}
+	.sHooful {width:100%;border-bottom:1px solid #d1d3d4;}
+	#hContainer.hooful .sHooful{border-bottom:0px;}
+		.sHooful.none {border-bottom:0;}
+		.sSlogan {background:url('http://cdn.hooful.com/newhooful/support_slogan.png');width:486px;height:44px;margin:70px auto;display:block;text-indent:-9999px;}
+		.sSlogan.red {clear:both;background-position-y:-44px;margin:0 auto;}
+		.sHooful .sWording {float:left;width:1000px;margin:0 0 240px;text-shadow: 0 1px 1px rgba(255,255,255,0.4);}
+	#hContainer.hooful .sWording2 {color:#414042;font-size:16px;text-align:center;margin:70px 0 215px;line-height:40px;}
+		.sHooful .sWording p {vertical-align:top;line-height:25px;display:inline-block;font-size:14px;text-shadow: 0 1px 1px rgba(0,0,0,0.4);font-weight:bold;color:#fff;}
+		.sHooful .wPicture {width:136px;;height:136px;margin:0 65px 60px ;background:url('http://cdn.hooful.com/newhooful/support_hooful_profile.png') no-repeat;display:inline-block;}
+			.sHooful .wPicture:nth-child(3) {background-position:-136px 0;}
+			.sHooful .wPicture:nth-child(1) {background-position:-272px 0;}
+		.sHooful h2 {width:100%;color:#2d3538;font-size:26px;font-weight:bold;text-align:center;margin:40px 0;}
+		.sHooful .article {line-height:30px;font-size:14px;text-align:center;}
+
+	.sHooful .btnStart {display:block;width:204px;height:77px;margin:100px auto;background:url('http://cdn.hooful.com/hooful/btn_start.png') no-repeat;}
+		.sHooful .btnStart:hover {background-position:0 -77px;}
+		.sHooful .btnStart:active {background-position:0 -154px;}
+	#hContainer.hooful .logo_full{background:url('http://cdn.hooful.com/newhooful/support_logo.png');width:272px;height:103px;margin:0 auto 495px;display:block;text-indent:-9999px;}
+	#hContainer.hooful .logo_osquare{background:url('http://cdn.hooful.com/newhooful/support_osquare.png');width:79px;height:81px;margin:0 auto 50px;display:block;text-indent:-9999px;}
+
+
+
+/* tohooful */
+	#tohoofulnew {margin: 0; padding:12px 0 0 0;}
+		#tohoofulnew .control-group {width:100%; margin:0;}
+		#tohoofulnew .control-group .control-title {
+			vertical-align: middle; margin:0;
+			float:left; width:100px; border:1px solid #e2e3e4;
+			background-color:#efeff0; text-align: center; font-size: 13px;
+			color:#58595b;
+		}
+		#tohoofulnew .control-group .control-title.title {
+			height:32px; line-height: 32px;
+			-webkit-border-radius:5px 5px 0px 0px;
+			-moz-border-radius:5px 5px 0px 0px;
+			-o-border-radius:5px 5px 0px 0px;
+			-ms-border-radius:5px 5px 0px 0px;
+			border-radius:5px 5px 0px 0px;
+		}
+		#tohoofulnew .control-group .control-title.article {
+			height:320px; line-height: 320px;
+			border-top:none;
+		}
+		#tohoofulnew .control-group .control-title.attach {
+			height:32px; line-height: 32px;
+			border-top:none;
+		}
+		#tohoofulnew .control-group .control-title.email {
+			height:32px; line-height: 32px;
+			border-top:none;
+			-webkit-border-radius: 0px 0px 5px 5px;
+			-moz-border-radius: 0px 0px 5px 5px;
+			-o-border-radius: 0px 0px 5px 5px;
+			-ms-border-radius: 0px 0px 5px 5px;
+			border-radius: 0px 0px 5px 5px;
+		}
+		#tohoofulnew .control-group .controls {margin-left:100px;}
+		#tohoofulnew .control-group .controls input {width:620px; height:20px; margin-left: 8px;}
+			#article {resize:none; width:620px; height:310px; margin-left: 8px;}
+			#attach {margin: 5px 0 0 0;}
+			#email {margin: 3px 0 0 0;}
+		#tohoofulSubmit {width:134px; height:40px; font-size: 18px; margin: 8px 10px 0 0; float:right;}
+
+		#tohoofuladmin
+			#articleAdmin {width:100%; height:150px; resize:none; }
+			#tohoofulAdminSubmit {float:right; margin:10px 0 0 0;}
+
+		#askedQuestion {width:100%; margin-top:20px;}
+		#askedList {width:100%; border:none; color:#9f9f9f; list-style: none; margin:0; padding:0; overflow:auto;}
+			#askedList .head {
+				margin:0; padding:0;
+			}
+			#askedList .head .title {width:430px; float:left;
+				height:34px; line-height: 34px; vertical-align: middle;
+				padding:0; margin:0; color:#58595b;
+				border:1px solid #e2e3e4; background-color: #efeff0; text-align: center;
+				-webkit-border-radius: 5px 0px 0px 5px;
+				-moz-border-radius: 5px 0px 0px 5px;
+				-o-border-radius: 5px 0px 0px 5px;
+				-ms-border-radius: 5px 0px 0px 5px;
+				border-radius: 5px 0px 0px 5px;
+				border-right: none;
+			}
+			#askedList .head .askedDate {width:150px; float:left;
+				height:34px; line-height: 34px; vertical-align: middle; color:#58595b;
+				border:1px solid #e2e3e4; background-color: #efeff0; text-align: center;
+				border-right: none;
+			}
+			#askedList .head .answeredDate {width:150px; float:left;
+				height:34px; line-height: 34px; vertical-align: middle; color:#58595b;
+				border:1px solid #e2e3e4; background-color: #efeff0; text-align: center;
+				-webkit-border-radius: 0px 5px 5px 0px;
+				-moz-border-radius: 0px 5px 5px 0px;
+				-o-border-radius: 0px 5px 5px 0px;
+				-ms-border-radius: 0px 5px 5px 0px;
+				border-radius: 0px 5px 5px 0px;
+			}
+			
+			#askedList .asked { height:40px; line-height: 40px; vertical-align: middle;}
+			#askedList .asked .qTitle { cursor:pointer;}
+			#askedList .asked .title { float:left; width:430px; padding-left: 10px;}
+			#askedList .asked .aDate { float:left; width:150px; text-align: center;}
+			#askedList .asked .none {text-align: center;}
+			#askedList .asked.show .aDate{border:none; font-weight: bold;}
+			#askedList .asked.show .title{border:none; font-weight: bold; color:#d24646;}
+			#askedList .asked .divider {float:left; width:100%; border-bottom:1px dotted #000000;}
+			.msgbox{float:left;width:100%;}
+				.msg{
+					background-color:#f7f7f7;
+					width:700px !important;margin-bottom:10px;
+					color:#666361;font-size:14.5px;line-height:34px;padding:10px 20px;
+					float:left;
+					border:1px solid #dbdbdb;
+					  -webkit-border-radius: 3px;
+					     -moz-border-radius: 3px;
+					          border-radius: 3px;
+					   -webkit-box-shadow: none !important;
+					   -moz-box-shadow: none !important;
+					   box-shadow: none !important;
+		          }
+		          .msg .tGrey{font-size:8px !important}
+		         .arrow{position:relative;z-index:1;float:left;margin:10px -1px 0 0;}
+			.msgbox.left .arrow{position:relative;z-index:1;float:left;margin:10px -1px 0 10px;}
+			.msgbox.right .arrow{position:relative;z-index:1;float:right;margin:10px 20px 0 -1px;}
+			.msgbox.right .msg{float:right;background-color: #fff5f6; border:1px solid #ffd6db; color:#d24646;}
+		.asked .none {height:30px; border-bottom:1px dotted #000000;}
+		.noQuestion {width:740px; height:40px; padding:50px 0 0 0; border-bottom:1px dotted #000000; text-align:center;}
+
+.switch{cursor:pointer;display:inline-block;overflow:hidden;position:relative;width:53px;height:21px;vertical-align:middle}
+.switch .background{background:url('http://cdn.hooful.com/newhooful/switch-background.png');display:block;position:absolute;top:0;left:0;width:77px;height:20px}
+.switch .mask{background:url('http://cdn.hooful.com/newhooful/switch-mask.png');display:block;position:absolute;top:0;left:0;width:53px;height:20px}
+
+label.absolute {position: absolute;color:#999;display: none;cursor: text}		
+i.btnAll {display:inline-block;width:71px;height:30px;margin-top:10px;background:url('http://cdn.hooful.com/hooful/btn_all.png');cursor:pointer;}
+	i.btnAll.set, i.btnAll:hover {background-position:0 -30px;}
+	i.btnAll:click {background-position:0 -60px;}
+i.btnWithdraw {position:absolute;top:-15px;left:150px;display:inline-block;width:71px;height:30px;margin-top:10px;background:url('http://cdn.hooful.com/hooful/btn_withdraw.png');cursor:pointer;}
+	i.btnWithdraw.set, i.btnWithdraw:hover {background-position:0 -30px;}
+	i.btnWithdraw:click {background-position:0 -60px;}
+	
+i.hManage {display:inline-block;width:25px;height:25px;border:0;background:url('http://cdn.hooful.com/hooful/icon_manage.png');}
+	i.hManage.list {display:block;margin-left:4px;}
+	i.hManage.iCheck{background-position:-200px 0;cursor:pointer;}
+		i.hManage.iCheckup{background-position:-200px -25px;cursor:pointer;}
+	i.hManage.iChecked{background-position:-475px 0;cursor:pointer;}
+		i.hManage.iChecked.set, i.hManage.iChecked:hover{background-position:-475px -25px;cursor:pointer;}
+	i.hManage.iArrowup{background-position:-350px 0;cursor:pointer;}
+		i.hManage.iArrowup.set, i.hManage.iArrowup:hover{background-position:-350px -25px;}
+	i.hManage.iArrowdown{background-position:-325px 0;cursor:pointer;}
+		i.hManage.iArrowdown.set, i.hManage.iArrowdown:hover{background-position:-325px -25px;}
+	i.hManage.iChange{background-position:-225px 0;cursor:pointer;}
+		i.hManage.iChange:hover{background-position:-225px -25px;}
+	i.hManage.iEmail{background-position:-250px 0;cursor:pointer;}
+		i.hManage.iEmail:hover{background-position:-250px -25px;}
+	i.hManage.iPhone{background-position:-275px 0;cursor:pointer;}
+		i.hManage.iPhone:hover{background-position:-275px -25px;}
+	i.hManage.iRemove{background-position:-300px 0;cursor:pointer;}
+		i.hManage.iRemove:hover{background-position:-300px -25px;}
+
+/* hooful table */
+	.htHeader {margin-top: 35px;border-top: 1px solid #b1b3b6;}
+	.htHeader .title {font-size: 14px;color: #58595b;line-height: 20px;margin: 13px 30px 0 0;cursor: pointer;font-weight: bold;}
+	.hTable {clear:both;width:100%;height:100%;margin:20px 0;background-color:#ffffff;border: 1px solid #d1d3d4;border-collapse: separate;-webkit-border-radius: 10px;
+				-moz-border-radius: 6px;
+				-o-border-radius: 6px;
+				-ms-border-radius: 6px;
+				border-radius: 6px}
+		.hTable caption {width:230px;text-align:left;font-weight:bold;position:relative;color:#23769d;font-size:12px;padding:5px;}
+		.hTable thead {border-bottom:1px solid #c5c6c7;}
+		.hTable th {text-indent: 30px;border-right: 1px solid #d1d3d4;text-align: left;line-height: 40px;height: 40px;font-size: 12.5px;text-shadow: 2px 2px 3px #ffffff;background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);backgrtound-image: -o-linear-gradient(top, #ffffff, #e6e6e6);background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);}
+		.hTable tr {height:50px;border-bottom:1px solid #d1d3d4;cursor:pointer;}
+		.hTable tr.set {background-color:#f9f9f9;}
+		.modal-body .hTable .nonePrint {display:none;}
+		.hTable tbody tr:first-child{border-top:1px solid #fafafa;border-bottom:1px solid #d1d3d4;}
+		.hTable .fAll {width:82px;}
+		.hTable .fName {width:120px;}
+		.hTable .fSex {width:65px;}
+		.hTable .fAge {width:75px;}
+		.hTable .fGroup {width:100px;}
+		.hTable .fLocal {width:100px;}
+		.hTable .fPhone {width:90px;}
+		.hTable .fTicket {width:140px;}
+		.hTable .fCheck {width:70px;}
+		.hTable .fPrice {width:220px;}
+		.hTable .fCount {width:180px;}
+		.hTable .fSales {width:180px;}
+		.hTable .fRemaining {width:180px;}
+		.hTable .fType {width:100px;}
+		.hTable .fMoney {width:150px;}
+		.hTable .udate {display:block;font-size:11px;line-height:11px;}
+		.hTable td.ctr {text-align:center;}
+		.hTable td.sum {font-weight:bold;font-size:16px;color:#636466;}
+		
+
+#groupTalk{float:left;width:733px;height:661px;padding-top:37px;background:url('http://cdn.hooful.com/newhooful/newgroup_bg.png') no-repeat;}
+#groupBlur{float:left;width:733px;height:661px;margin-top:30px;padding-top:37px;background:url('http://cdn.hooful.com/newhooful/newgroup_bg_blur.png') no-repeat;}
+#groupBlur #meetSubmit{margin:272px 0 0 305px;background:url('http://cdn.hooful.com/newhooful/newgroup_partice.png') no-repeat;width:130px !important;height:44px;}
+ #groupBlur #meetSubmit:hover, #groupBlur #meetSubmit:active{background-position:-130px 0 !important;}
+#groupTalk .groupTitle{width:1000px;line-height:67px;height:67px;margin:0;font-size:14px;color:#fff;text-shadow: 2px 2px 3px #666;position:relative;z-index:1;text-align:left;}
+#groupTalk .groupInfo{width:1000px;height:47px;margin:0;text-align:left;line-height:47px;font-size:12.5px;font-weight:normal;color:#58595b;list-style:none;}
+
+.groupMember{float:left;width:140px;height:544px;z-index: 3;position: relative;}
+.groupMember ul{line-height:25px;padding:0;margin:0;float:left;list-style:none;font-size:11px;color:#939598;height:624px;width:100%;font-weight:normal;overflow-y:scroll;}
+
+#groupTalk .groupMember .profile{float:left;font-size:12px;color:#a7a9ac;width:100%;margin:5px 0 0 0;height: 45px;margin-top:15px}
+#groupTalk .groupMember .profile .thumbnail{float: left;width:37px;height:37px;border: 0;padding: 0;margin:0 5px 0 15px;}
+#groupTalk .groupMember .profile .name{
+float: left;font-size:12.5px;color:#636466;font-weight:bold;line-height:25px;width:65px;text-align:left;;height:25px;text-shadow: 0 1px 1px rgba(255,255,255,0.4);} 
+#groupTalk .groupMember .profile a.name:hover{text-decoration:none;} 
+
+#groupTalk .mCancel, #groupTalk .mEdit{float:right;text-indent:-9999px;width:28px;height:28px;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;background:url('http://cdn.hooful.com/newhooful/btn_group_talk.png');cursor:pointer;margin:25px 10px 0 0;}
+#groupTalk .mCancel{background-position:0 -28px;margin-right:25px;}
+#groupTalk .mEdit{background-position:0 -56px;
+-webkit-transition:none;
+-moz-transition: none;
+-o-transition: none;
+transition: none;}
+#groupTalk .mCancel:hover, #groupTalk .mEdit:hover{background-position-x:-28px;}
+
+#groupTalk .groupInfo i{display: inline-block;width:20px;height:20px;background:url('http://cdn.hooful.com/newhooful/icon_group_talk.png');}
+#groupTalk .groupInfo i.paid{background-position:0 -20px;
+margin: 6px 4px -6px 18px;}
+#groupTalk .groupInfo i.reserved{
+margin: 6px 4px -6px 36px;}
+#groupTalk .groupInfo li{float:left;padding:0;margin:0;line-height:47px;color:#414042;font-size:12.5px;text-shadow: 0 1px 1px rgba(255,255,255,0.4);}
+#groupTalk .groupInfo li.payInfo{font-size:11px;}
+#groupTalk .groupInfo li.startdate{background:url('http://cdn.hooful.com/newhooful/icon_group.png') no-repeat;
+line-height: 20px;
+margin: 15px 0 0 90px;padding-left:20px;height:20px;}
+#groupTalk .groupInfo li.totalmember{background:url('http://cdn.hooful.com/newhooful/icon_group.png') no-repeat;line-height: 20px;
+margin: 15px 0 0 25px;padding-left:20px;height:20px;background-position:0 -20px;}
+
+
+.groupMember .payInfo{line-height:40px;text-align:left;padding:0;margin:0;float:left;background-color:#f6f6f6;font-size:11px;color:#939598;font-weight:normal;width:100%;text-indent:16px;border-bottom:1px solid #afafaf;}
+.groupMember ul i.on{display:inline-block;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;background-color:#8bc13f;width:8px;height:8px;}
+.groupMember ul i{display:none;}
+
+.groupMember ul .status{line-height: 40px;}
+
+#groupTalk .groupSend .btn{width:85px;height:30px;display:inline-block;background:url('http://cdn.hooful.com/newhooful/btn_group_talk_send.png');text-indent:-9999px;margin:15px 10px -15px 15px;}
+#groupTalk #gSend{margin: 30px 0 0 20px;
+width: 435px;
+height: 29px;
+padding: 3px 13px;-webkit-border-radius: 26px;-moz-border-radius: 26px;border-radius: 26px;background:url('http://cdn.hooful.com/newhooful/group_talk_input.png');-webkit-box-shadow:0 0 0;-moz-box-shadow:0 0 0;box-shadow:0 0 0;border:0;}
+#groupTalk #gSend:hover,#groupTalk #gSend:active{background-position:0 -35px;-webkit-box-shadow:0 0 0;-moz-box-shadow:0 0 0;box-shadow:0 0 0;}
+
+#groupTalk .groupMember .profile .comment{float:left;
+width: 75px;
+margin-left: 25px;height:20px;font-size:11px;color:#fff;font-weight:normal;}
+#groupTalk .talkNotice{float:right;display:inline-block;
+width: 592px;
+height: 30px;
+background-color: rgba(255,255,255,0.2);
+text-indent: 60px;
+color: #fff;
+line-height: 30px;z-index:0;}
+#groupTalk .groupSend{position: absolute;
+margin-top: 497px;
+width: 592px;
+height: 96px;
+}
+#groupTalk .groupBody .talkWrap{float:left;
+width: 572px;
+height: 496px;
+overflow-x:hidden;}
+
+#groupTalk .groupBody{width:592px;height:496px;float:right;
+margin: 0 0 0 -17px;overflow-y: scroll;}
+#groupTalk .groupBody .talk{float:left;width:100%;padding:20px 0 30px 20px;border-top:1px solid #a6a5a6;}
+#groupTalk .groupBody .talk:first-child{padding-top:20px;}
+
+
+.groupSearch{position:relative;z-index:1;background-color:#ebebec;}
+#gSearch{font-family:NanumGothicWeb,"HelveticaNeue",Helvetica,Arial,sans-serif;width:258px;height:42px;line-height:42px;-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;background-color:#ebebec;border:0;text-align:center;text-indent:50px;margin:0;font-size:14px;color:#58595b;}
+#gSearch:focus{-webkit-box-shadow:0 0 0;-moz-box-shadow:0 0 0;box-shadow:0 0 0;}
+
+
+#groupReccommend .tooltip{display:none;margin:60px 0 0 0;}
+#groupReccommend:hover .tooltip{display:inline;}
+#groupReccommend .tooltip-inner{border:2px solid #d91920;background-color:#fff;width:230px;text-align:center;font-weight:bold;line-height:25px;padding:10px 20px;color:#4d4d4f;font-size:15px;}
+#groupReccommend .tooltip-arrow{top: 0 !important;margin-top: -6px !important;
+  background:url('http://cdn.hooful.com/newhooful/tooltip_arrow_group.png') center bottom no-repeat;
+width:21px;height:13px;
+}
+
+#groupTalk .groupBody .NotInGroup{
+z-index: 2;position:relative;background-color:rgba(0,0,0,0.3);float:left;width:100%;height:417px;}
+#groupTalk .groupBody .NotInGroup > div {background-color:#f9f8f5;float:left;margin:10px 0 0 142px ;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;width:540px;height:370px;}
+#groupTalk .groupBody .NotInGroup i.check_big{display:block;margin:60px auto 40px;width:111px; height:111px;background:url('http://cdn.hooful.com/newhooful/icon_check_big.png') no-repeat;}
+#groupTalk .groupBody .NotInGroup p{font-size:16px;color:#9da3a5;}
+#groupTalk .groupBody .NotInGroup .btn{margin-top:30px;background:url('http://cdn.hooful.com/newhooful/btn_group_nomem.png') no-repeat;width:212px;height:53px;display:inline-block;border:0;padding:0;text-indent:-9999px;-webkit-box-shadow:inset 0 0 0;-webkit-transition:0;-moz-transition:0;-o-transition:0;transition:0;}
+#groupTalk .groupBody .NotInGroup .btn.goback{background-position:0 -53px;}
+#groupTalk .groupBody .NotInGroup .btn:hover{background-position-x: -212px;}
+
+#groupTalk .groupBody .talkWrap ul{float: left;
+width: 554px;
+margin: 0;}
+#groupTalk .groupBody .talkWrap .more{float:left;width: 100%;text-align: center;background-color: #e7e8ea;font-size: 12.5px;color: #a7a9ac;line-height: 30px;cursor:pointer;margin-bottom:10px;}
+#groupTalk .groupBody .talkWrap .more:hover{color:#fff;background-color:#3fbad8;}
+
+#groupTalk .groupBody .alert{background-color:transparent;text-align:center;line-height:1px;margin:0;border-top:1px solid #d1d3d4;padding:0 0 10px 0;margin:0;border-bottom:0;}
+#groupTalk .groupBody .alert span{color:#bcbec0;font-size:11px;text-align:center;background-color:#f6f6f6;}
+#groupTalk .groupBody .notice{color:#fff;margin:-10px 0 10px 0;font-size:12px;text-align:left;}
+#groupTalk .groupBody .notice a{color:#fff;}
+
+
+
+#groupTalk .groupBody .talk .name{float: left;line-height: 25px;color: #58595b;font-size: 12.5px;width:40px;text-shadow: 0 1px 1px rgba(255,255,255,0.4);}
+#groupTalk .groupBody .talk.right .name{float:right;text-align:right;}
+
+#groupTalk .groupBody .talk .top{width:256px;height:33px;float:left;background:url('http://cdn.hooful.com/newhooful/newgroup_bubble_left_top.png') no-repeat;z-index: 1;position: relative;}
+#groupTalk .groupBody .talk.right .top{float:right;background:url('http://cdn.hooful.com/newhooful/newgroup_bubble_right_top.png') no-repeat;}
+
+#groupTalk .groupBody .talk .btm{width:256px;height:18px;float:left;background:url('http://cdn.hooful.com/newhooful/newgroup_bubble_left_btm.png') no-repeat;z-index: 1;position: relative;}
+#groupTalk .groupBody .talk.right .btm{background:url('http://cdn.hooful.com/newhooful/newgroup_bubble_right_btm.png') no-repeat;}
+
+#groupTalk .groupBody .talk .msgcontents{
+z-index: 1;
+position: relative;float:left;
+width: 410px;
+padding: 5px 20px 0 10px;}
+#groupTalk .groupBody .talk.right .msgcontents{float:right;
+padding: 0 86px 0 10px;background:url('http://cdn.hooful.com/newhooful/newgroup_bubble_right_bg.png') repeat-y;}
+#groupTalk .groupBody .talk .msgwrap{float:left;width: 296px;margin: 0 0 0 10px;}
+#groupTalk .groupBody .talk.right .msgwrap{margin: 0 -46px 0 0;}
+#groupTalk .groupBody .talk.left .time{float:left;text-align:left;}
+#groupTalk .groupBody .talk.right .top, #groupTalk .groupBody .talk.right .btm, #groupTalk .groupBody .talk.right, #groupTalk .groupBody .talk.right .profile , #groupTalk .groupBody .talk.right .msg, #groupTalk .groupBody .talk.right .msgcontents, #groupTalk .groupBody .talk.right .msgwrap{float:right;}
+#groupTalk .groupBody .talk .time{text-align:right;margin:0;line-height: 25px;color: #a7a9ac;font-size: 12px;font-weight: bold;text-shadow: 0 1px 1px rgba(255,255,255,0.4);text-align: left;font-weight:normal;padding:0;}
+
+#groupTalk .groupBody .talk .msg{padding:0 !important;width:auto !important;margin-bottom: -1px;font-size:12.5px;color:#231f20;line-height:20px;font-weight:bold;float:none;text-align:left;border:0;background-color:transparent;}
+#groupTalk .groupBody .talk.right .msg {color:#231f20;text-shadow: 0 1px 1px rgba(255,255,255,0.4);}
+
+#groupTalk .groupBody .talk .profile .thumbnail{margin:0;border:2px solid #ffffff;width:37px;height:37px;max-width: none;}
+#groupTalk .groupBody .talk .profile{width:40px;height:40px;}
+
+#groupTalk .groupBody .talk.right .profile{float:right;}
+
+
+#groupTalk .groupCompany .thumbnail{margin-left:0;}
+
+#groupTalk .groupCompany{position: absolute;
+margin: 30px 0 0 763px;z-index: 2;}
+#groupTalk .groupCompany dd{background-size:100% 100% !important;margin:0;}
+.mPaystart #hPayfrm > h3{text-align:left;margin-top:30px;font-size:16px;line-height:25px;color:#636466;border-top:1px solid #ffffff;-webkit-box-shadow:0 -1px 0 rgba(209,211,212,1);-moz-box-shadow:0  -1px 0 rgba(209,211,212,1);box-shadow:0 -1px 0 rgba(209,211,212,1) ;}
+.mPaystart table{border:1px solid #c6c6c6;width:100%;}
+.mPaystart table caption{display:none;}
+.mPaystart table tr{padding:0;}
+.mPaystart table thead th{font-size:12.5px;height:30px;line-height:30px;color:#58595b;background-color:#ebebec;text-align:center;}
+
+.mPaystart table tbody td{font-size:12.5px;height:30px;line-height:45px;color:#58595b;text-align:center;}
+.mPaystart dl{padding:20px 0;background-color:#ebebec;border:1px solid #c6c6c6;}
+.mPaystart dt, .mPaystart dd{display:inline-block;font-size:12.5px;font-weight:normal;color:#77787b;}
+.mPaystart dt{width:60px;margin:0 0 0 220px;line-height:30px;}
+.mPaystart dd{margin:0 300px 0 0;line-height:30px;}
+.mPaystart dd:last-child{font-size:11px;color:#a7a9ac;margin-left:-60px;}
+.mPayselect{border:1px solid #c6c6c6;color:#808285;font-weight:normal;text-align:center;padding:20px 0;}
+.mPaystart .blue.btn{font-family:NanumGothicWeb,"HelveticaNeue",Helvetica,Arial,sans-serif;font-size:19px;width:120px;height:50px;line-height:50px;margin-top:85px;}
+
+.tEllipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis}
+
+
+/* certification */
+.input-title {text-align:left;width:300px;margin:0 auto;color:#231f20;font-weight:bold;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+.hbtn{display:inline-block;width:121px !important;height:33px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_btn_next.png');margin:20px auto;border:0;padding:0;text-indent:-9999px;vertical-align:top;cursor:pointer;}
+		.hbtn.nexttime{background-position:0 -33px;}
+		.hbtn.complete{display:inline-block;margin:0 auto;background-position:0 -66px;}
+		.hbtn:hover{background-position-x:-121px;}
+
+.category.btn-group{margin-bottom:20px;}
+
+.category.btn-group a{padding:0;width:310px;height:28px;line-height:28px;text-indent:30px;text-align:left;border:1px solid #b1b3b6;background-color:#fff;background-image:none;font-size:14px;color:#636466;}
+.category.btn-group a .caret{float:right;width:38px;height:32px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_btngroup.png') no-repeat;border:0;margin:-1px -2px -3px 0;}
+
+.category.btn-group a:hover {background-image:none;background-color:#fff;}
+.category.btn-group a:hover .caret{background-position-y:-33px;}
+.category.btn-group .dropdown-menu{margin-top:-2px;text-align:left;text-indent:30px;width:275px;}
+.category.btn-group .dropdown-menu li{line-height:28px;}
+.category.btn-group .dropdown-menu li:hover, .category.btn-group .dropdown-menu li.active{background-color:#2d3538;color:#ffffff;}
+.group .title input{width:300px;line-height:28px;text-indent:30px;text-align:left;border:1px solid #b1b3b6;background-color:#fff;margin-bottom:70px;font-family:NanumGothicWeb;}
+
+.certTitle {width:689px;margin: 30px auto;}
+	.certTitle h1 {margin:0;color:#58595b;font-size:15px;font-weight:bold;}
+	.certTitle h2 {margin:0;color:#58595b;font-size:14px;font-weight:normal;}
+
+#cUsercert .certForm{position:relative;text-align:center;background:url('http://cdn.hooful.com/newhooful/certification_bg.png') no-repeat;width:689px;margin: 30px auto 0;
+padding: 100px 0 0 0;
+height: 996px;}
+
+#idcard{margin:0 auto 0;float:none;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_idcard.png');width:392px;height:334px;}
+#idcard .wrap{cursor:pointer;width:364px;height:209px;background-color:#f1f1f1;display:inline-block;margin:100px auto 0;}
+#idcard img{display:none;width:364px;height:209px;cursor:pointer;margin-top:100px;}
+#idcard h4{float:left;margin:70px 115px 50px;color:#58595b;font-size:18px;text-decoration:underline;}
+#idcard .subtitle{float:left;color:#808285;font-size:12px;line-height:20px;margin: 5px 25px;}
+
+h3.interest_title{color:#0a77a0;font-size:24px;text-align:center;margin:50px 0 30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+.subscription{font-size:14px;color:#414042;text-align:center;font-weight:bold;line-height:30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+h4.interest_subtitle{color:#0a77a0;font-size:18px;text-align:center;margin:30px 0 40px;line-height:30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+#cUsercert .group{width:350px;height: 150px;margin:20px auto;}

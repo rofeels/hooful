@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>후풀 - Work hard, Play hard</title>
+  <link rel="shortcut icon" href="<%=S3ADDR%>newhooful/favicon.ico">
+  <%= stylesheet_link_tag    "signup", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <meta charset="UTF-8">
+  <meta name="Robots" content="index.follow" />
+  <meta name="Robots" content="index.nofollow" />
+  <meta name="Title" content="후풀(Hooful)" />
+  <meta name="Description" content="후풀(Hooful) :: 나를 위한 즐거운 활동" />
+  <meta name="Keywords" content="후풀, Hooful, Actable, SNS, 활동, 모임, 관심사" />
+  <%@og = og%>
+  <meta property="og:title" content="<%=@og[:title]%>"/>
+  <meta property="og:site_name" content="<%=@og[:site_name]%>"/>
+  <meta property="og:description" content="<%=@og[:description]%>"/>
+  <meta property="og:image" content="<%=@og[:image]%>"/>
+  <!--<meta name="viewport" content="width=1280px, height=1698px">-->
+</head>
+<body class="<%=@bg%>">
+<%=session.inspect%>
+<%= yield %>
+
+  <div class="modal hide fade" id="alertmove">
+      <h3><span id="alertMoveTitle"></span></h3>
+  </div>
+  <div class="modal hide fade" id="alertTmp">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div class="modal-body">
+      <h3><span id="alertTmpTitle"></span></h3>
+      <a class="hbtn nexttime" href="/preregist/complete">다음에하기</a>
+    </div>
+  </div>
+
+</body>
+</html>

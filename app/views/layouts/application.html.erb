@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>후풀 - Work hard, Play hard</title>
+  <link rel="shortcut icon" href="<%=S3ADDR%>newhooful/favicon.ico">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%if session[:user_id]%>
+  <script>var userid = "<%=session[:user_id]%>";</script>
+  <%= javascript_include_tag "http://www.hooful.com:6530/socket.io/socket.io.js" %>
+  <% end %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <meta charset="UTF-8">
+  <meta name="Robots" content="index.follow" />
+  <meta name="Robots" content="index.nofollow" />
+  <meta name="Title" content="후풀(Hooful)" />
+  <meta name="Description" content="후풀(Hooful) :: 나를 위한 즐거운 활동" />
+  <meta name="Keywords" content="후풀, Hooful, Actable, SNS, 활동, 모임, 관심사" />
+  <%@og = og%>
+  <meta property="og:title" content="<%=@og[:title]%>"/>
+  <meta property="og:site_name" content="<%=@og[:site_name]%>"/>
+  <meta property="og:description" content="<%=@og[:description]%>"/>
+  <meta property="og:image" content="<%=@og[:image]%>"/>
+  <!--<meta name="viewport" content="width=1280px, height=1698px">-->
+</head>
+<body>
+  <header>
+	<div class="wrap">
+		<!--
+		<div id="hSearch">
+			<div class="nav"><a href="">후풀가이드</a>|<a href="">고객지원</a></div>
+			<%= form_tag( "/search", :method => "post", :id=>'hSearchfrm', :class=>'input-append') do |f| %>
+				<%= text_field_tag :mSearch, params[:mSearch] ? params[:mSearch] : nil%><span class="add-on"><img src="<%=S3ADDR%>images/header_top_search.png" alt="search"/></span>
+			<% end %>
+		</div>
+		<h1 id="hLogo"><a href="/"><img src="<%=S3ADDR%>hooful/hooful_logo.png" alt="hooful"></a><span class="subtitle">나를 위한 즐거운 활동</span></h1>
+		-->
+		<h1 id="hLogo"><a href="/home" title="Hooful"></a></h1>
+		<div id="hMenu">
+			<a class="hMenu" href="/r" title="만났어요">만났어요</a>
+			<a class="hMenu" href="/h" title="만나고싶어요">만나고싶어요</a>
+			<!--<a class="hMenu" href="/support" title="이용안내">이용안내</a>-->
+		</div>
+		<div id="hMenuUser">
+			<div id="hSearchIcon" class="dhMenu">
+				<span class="icon"></span>
+				  <div id="hSearchBar" class="headertail">
+					<div class="searchBar">
+						<div class="hSearchIcon"></div>
+						<%= form_tag( "/search", :method => "post", :id=>'hSearchfrm', :class=>'input-append') do |f| %>
+							<%= text_field_tag :mSearch, params[:mSearch] ? params[:mSearch] : nil, :placeholder => 'search'%>
+						<% end %>
+					</div>
+				  </div>
+			</div>
+			<script>var userpic = "";</script>
+			<%  if session[:user_id]  
+			@sUser = User.info(session[:user_id])%>
+				<script>var userpic = "<%=@sUser[:picture]%>";</script>
+				<div id="hUserNav" >
+					<div class="hsUser">
+						<a href="/user">
+							<img src="<%=@sUser[:picture]%>" title="" class="profile"/>
+							<span class="name"><%=@sUser[:name]%></span>
+						</a>
+						<span class="arrow"></span>
+					</div>
+					<ul class="dropdown">
+					    <a href="/user/edit" title="계정설정"><li>계정설정</li></a>
+					    <%if @sUser.acct_auth.to_i > 2%><a href="/meet/manage" title="계정설정"><li>상품관리</li></a><%end%>
+					    <a href="/user/order" title="구매내역"><li>구매내역</li></a>
+					    <a href="/signout" title="로그아웃"><li>로그아웃</li></a>
+					</ul>
+				</div>
+				<div id="hNotice" class="dhMenu ">
+					<a class="hMenua" href="/notification" title="알림리스트">알림리스트</a>
+					<span class="icon">
+						<div class="icon">
+							<div class="unchecked"></div>
+						</div>
+					</span>
+					<div id="hNoticeWrap">
+						<!--<img src="http://d3o755op057jl1.cloudfront.net/images/notification_top.png">-->
+						<div id="hNoticeList">
+						</div>
+						<!--<img src="http://d3o755op057jl1.cloudfront.net/images/notification_btm.png">	-->
+					</div>
+				</div>
+				
+			<% else %>
+				<div id="hLogin">
+					<a class="hMenu" href="/signin" title="로그인">로그인</a>
+					<a class="hMenu nomargin" href="/signup" title="회원가입">회원가입</a>
+				</div>
+			<% end %>
+		</div>
+	</div>
+  </header>
+  
+<%
+if @sUser.cert_auth != 1
+	if @sUser.certpic.blank?
+		flash[:notice] = "<a href='/user/edit'>#{@sUser.name}님 후풀 소속 인증이 되지 않았습니다. 마이페이지에서 소속인증 사진을 올려주세요.</a>"
+	else
+		flash[:notice] = "#{@sUser.name}님 후풀 소속 인증이 진행 중입니다. 24시간 내로 승인 되니 잠시만 기다려 주세요."
+	end
+end if @sUser and params[:controller] == "home" and params[:action] == "index"
+
+%>  
+<% if flash[:notice]%>
+<div class="alert fade in alert-warning static">
+	<%= raw flash[:notice]%><a class="close" data-dismiss="alert">×</a>
+</div>
+  <% end %>
+  <%= yield %>
+  <footer>
+	<div class="wrap">
+		<div id="hSimbol"><img src="<%=S3ADDR%>newhooful/hooful_simbol_gray.png" alt="Hooful"></div>
+		<p>© Hooful 서울시 서초구 양재동 9-1 부연빌딩 3층 (주)오스퀘어 | 노대영</p>
+		<p>사업자등록번호 : 142-81-50856  |  전화번호 : 1599-5892</p>
+		<div class="nav"><a href="/support" title="이용안내">이용안내</a>|<a href="/support/hooful" title="고객지원">고객지원</a><!--|<a href="/support/partner">제휴문의</a>--></div>
+		<p>copyright © hooful.com. All Right Reserved.<p>
+	</div>
+  </footer>
+  <div class="modal hide fade" id="alert">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3><span id="alertTitle"></span></h3>
+    </div>
+    <div class="modal-footer">
+      <div class="btnOk" id="alertOK" data-dismiss="modal" aria-hidden="true">확인</div>
+    </div>
+  </div>
+  <div class="modal hide fade" id="alertmove">
+      <h3><span id="alertMoveTitle"></span></h3>
+  </div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+#encoding: UTF-8
+class GroupController < ApplicationController
+  respond_to :json
+  GROUP_LIMIT = 4
+  def index
+	today = Date.today.strftime('%Y-%m-%d,')
+    if params[:category]
+		if params[:lastGroup]
+			@cgroup = Group.where(:_id.lt =>params[:lastGroup],:gCategory => params[:category]).desc(:created_at)
+		else
+			@cgroup = Group.where(:gCategory => params[:category]).desc(:created_at)
+		end
+
+		@groups = []
+		@cgroup.limit(GROUP_LIMIT).each do |group|
+			gtmp = Hash.new
+			gtmp["_id"] = group._id
+			if !group.mCode.blank?
+				minfo = Meet.where(:mCode => group.mCode).first
+				gtmp["mAddress"] = "#{minfo.mPlace} #{minfo.mAddress}"
+			else
+				gtmp["mAddress"] = "미정"
+			end
+			if !group.gDate.blank?
+				gtmp["gDate"] = group.gDate[5..9]
+			else
+				gtmp["gDate"] = "미정"
+			end
+
+
+			  ghinfo = User.info(group.gHost)
+			  ghtmp = Hash.new
+			  ghtmp[:name] = ghinfo.name
+			  ghtmp[:picture] = ghinfo.picture
+			  ghtmp[:userid] = ghinfo.userid
+			  ghtmp[:link] = Home.encode(ghinfo.userid)
+			  ghtmp[:members] = ghinfo.members
+			gtmp["gHost"] = ghtmp
+
+
+			gtmp["gTitle"] = group.gTitle
+			gtmp["gMembers"] = group.members
+			if gtmp["gMembers"].count == 0
+				Group.find(gtmp["_id"]).destroy
+			else
+				@groups << gtmp
+			end
+		end
+		if @cgroup.count > GROUP_LIMIT
+			gtmp = Hash.new
+			gtmp["next"] = @cgroup.count - GROUP_LIMIT
+			@groups << gtmp
+		end
+
+	elsif params[:mUserid]
+		
+		@gmembers = GroupMember.where(:mUserid => params[:mUserid])
+
+		if params[:lastGroup]
+			@egroups = Group.where(:_id.in => @gmembers.map(&:group_id),:_id.lt =>params[:lastGroup]).desc(:created_at)
+		else
+			@egroups = Group.where(:_id.in => @gmembers.map(&:group_id)).desc(:created_at)
+		end
+
+		@groups = []
+		@egroups.limit(GROUP_LIMIT).each do |group|
+			gtmp = Hash.new
+			gtmp["_id"] = group._id
+			if !group.mCode.blank?
+				minfo = Meet.where(:mCode => group.mCode).first
+				gtmp["mAddress"] = "#{minfo.mPlace} #{minfo.mAddress}"
+			else
+				gtmp["mAddress"] = "미정"
+			end
+			if !group.gDate.blank?
+				gtmp["gDate"] = group.gDate[5..9]
+			else
+				gtmp["gDate"] = "미정"
+			end
+
+			  ghinfo = User.info(group.gHost)
+			  ghtmp = Hash.new
+			  ghtmp[:name] = ghinfo.name
+			  ghtmp[:picture] = ghinfo.picture
+			  ghtmp[:userid] = ghinfo.userid
+			  ghtmp[:link] = Home.encode(ghinfo.userid)
+			  ghtmp[:members] = ghinfo.members
+			gtmp["gHost"] = ghtmp
+
+			gtmp["gTitle"] = group.gTitle
+			gtmp["gMembers"] = group.members
+			@groups << gtmp
+		end
+		if @egroups.count > GROUP_LIMIT
+			gtmp = Hash.new
+			gtmp["next"] = @egroups.count
+			@groups << gtmp
+		end
+	else
+		@egroups = Group.list(params)
+		
+		@groups = []
+		@egroups.each do |group|
+			gtmp = Hash.new
+			gtmp["_id"] = group._id
+			if !group.mCode.blank?
+				minfo = Meet.where(:mCode => group.mCode).first
+				gtmp["mAddress"] = "#{minfo.mPlace} #{minfo.mAddress}"
+			else
+				gtmp["mAddress"] = "미정"
+			end
+			if !group.gDate.blank?
+				gtmp["gDate"] = group.gDate[5..9]
+			else
+				gtmp["gDate"] = "미정"
+			end
+
+			  ghinfo = User.info(group.gHost)
+			  ghtmp = Hash.new
+			  ghtmp[:name] = ghinfo.name
+			  ghtmp[:picture] = ghinfo.picture
+			  ghtmp[:userid] = ghinfo.userid
+			  ghtmp[:link] = Home.encode(ghinfo.userid)
+			  ghtmp[:members] = ghinfo.members
+			gtmp["gHost"] = ghtmp
+
+			gtmp["gTitle"] = group.gTitle
+			gtmp["gMembers"] = group.members
+			@groups << gtmp
+		end
+	end
+	respond_with @groups
+  end
+
+  def show
+	  respond_to do |format|
+		format.html {
+			@valid = false
+			@valid = GroupMember.where(:group_id => params[:gid], :mUserid => session[:user_id]).exists? if session[:user_id]
+		}
+		format.json { 
+			@group = Group.find(params[:gid]) 
+			hostinfo = User.where(:userid => @group .gHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+			if !@group.mCode.blank?
+				meetinfo = Meet.where(:mCode => @group.mCode).first
+				@group[:company_title] = meetinfo.mTitle
+				@group[:company_image] = meetinfo.mPicture
+				@group[:company_price] = meetinfo.card_price
+			end
+			respond_with @group
+		}
+	  end
+  end
+
+  def create
+    if params[:type] == "makeGroup"
+	  @userinfo = User.where(:userid => params[:mUserid]).first
+	  @group = Group.create(:mCode => params[:mCode], :gTitle => params[:gTitle], :gDate => params[:mDate], :gHost => params[:mUserid], :gCategory => params[:category], :gMembers => 10, :gPartices => 1)
+	  @group_member = GroupMember.addMember(params[:mUserid], @group._id)
+	  @group.group_members << @group_member
+		if !@group.mCode.blank?
+			meetinfo = Meet.where(:mCode => @group.mCode).first
+			@group[:company_title] = meetinfo.mTitle
+			@group[:company_image] = meetinfo.mPicture
+			@group[:company_price] = meetinfo.card_price
+			hostinfo = User.where(:userid => meetinfo.mHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+		end
+	  respond_with @group
+
+	elsif params[:type] == "editGroup"
+
+	  @group = Group.find(params[:gId])
+
+	  Notification.send("group_edit_date", @group.gHost, @group._id,"") if !@group.gDate.blank? and @group.gDate != params[:mDate]
+	  Notification.send("group_confirm_date", @group.gHost, @group._id,"") if @group.gDate.blank? and @group.gDate != params[:mDate]
+	  Notification.send("group_edit_title", @group.gHost, @group._id,"") if @group.gTitle != params[:gTitle]
+
+	  @group.gTitle = params[:gTitle]
+	  @group.gDate = params[:mDate]
+	  @group.mCode = params[:mCode]
+	  @group.save
+	  @group[:group_member] = GroupMember.where(:group_id => params[:gId]).count
+	  GroupTalk.push("","","edit",params[:gId])
+		if !@group.mCode.blank?
+			meetinfo = Meet.where(:mCode => @group.mCode).first
+			@group[:company_title] = meetinfo.mTitle
+			@group[:company_image] = meetinfo.mPicture
+			@group[:company_price] = meetinfo.card_price
+			hostinfo = User.where(:userid => meetinfo.mHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+		end
+	  respond_with @group
+
+	elsif params[:type] == "getInfo"
+	  @group = Group.find(params[:gId])
+	  @group[:group_member] = GroupMember.where(:group_id => params[:gId]).count
+		if !@group.mCode.blank?
+			meetinfo = Meet.where(:mCode => @group.mCode).first
+			@group[:company_title] = meetinfo.mTitle
+			@group[:company_image] = meetinfo.mPicture
+			@group[:company_price] = meetinfo.card_price
+			hostinfo = User.where(:userid => meetinfo.mHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+		end
+	  respond_with @group
+
+	elsif params[:type] == "addMember"
+      @group = Group.find(params[:gid])
+	  if GroupMember.where(:group_id => params[:gid]).count <10
+		  @group_member = GroupMember.addMember(params[:mUserid], params[:gid])
+		  @userinfo = User.where(:userid => params[:mUserid]).first
+
+
+		  @group_talk_enter = GroupTalk.sendTalk("enter",params[:message], @userinfo,params[:gid],1)
+		  @group.group_members << @group_member
+		  @group.group_talks << @group_talk_enter
+		  @group_member.group_talks << @group_talk_enter
+
+		  @group_talk = GroupTalk.sendTalk("msg",params[:message], @userinfo,params[:gid],0)
+		  @group.group_talks << @group_talk
+		  @group_member.group_talks << @group_talk
+     	  
+		  @group.gPartices = @group.gPartices+1
+		  @group.save
+		if !@group.mCode.blank?
+			meetinfo = Meet.where(:mCode => @group.mCode).first
+			@group[:company_title] = meetinfo.mTitle
+			@group[:company_image] = meetinfo.mPicture
+			@group[:company_price] = meetinfo.card_price
+			hostinfo = User.where(:userid => meetinfo.mHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+		end
+		  respond_with @group
+
+	  else
+		render :json =>  {:result => "faild"}
+      end
+
+	elsif params[:type] == "getRecommend"
+      @groupall = where(:gDate => params[:mDate], :gCategory =>params[:category]) unless params[:mDate].blank?
+	  @groupall = Group.where(:gCategory =>params[:category]) unless @group
+	  
+	  @group = nil
+      @groupall.each do |g|
+      	if GroupMember.where(:group_id =>g._id).count <10
+      		@group = g
+      		break
+      	end
+      end
+	  
+	  if @group	
+		  @group_member = GroupMember.addMember(params[:mUserid], @group._id)
+		  @userinfo = User.where(:userid => params[:mUserid]).first
+
+		  @group_talk_enter = GroupTalk.sendTalk("enter",params[:message], @userinfo,params[:gid],1)
+		  @group.group_members << @group_member
+		  @group.group_talks << @group_talk_enter
+		  @group_member.group_talks << @group_talk_enter
+
+		  @group_talk = GroupTalk.sendTalk("msg",params[:message], @userinfo,params[:gid],0)
+		  @group.group_talks << @group_talk
+		  @group_member.group_talks << @group_talk
+		  
+		  @group.gPartices = @group.gPartices+1
+		  @group.save
+		if !@group.mCode.blank?
+			meetinfo = Meet.where(:mCode => @group.mCode).first
+			@group[:company_title] = meetinfo.mTitle
+			@group[:company_image] = meetinfo.mPicture
+			@group[:company_price] = meetinfo.card_price
+			hostinfo = User.where(:userid => meetinfo.mHost).first
+			@group[:host_name] = hostinfo.name
+			@group[:host_picture] = hostinfo.picture
+			@group[:host_link] = hostinfo.link
+			@group[:host_members] = hostinfo.members
+		end
+		  respond_with @group
+	  else
+		  render :json =>  {:result => "faild"}
+	  end
+
+
+	elsif params[:type] == "cancel"
+		@group_member = GroupMember.where(:mUserid => params[:mUserid],:group_id => params[:groupId]).first
+
+	    if @group_member
+			@userinfo = User.where(:userid => params[:mUserid]).first
+			@group = Group.find(params[:groupId])
+			if @group.gHost == params[:mUserid]
+				@newhost = GroupMember.where(:group_id => params[:groupId]).second
+				if @newhost
+					@group.gHost = @newhost.mUserid
+					@group.save
+				else
+					@group.destroy
+				end
+			end
+			@group_talk_leave = GroupTalk.sendTalk("leave",params[:message], @userinfo,params[:groupId],1)
+			@group.group_talks << @group_talk_leave if @group
+			@group_member.group_talks << @group_talk_leave
+			
+			
+		  if @group.gPartices-1== 0
+			  @group.destroy
+		  else
+			  @group.gPartices = @group.gPartices-1
+			  @group.save
+		  end
+		end
+		@group_member.destroy
+		render :json => {:result => true}
+	end
+  end
+
+end

@@ -1,0 +1,135 @@
+<% if flash[:update_txt] %>
+<script type="text/javascript">
+$(function(){
+alertView("<%=flash[:update_txt]%>");
+});
+</script>
+<% end %>
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="userMenu">
+			<a class="hUserMenu set" href="/user/edit">프로필 수정</a>
+			<a class="hUserMenu" href="/user/edit/category">관심사 변경</a>
+			<a class="hUserMenu" href="/user/edit/password">비밀번호 변경</a>
+			<a class="hUserMenu" href="/user/edit/sns">SNS 연동</a>
+			<a class="hUserMenu" href="/user/edit/notification">알림 설정</a>
+		</div>
+	</div>
+	<div class="signinTitle">
+		<div class="signDivider"></div>
+	</div>
+	<div class="sHoofuluser">
+		<div class="wrap">
+			<div id="cUseredit">
+				<%= form_tag( "/user/edit", :method => "post", :multipart => true, :id=>'hUserEdit', :class => 'form-horizontal') do |f| %>
+					<fieldset class="signupForm">
+						<%= hidden_field_tag :updateType, "info" %>
+						<%= hidden_field_tag :provider, @user[:provider] %>
+						<%= hidden_field_tag :fuid, @user[:fuid] %>
+						<%= hidden_field_tag :tuid, @user[:tuid] %>
+						<%= hidden_field_tag :fbauth, @user[:fbauth] %>
+						<%= hidden_field_tag :tauth, @user[:tauth] %>
+						<%= hidden_field_tag :tsecret, @user[:tsecret] %>
+						<%= hidden_field_tag :local, @user[:local] %>
+						<%= hidden_field_tag :job, @user[:job] %>
+						<%= hidden_field_tag :userpicCopy, @user[:picture] %>
+						<%= hidden_field_tag :userpic,@user[:userpic] %>
+						<%= hidden_field_tag :userpicname,@user[:userpicname] %>
+						<%= hidden_field_tag :mPicturename,@user[:coverpic] %>
+						<%= hidden_field_tag :certpic,nil %>
+						<%= hidden_field_tag :certpicname,@user[:certpic] %>
+						<%= hidden_field_tag :authresult, (@user.phone_auth.to_i == 1) ? "success" : nil %>
+						<%= hidden_field_tag :authresultn, @user.phone.to_s %>
+						<div class="userid">
+							<div class="csTitle">이메일</div>
+							<%= text_field_tag :userid, @user[:userid], :class=>'input', :readonly => true %>
+						</div>
+						<div class="name">
+							<div class="csTitle">이름</div>
+							<%= text_field_tag :name, @user[:name], :class=>'input', :placeholder => '이름을 입력해 주세요.' %>
+						</div>
+						<div class="phone">
+							<div class="csTitle">소속</div>
+							<div class="category btn-group">
+							  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><%=@user[:job]%><span class="caret"></span></a>
+							  <ul class="dropdown-menu">
+								<li class="job">직장인</li>
+								<li class="job">학생</li>
+								<li class="job">자유인</li>
+							  </ul>
+							</div><br />
+							<div class="csTitle"></div>
+							<%= text_field_tag :members, @user[:members], :class=>'input', :placeholder => '소속을 입력해 주세요.' %>
+						</div>
+						<div class="phone">
+							<div class="csTitle"></div>
+							<div class="picture2" path="certificatioin">
+								<img src="<%=(@user[:certpic] != "" ? "#{S3ADDR}certificatioin/#{@user[:certpic]}" : "#{S3ADDR}hooful/edit_image.png" )%>" />
+								<% if @user[:certpic]!= ""%><span class="picture2 change" path="certificatioin"><%=link_to '재인증','/user/edit/certification'%></span><%else%><span class="picture2 change" path="certificatioin"><%=link_to '소속인증하기','/user/edit/certification'%></span><%end%>
+							</div>
+						</div>
+						<div class="phone">
+							<div class="csTitle">거주지역</div>
+							<%= text_field_tag :local, @user[:local], :class=>'input', :placeholder => '거주지를 입력해 주세요.' %>
+						</div>
+						<div class="phone">
+							<div class="csTitle">휴대전화</div>
+							<%= text_field_tag :phone, @user[:phone], :class=>'input', :placeholder => '휴대폰 번호를 입력해 주세요.' %>
+							<div id="btnAuthsend" class="btnAuthsend">인증번호 전송</div>
+							<div class="authmsg">
+							<% if @user.phone_auth == 1 %>
+								<span class="success">
+								<%=@user.phone.to_s%> 로 인증되어있습니다.
+								</span>
+							<% else %>
+								<span class="error">
+								인증되어 있는 핸드폰이 없습니다.
+								</span>
+							<% end %>
+							</div>
+						</div>
+						<div class="phone authcode">
+							<div class="csTitle">인증번호 확인</div>
+							<%= text_field_tag :authcode, nil, :class=>'input', :placeholder => '인증번호를 입력해 주세요.', :maxlength=>"6" %>
+							<div id="btnAuthcheck" class="btn">인증번호 확인</div>
+							<div class="authmsg">인증번호 유효시간은 5분입니다.</div>
+						</div>
+						<div class="sex">
+							<div class="csTitle">성별</div>
+							<input type="hidden" name="userSex" value="<%=(@user[:sex].to_i == 1 ?"1":"0")%>" id="userSex"/>
+							<div class="checkbox<%=(@user[:sex].to_i == 1 ?" active":"")%>" target = "userSex" value="1">남자</div>
+							<div class="checkbox<%=(@user[:sex].to_i == 0 ?" active":"")%>" target = "userSex" value="0">여자</div>
+						</div>
+						<div class="phone">
+							<div class="csTitle">프로필 이미지</div>
+							<div class="picture profile" path="userpic">
+								<img src="<%=(@user[:picture] != "" ? "#{@user[:picture]}" : "#{S3ADDR}hooful/edit_image.png" )%>" />
+								<% if @user[:picture]!= ""%><span class="picture change" path="userpic">사진변경</span><%end%>
+							</div>
+							<div id="userpicMenu">
+								<%=raw @userpic %>
+							</div>
+						</div>
+						<div class="phone">
+							<div class="csTitle">커버 이미지</div>
+							<div class="picture" path="coverpic">
+								<img src="<%=(@user[:coverpic] != "" ? "#{S3ADDR}coverpic/#{@user[:coverpic]}" : "#{S3ADDR}hooful/edit_image.png" )%>" />
+								<% if @user[:coverpic]!= ""%><span class="picture change" path="coverpic">사진변경</span><%end%>
+							</div>
+						</div>
+						<div class="phone">
+							<div class="csTitle">소개</div>
+							<div class="detail">
+								<%= text_area_tag :comment, @user[:comment], :class => 'comment redactor'%>
+							</div>
+						</div>
+					</fieldset>
+
+
+				<%= submit_tag '저장하기',:id=>'btnSave' , :class=>'btnSave' %>
+				<%end%>
+
+			</div>
+		</div>
+	</div>
+</div>

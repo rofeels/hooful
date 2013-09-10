@@ -1,0 +1,14 @@
+.hoo-plugin button {background:transparent;border:0;margin:0;padding:0;}
+.hoo-plugin .liketxt {position:relative;height:34px;}
+.hoo-plugin .likecount {position:relative;min-width:80px;max-width:100px;height:34px;}
+.hoo-plugin .hoo-count-left {position:absolute;top:0;left:0;width:16px;height:34px;background:url('http://cdn.hooful.com/hooful/bg_hoolikeleft.png') 0 0 no-repeat;border:0;padding:0;margin:0;}
+.hoo-plugin .hoo-count-right {position:absolute;top:0;right:0;width:16px;height:34px;background:url('http://cdn.hooful.com/hooful/bg_hoolikeright.png') 0 0 no-repeat;border:0;padding:0;margin:0;}
+.hoo-plugin .hoo-like {display:inline-block;cursor:pointer;}
+.hoo-plugin .hoo-count-txt {display:inline-block;height:34px;margin:0 8px 0 16px;text-indent:20px;line-height:34px;font-size:13px;color:#58595b;}
+.hoo-plugin .hoo-count-heart {position:absolute;top:0;left:18px;width:14px;height:34px;margin:0;background:url('http://cdn.hooful.com/hooful/bg_hoolikeheart.png') 0 0 no-repeat;}
+
+i.hoo-btn {display:block;width:57px;height:44px;background:url('http://cdn.hooful.com/newhooful/btn_hoolike.png') 0 0 no-repeat;border:0;padding:0;margin:0;}
+i.hoo-btn.hoo-like {background-position:0 0;}
+i.hoo-btn.hoo-liked, i.hoo-btn.hoo-like.set  {background-position:0 -132px;}
+i.hoo-btn.hoo-like:hover {background-position:0 -44px;}
+i.hoo-btn.hoo-like:active {background-position:0 -88px;}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>후풀 - Work hard, Play hard</title>
+  <link rel="shortcut icon" href="<%=S3ADDR%>newhooful/favicon.ico">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%if session[:user_id]%>
+  <script>var userid = "<%=session[:user_id]%>"</script>
+  <%= javascript_include_tag "http://www.hooful.com:6530/socket.io/socket.io.js" %>
+  <% end %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <meta charset="UTF-8">
+  <meta name="Robots" content="index.follow" />
+  <meta name="Robots" content="index.nofollow" />
+  <meta name="Title" content="후풀(Hooful)" />
+  <meta name="Description" content="후풀(Hooful) :: 나를 위한 즐거운 활동" />
+  <meta name="Keywords" content="후풀, Hooful, Actable, SNS, 활동, 모임, 관심사" />
+  <%@og = og%>
+  <meta property="og:title" content="<%=@og[:title]%>"/>
+  <meta property="og:site_name" content="<%=@og[:site_name]%>"/>
+  <meta property="og:description" content="<%=@og[:description]%>"/>
+  <meta property="og:image" content="<%=@og[:image]%>"/>
+  <!--<meta name="viewport" content="width=1280px, height=1698px">-->
+</head>
+<body>
+  <header>
+	<div class="wrap">
+		<h1 id="hLogo"><a href="/home" title="Hooful"></a></h1>
+		<div id="hMenu">
+			<a class="hMenu" href="/support" title="이용안내">이용안내</a>
+		</div>
+		<div id="hMenuUser">
+			<div id="hSearchIcon" class="dhMenu">
+				<span class="icon"></span>
+				  <div id="hSearchBar" class="headertail">
+					<div class="searchBar">
+						<div class="hSearchIcon"></div>
+						<%= form_tag( "/search", :method => "post", :id=>'hSearchfrm', :class=>'input-append') do |f| %>
+							<%= text_field_tag :mSearch, params[:mSearch] ? params[:mSearch] : nil, :placeholder => 'search'%>
+						<% end %>
+					</div>
+				  </div>
+			</div>
+			<%  if session[:user_id]  
+				@sUser = User.info(session[:user_id])%>
+				<div id="hUserNav" >
+					<div class="hsUser">
+						<a href="/user">
+							<img src="<%=@sUser[:picture]%>" title="" class="profile"/>
+							<span class="name"><%=@sUser[:name]%></span>
+						</a>
+						<span class="arrow"></span>
+					</div>
+					<ul class="dropdown">
+					    <a href="/user/edit" title="계정설정"><li>계정설정</li></a>
+					    <a href="/signout" title="로그아웃"><li>로그아웃</li></a>
+					</ul>
+				</div>
+				<div id="hNotice" class="dhMenu ">
+					<a class="hMenua" href="/notification" title="알림리스트">알림리스트</a>
+					<span class="icon">
+						<div class="icon">
+							<div class="unchecked"></div>
+						</div>
+					</span>
+					<div id="hNoticeWrap">
+						<!--<img src="http://d3o755op057jl1.cloudfront.net/images/notification_top.png">-->
+						<div id="hNoticeList">
+						</div>
+						<!--<img src="http://d3o755op057jl1.cloudfront.net/images/notification_btm.png">	-->
+					</div>
+				</div>
+				<div id="hTicket" class="dhMenu">
+					<a class="hMenua" href="/user/ticket" title="티켓리스트">티켓리스트</a>
+					<span class="icon"></span>
+					<% if myTicketList.count == 0 %>
+					<ul class="dropdown">
+					    <li class="none">현재 티켓이 없어요.</li>
+					</ul>
+					<% else%>
+					<div class="ticketlist">
+						<table class="tTable">
+							<thead>
+								<tr>
+									<th>티켓명</th>
+									<th class="quantity">수량</th>
+									<th class="date">유효기간</th>
+								</tr>
+							</thead>
+							<tbody>
+							<%myTicketList.each do |ticket|%>
+								<tr>
+									<td>
+										<a href="/user/ticket/<%=ticket[:_id]%>">
+											<img src="http://cdn.hooful.com/meetpic/thumb/<%=ticket[:uMeet][:mPicture]%>" alt="" />
+											<span class="title"><%=ticket[:uMeet][:mTitle]%></span>
+											<%=ticket[:tName]%>
+										</a>
+									</td>
+									<td class="quantity"><%=ticket[:tQuantity]%></td>
+									<td class="date"><%=ticket[:uMeet][:mDateE].to_s.split(' ')[0]%></td>
+								</tr>
+							<%end%>
+							</tbody>
+						</table>
+					</div>
+					<%end%>
+				</div>
+			<% else %>
+				<div id="hLogin">
+					<a class="hMenu" href="/signin" title="로그인">로그인</a>
+					<a class="hMenu nomargin" href="/signup" title="회원가입">회원가입</a>
+				</div>
+			<% end %>
+		</div>
+	</div>
+  </header>
+  
+<div id="hContainer" class="<%=@bg%>">
+	<div class="hSupport">
+		<ul class="nav">
+			<li><a href="/support" <%="class=set" if params[:action]=="index"%>>hooful</a></li>
+			<li class="divider">|</li>
+			<li><a href="/support/instructions" <%="class=set" if params[:action]=="instructions"%>>이용안내</a></li>
+			<li class="divider">|</li>
+			<li><a href="/support/notice" <%="class=set" if params[:action]=="notice"%>>후풀소식</a></li>
+			<li class="divider">|</li>
+			<li><a href="/support/hooful" <%="class=set" if params[:action]=="hooful"%>>고객지원</a></li>
+			<!--<li class="divider">|</li>
+			<li><a href="/support/partner" <%="class=set" if params[:action]=="partner"%>>제휴문의</a></li>-->
+			<!-- <li class="divider">|</li>
+			<li><a href="/support/privacy" <%="class=set" if params[:action]=="privacy"%>>개인정보 취급방침</a></li>
+			<li><a href="/support/terms" <%="class=set" if params[:action]=="terms"%>>이용약관</a></li>-->
+		</ul>
+	</div>
+  <%= yield %>
+</div>
+</body>
+</html>

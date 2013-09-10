@@ -1,0 +1,13 @@
+<div class="wrap">
+	<div class="hManageUser">
+		<div class="hmuHeader">
+			<div class="hdmParticipants State allstate set">전체예약</div>
+			<div class="hdmParticipants State2">대기중(<span class="snum2">0</span>)</div>
+			<div class="hdmWaittings State3">불가(<span class="snum3">0</span>)</div>
+			<div class="hdmWaittings State4">변경(<span class="snum4">0</span>)</div>
+			<div class="hdmWaittings State5">승인(<span class="snum5">0</span>)</div>
+			<div class="hdmWaittings Use">사용(<span class="snum10">0</span>)</div>
+		</div>
+	</div>
+	<div class="hTicket"><div class="rTicketBox empty">티켓을 검색중입니다.</div></div>
+</div>

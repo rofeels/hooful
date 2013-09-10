@@ -1,0 +1,26 @@
+<div class="wrap">
+	<div class="hManageUser report">
+		<div class="hmuHeader">
+			<div class="hdmFileR"></div>
+			<div class="hdmActivity set">활동</div>
+			<div class="hdmBar">|</div>
+			<div class="hdmPerson">인원</div>
+			<div class="hdmBar">|</div>
+			<div class="hdmTicket">티켓</div>
+			<div class="hdmSearch"><input type="text" name="" id="" /></div>
+			<div class="hdmFunction">
+				<a href="">
+					<div class="hExcel">
+						<span>excel</span>
+				</div>
+				</a>
+				<a href="">
+					<div class="hPrint">
+						<span>print</span>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="reportResult"></div>
+</div>

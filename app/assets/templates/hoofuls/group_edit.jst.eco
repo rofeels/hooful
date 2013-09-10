@@ -1,0 +1,39 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>그룹정보수정</h3>
+</div>
+<div class="modal-body">
+	<h4>그룹을 만들어 레저를 즐겨보세요. 함께 출발 날짜와 장소를 정하신 후 즐기시는 건 어떨가요?</h4>
+	<dl class="title">
+		<dt>그룹제목: </dt>
+		<dd>
+			<input id="groupName" name="groupName" value="<%=@title%>" type="text">
+		</dd>
+	</dl>
+	<dl class="date">
+		<dt>출발하고 싶은 날짜 정하기</dt>
+		<dd id="groupCalendar" target="particeDate">
+			<input id="particeDate" name="particeDate" type="hidden" value="<%=@date%>" count=1>
+		</dd>
+			<div class="selectDateLater">나중에 지정</div>
+	</dl>
+
+	<dl>
+		<dt>업체 정하기</dt>
+		<dd id="groupCompany">
+			<span>참여하고 싶은 업체를 선택해 주세요. 업체는 나중에 지정할 수 있답니다.</span>
+			<div class="btn-group">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					업체를 선택해 주세요.
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+				</ul>
+			</div>
+			<input id="selectCompany" name="selectCompany" type="hidden" value="<%=@mcode%>" >
+		</dd>
+	</dl>
+	 <div class="btn_next complete" data-toggle="modal" data-target="#groupModal" id="editComplete">수정</div>
+<div id="modalResponse" data-dismiss="modal" aria-hidden="true">완료확인</div>
+
+</div>

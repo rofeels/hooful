@@ -1,0 +1,41 @@
+<div id="hContainer">
+	<div id="hReview">
+		<h2>활동 후기</h2>
+		<ul class="rmenu">
+			<li class="recent">최신 활동 후기</li>
+			<li class="selected">주최자 선정 후기</li>
+		</ul>
+	<%@review.each do |review|
+		writer = User.info(review.mWriter)
+		 if review.mTitle
+			title = review.mTitle 
+		else
+			title = raw review.mReview.gsub(%r{</?[^>]+?>}, '')
+		end
+		%>
+		<div class="review">
+			<ul class="status">
+				<li class="date"><%=time_ago_in_words(review.created_at)%> ago</li>
+				<li class="file"><span class="icon"></span></li>
+				<li class="reply"><span class="icon"></span></li>
+				<li class="like"><span class="icon"></span></li>
+			</ul>
+			<div class="profile">
+				<a href='/user/<%=writer.userid%>'>
+					<div class='thumbnail' onfocus='blur();'>
+						<img src='<%=writer.picture%>' title='<%=writer.name%>'/>
+					</div>
+					<span class="name tEllipsis"><%=writer.name%></span>
+				</a>
+			</div>
+			<div class="title tEllipsis">
+				<%=title%>
+			</div>
+			<div class="summary">
+			<%=raw review.mReview.gsub(%r{</?[^>]+?>}, '')[0..170] %>...  <span class="more">more</span>
+			</div>
+		</div>
+	<% end%>
+	<div class="btn big blue">후기작성</div>
+	</div>
+</div>

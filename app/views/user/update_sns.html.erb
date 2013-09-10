@@ -1,0 +1,55 @@
+<% if flash[:update_txt] %>
+<script type="text/javascript">
+$(function(){
+alertView("<%=flash[:update_txt]%>");
+});
+</script>
+<% end %>
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="userMenu">
+			<a class="hUserMenu" href="/user/edit">프로필 수정</a>
+			<a class="hUserMenu" href="/user/edit/category">관심사 변경</a>
+			<a class="hUserMenu" href="/user/edit/password">비밀번호 변경</a>
+			<a class="hUserMenu set" href="/user/edit/sns">SNS 연동</a>
+			<a class="hUserMenu" href="/user/edit/notification">알림 설정</a>
+		</div>
+	</div>
+	<div class="signinTitle">
+		<div class="signDivider"></div>
+	</div>
+	<div class="sHoofuluser">
+		<div class="wrap">
+			<div id="cUseredit">
+				<%= form_tag( "/user/edit", :method => "post", :multipart => true, :id=>'hUserSns', :class => 'form-horizontal') do |f| %>
+					<fieldset class="signupForm">
+						<%= hidden_field_tag :updateType, "sns" %>
+						<%= hidden_field_tag :userid, @user[:userid] %>
+						<%= hidden_field_tag :provider, @user[:provider] %>
+						<%= hidden_field_tag :fuid, @user[:fuid] %>
+						<%= hidden_field_tag :tuid, @user[:tuid] %>
+						<%= hidden_field_tag :fbauth, @user[:fbauth] %>
+						<%= hidden_field_tag :tauth, @user[:tauth] %>
+						<%= hidden_field_tag :tsecret, @user[:tsecret] %>
+						<%= hidden_field_tag :local, @user[:local] %>
+						<%= hidden_field_tag :userpic,@user[:provider] %>
+						<%= hidden_field_tag :userpicname,'' %>
+						<div class="editline large">
+							<div class="csTitle large"><div class="flatFacebook"></div>페이스북</div>
+							<%= check_box_tag :sns_facebook, true, ((@user[:fuid] != "" and !@user[:fuid].nil?) ? true : false), :class => 'cfacebook switch'+((@user[:fuid] != "" and !@user[:fuid].nil?) ? " drop" : " connect") %>	
+						</div>
+						<div class="editline large">
+							<div class="csTitle large"><div class="flatTwitter"></div>트위터</div>
+							<%= check_box_tag :sns_twitter, true, ((@user[:tuid] != "" and !@user[:tuid].nil?) ? true : false), :class => 'ctwitter switch'+((@user[:tuid] != "" and !@user[:tuid].nil?) ? " drop" : " connect") %>	
+						</div>
+					</fieldset>
+					
+				<div class="h50"></div>
+
+				<%= submit_tag '저장하기', :id=>'btnSave' , :class=>'btnSave' %>
+				<%end%>
+
+			</div>
+		</div>
+	</div>
+</div>

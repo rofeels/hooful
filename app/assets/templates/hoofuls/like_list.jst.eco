@@ -1,0 +1,15 @@
+<% for likelist in @likelists.models: %>
+
+	<div class="profile">
+		<a href="/user/<%=likelist.get('link')%>">
+			<img src="<%=likelist.get('picture')%>" title="<%=likelist.get('name')%>" class="thumbnail">
+		</a>
+		<div class="tooltip fade top in">
+			<div class="tooltip-arrow" style="left: 100%;"></div>
+			<div class="tooltip-inner">							
+				<span class="name"><%=likelist.get('name')%></span>
+				<span class="members"><%=likelist.get('members')%></span>
+			</div>
+		</div>
+	</div>
+<% end %>

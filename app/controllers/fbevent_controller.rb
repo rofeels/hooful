@@ -1,0 +1,2 @@
+class FbeventController < ApplicationController
+end

@@ -1,0 +1,38 @@
+<div class="wrap">
+	<h2>예약하기</h2>
+	<h2 class="complete"><%=@ticket.get('uHost').name%>님의 예약신청이 완료되었습니다.</h2>
+	<dl>
+		<dt>예약정보</dt>
+		<dd>
+			<div class="hSectionArea complete">
+				<dl>
+					<dt>휴대전화</dt>
+					<dd><%=@ticket.get('uHost').phone%></dd>
+				</dl>
+				<dl>
+					<dt>추가정보</dt>
+					<dd><%=@ticket.get('tReserveText')%></dd>
+				</dl>
+				<dl>
+					<dt>예약일</dt>
+					<dd><%=@ticket.get('tReserveDate').split(",")[0]%></dd>
+				</dl>
+				<dl>
+					<dt>예약시간</dt>
+					<dd>
+						<%if parseInt(@ticket.get('tReserveTime').split(".")[0]) > 12:%>PM <%=parseInt(@ticket.get('tReserveTime').split(".")[0])-12%><%else:%>AM <%=parseInt(@ticket.get('tReserveTime').split(".")[0])%><%end%>:<%if @ticket.get('tReserveTime').split(".")[1] is "5":%>30<%else:%>00<%end%></dd>
+				</dl>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dt>유의사항</dt>
+		<dd class="inform">
+* 예약에 변동사항이 있을 경우 ‘예약변경’을 통해 변동사항을 알려주세요. (예약변경은 티켓 페이지에서 가능합니다.) <br/>
+* 신청하신 예약일에 예약이 불가할 경우 예약이 승인되지 않으며 다른 날짜에 다시 예약을 신청해야 합니다.<br/>
+* 활동 당일 업주에게 예약자 정보, 티켓 코드와 함께 후풀을 통해 예약했다는 사실을 전달해 주세요.<br/>
+		
+		</dd>
+	</dl>
+	<a href="/user/ticket" class="btnNext btn_reservation step3">다음</a>
+</div>

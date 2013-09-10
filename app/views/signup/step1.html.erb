@@ -1,0 +1,111 @@
+<div class="bgzipcode"></div>
+<div class="popzipcode">
+	<div class="title">주소 검색하기</div>
+	<div class="area">
+		<div class="content">
+			<div class="subtitle">'동'명으로 주소를 검색해 주세요.</div>
+			<div class="input">
+			<%= text_field_tag :dong, nil, :placeholder => '동입력', :holder => '동입력', :class => 'hInput' %>
+			</div>
+			<div id="btnZipcode" class="btn">검색</div>
+			<div class="zipcodeResult"></div>
+		</div>
+	</div>
+	<div class="closebtn">닫기</div>
+</div>
+<div class="wrap">
+	<div id="hContainer">
+		<h1 id="hLogo"><a href="/" title="Hooful"></a></h1>
+		<div id="hStep" class="step1"></div>
+		<div id="cSignup">
+			<div class="snsSignin">
+				<%= link_to "페이스북 정보 불러오기", "/auth/facebook", :class=>'signup btnFacebook'%>
+				페이스북 정보를 통해 편하게 가입이 가능합니다.
+			</div>
+			<div class="signinTitle">
+				<div class="signDivider"></div>
+				<span>or</span>
+				<div class="signDivider"></div>
+			</div>
+			<%= form_tag( "/signup/step1", :method => "post", :multipart => true, :id=>'hSigupfrm', :class => 'form-horizontal') do |f| %>
+				<fieldset class="signupForm">
+					<%= hidden_field_tag :provider, @userinfo[:provider] %>
+					<%= hidden_field_tag :fuid, @userinfo[:fuid] %>
+					<%= hidden_field_tag :tuid, @userinfo[:tuid] %>
+					<%= hidden_field_tag :fbauth, @userinfo[:fbauth] %>
+					<%= hidden_field_tag :tauth, @userinfo[:tauth] %>
+					<%= hidden_field_tag :tsecret, @userinfo[:tsecret] %>
+					<%= hidden_field_tag :local, @userinfo[:local] %>
+					<%= hidden_field_tag :userpic,@userinfo[:provider] %>
+					<%= hidden_field_tag :userpicname,@userinfo[:userpicname] %>
+					<%= hidden_field_tag :authresult, nil %>
+					<%= hidden_field_tag :authresultn, nil %>
+					<div class="picture profile" path="userpic">
+						<%= image_tag(@userinfo[:userpicname], :size => "200x200", :alt => @userinfo[:name])%>
+					</div>
+					<div class="input-title">이메일</div>
+					<div class="input">
+						<div class="control-group">
+							<div class="iconsign userid"></div>
+							<%= text_field_tag :userid, @userinfo[:userid], :placeholder => '이메일', :holder => '이메일', :class => 'hInput' %>
+						</div>
+					</div>
+					<div class="input-title">비밀번호</div>
+					<div class="input">
+						<div class="control-group">
+							<div class="iconsign password"></div>
+							<%= password_field_tag :password, nil, :placeholder => '비밀번호', :holder => '비밀번호', :class => 'hInput' %>
+						</div>
+					</div>
+					<div class="input-title">이름</div>
+					<div class="input">
+						<div class="control-group">
+							<div class="iconsign name"></div>
+							<%= text_field_tag :name, @userinfo[:name], :placeholder => '이름', :holder => '이름', :class => 'hInput' %>
+						</div>
+					</div>
+					<div class="input-title">지역</div>
+					<div class="input">
+						<div class="control-group">
+							<div class="iconsign phone"></div>
+							<%= text_field_tag :local, nil, :placeholder => '지역', :holder => '지역', :class => 'hInput', :readonly => true %>
+						</div>
+					</div>
+					<div class="sex">
+						<div class="control-group">
+							<input type="hidden" name="userSex" value="" id="userSex"/>
+							<div class="checkbox" target = "userSex" value="1">남</div>
+							<div class="checkbox" target = "userSex" value="0">여</div>
+						</div>
+					</div>
+					<div class="input-title">휴대전화</div>
+					<div class="input small">
+						<div class="control-group">
+							<div class="iconsign phone"></div>
+							<%= text_field_tag :phone, nil, :placeholder => '휴대전화', :holder => '휴대전화', :class => 'hInput' %>
+							<div id="btnAuthsend" class="btn">인증하기</div>
+							<div class="authmsg"></div>
+						</div>
+					</div>
+					<div class="input-title authcode">인증번호</div>
+					<div class="input small authcode">
+						<div class="control-group">
+							<div class="iconsign phone"></div>
+							<%= text_field_tag :authcode, nil, :class=>'input', :placeholder => '인증번호', :class => 'hInput', :maxlength=>"6" %>
+							<div id="btnAuthcheck" class="btn">인증완료</div>
+							<div class="authmsg">인증번호 유효시간은 5분입니다.</div>
+						</div>
+					</div>
+				</fieldset>
+			<div class="agree">
+				<div class="control-group">
+				<div class="agreetxt">회원가입 진행 시 <a href="/support/terms" target="_blank">이용약관</a> 및 <a href="/support/privacy" target="_blank">개인정보 취급방침</a>에 동의하게 됩니다.</div>
+
+				</div>
+			</div>
+			<%= submit_tag '다음', :type=>'button',:id=>'btnSignup' , :class=>'hbtn next' %>
+			<%end%>
+
+		</div>
+	</div>
+</div>

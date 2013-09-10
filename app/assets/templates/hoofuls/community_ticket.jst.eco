@@ -1,0 +1,18 @@
+<% if @tickets.models.length > 0: %>
+<% for tickets in @tickets.models: %>
+<tr class="tlink" code="<%=tickets.get('mCode')%>">
+	<td></td>
+	<td class="ctr line">상품권</td>
+	<td class="ctr line"><%=tickets.get('mPlace')%></td>
+	<td class="ctr line"><%=tickets.get('tName')%></td>
+	<td class="ctr line"><%=tickets.get('tPricetxt')%>원</td>
+	<td></td>
+</tr>
+<% end %>
+<% else: %>
+<tr class="colspan">
+	<td></td>
+	<td class="ctr line" colspan="4">아직 만들어진 티켓이 없습니다.</td>
+	<td></td>
+</tr>
+<% end %>

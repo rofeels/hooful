@@ -1,0 +1,15 @@
+<div class="bgzipcode"></div>
+<div class="popzipcode">
+	<div class="title">주소 검색하기</div>
+	<div class="area">
+		<div class="content">
+			<div class="subtitle">'동'명으로 주소를 검색해 주세요.</div>
+			<div class="input">
+			<input class="hInput" holder="동입력" id="dong" name="dong" placeholder="동입력" type="text">
+			</div>
+			<div id="btnZipcode" class="btn">검색</div>
+			<div class="zipcodeResult"></div>
+		</div>
+	</div>
+	<div class="closebtn">닫기</div>
+</div>

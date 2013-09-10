@@ -1,0 +1,9 @@
+<%totno = @services.models.length%>
+<% for service in @services.models: %>
+<tr sid="<%=service.get('_id')%>">
+	<td class="ctr"><%=totno--%></td>
+	<td class="title"><%=service.get('title')%></td>
+	<td class="ctr"><%=service.get('answerTime')%></td>
+	<td class="ctr"><%=service.get('stime')%></td>
+</tr>
+<% end %>

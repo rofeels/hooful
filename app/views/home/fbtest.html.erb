@@ -1,0 +1,121 @@
+<html>
+<head></head>
+<body>
+<div id="fb-root"></div>
+<script>
+var fuid = '';
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '377174299028545', // App ID
+		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		xfbml      : true  // parse XFBML
+	});
+};
+
+// Load the SDK asynchronously
+(function(d){
+	var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement('script'); js.id = id; js.async = true;
+	js.src = "//connect.facebook.net/ko_KR/all.js";
+	ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+function testAPI() {
+	console.log('Welcome!  Fetching your information.... ');
+	FB.api('/me', function(response) {
+		console.log('Good to see you, ' + response.name + '.');
+	});
+}
+function fb_login(){
+	FB.login(function(response) {
+		if (response.authResponse) {
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me', function(response) {
+				console.log('Good to see you, ' + response.name + '., ' + response.id);
+			});
+		} else {
+			console.log('User cancelled login or did not fully authorize.');
+		}
+	});
+}
+function fb_feed(){
+	var obj = {
+	  method: 'feed',
+	  redirect_uri: 'http://www.hooful.com',
+	  link: 'https://developers.facebook.com/docs/reference/dialogs/',
+	  picture: 'http://fbrell.com/f8.jpg',
+	  name: 'Facebook Dialogs',
+	  caption: 'Reference Documentation',
+	  description: 'Using Dialogs to interact with people.'
+	};
+	function callback(response) {
+		if(response){
+			$.ajax({
+				url:"/api/fbevent.json",
+				method:"get",
+				dataType:"json",
+				async:false,
+				data:"type=100&userid=test&fuid="+fuid+"&feed_id="+response.post_id,
+				beforeSend:function(xhr){
+					xhr.setRequestHeader("Accept","text/html");
+					xhr.setRequestHeader("X-CSRF-Token",$('meta[name="csrf-token"]').attr("content"));
+				},
+				success:function(data){
+				}
+			});
+		}else{
+			console.log('feed_cancle');
+		}
+	}
+	FB.ui(obj, callback);
+	FB.api('/me', function(response) {
+		fuid = response.id;
+	});
+}
+function fb_request(){
+	var obj = {
+	  method: 'apprequests',
+	  title: 'Hooful 친구초대 이벤트',
+	  message: 'My Great Request'
+	};
+	function callback(response) {
+		if(response){
+			$.ajax({
+				url:"/api/fbevent.json",
+				method:"get",
+				dataType:"json",
+				async:false,
+				data:"type=200&userid=test&fuid="+fuid+"&friends="+response.to,
+				beforeSend:function(xhr){
+					xhr.setRequestHeader("Accept","text/html");
+					xhr.setRequestHeader("X-CSRF-Token",$('meta[name="csrf-token"]').attr("content"));
+				},
+				success:function(data){
+				}
+			});
+		}else{
+			console.log('request_cancle');
+		}
+	}
+
+	FB.api('/me', function(response) {
+		FB.ui(obj, callback);
+		fuid = response.id;
+	});
+}
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+  present a graphical Login button that triggers the FB.login() function when clicked.
+
+  Learn more about options for the login button plugin:
+  /docs/reference/plugins/login/ -->
+<input type="button" value="로그인" onclick="fb_login()" />
+<input type="button" value="담벼락" onclick="fb_feed()" />
+<input type="button" value="친구초대" onclick="fb_request()" />
+<fb:login-button show-faces="true" width="200" max-rows="2"></fb:login-button>
+</body>
+</html>

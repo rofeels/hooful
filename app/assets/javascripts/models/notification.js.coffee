@@ -1,0 +1,1 @@
+class Hooful.Models.Notifications extends Backbone.Model

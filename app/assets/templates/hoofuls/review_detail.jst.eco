@@ -1,0 +1,38 @@
+
+<div class="company hgCard" code="<%=@review_detail.get('meet')%>" host="<%=@review_detail.get('meethost')%>">
+	<a href='/<%=@company%>'><div class='picture' style='background-image:url("http://d3o755op057jl1.cloudfront.net/meetpic/thumb/<%=@review_detail.get('meetpicture')%>")'></div></a>
+	<div class='hInfo'>
+		<h3 class='title tEllipsis'><a href='/<%=@review_detail.get('meet')%>'><%=@review_detail.get('meettitle')%></a></h3>
+		<div class='price'>가격:&nbsp;<%=@review_detail.get('meetprice')%></div>
+	</div>
+
+	<div class='profile'>
+		<a href='/user/<%=@review_detail.get('host_link')%>' target="_blank">
+			<img src="<%=@review_detail.get('host_picture')%>" title="<%=@review_detail.get('host_name')%>"  class="thumbnail"/>
+			<span class="name tEllipsis"><%=@review_detail.get('host_name')%></span>
+			<span class="comment"><%=@review_detail.get('host_members')%></span>
+		</a>
+	</div>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<div class="modal-body">
+	<div class="title"><%=@review_detail.get('title')%></div>
+	<div class="top">
+		
+		<div class="profile">
+			<a href='/user/<%=@review_detail.get('userid')%>'>
+				<div class='thumbnail' onfocus='blur();'>
+					<img src='<%=@review_detail.get('picture')%>' title='<%=@review_detail.get('name')%>'/>
+				</div>
+			</a>
+		</div>
+		<div class="name tEllipsis"><%=@review_detail.get('name')%></div>
+		<div class="url"><a href="http://www.hooful.com/r/<%=@review_detail.get('rcode')%>">www.hooful.com/r/<%=@review_detail.get('rcode')%></a></div>
+		<div class="date"><%=@review_detail.get('created_at')%></div>
+	</div>
+	<div class="description">
+		<%-@review_detail.get('review')%>
+	</div>
+</div>
+<div class="modal-footer">
+</div>

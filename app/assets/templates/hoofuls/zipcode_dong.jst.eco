@@ -1,0 +1,7 @@
+<%if @zipcode.length > 0:%>
+<% for zipcode in @zipcode: %>
+<li><%=zipcode.get('sido')%>&nbsp;<%=zipcode.get('sigungu')%>&nbsp;<%=zipcode.get('eupmyeondong')%></li>
+<% end %>
+<% else: %>
+<li class="none">검색결과가 없습니다.</li>
+<% end %>

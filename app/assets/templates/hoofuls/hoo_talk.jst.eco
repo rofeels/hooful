@@ -1,0 +1,20 @@
+<% for talk in @talks.models: %>
+	<% if talk.get('prev'): %>
+		<div class="more">더 보기 &#9660;</div>
+	<% else: %>
+	<div class="talks" tid="<%=talk.get('tid')%>">
+		<div class="profile">
+			<a href='/user/<%=talk.get('link')%>' target="_blank" >
+				<div class='thumbnail' onfocus='blur();'>
+					<img src='<%=talk.get('picture')%>' title='<%=talk.get('name')%>'/>
+				</div>
+			</a>
+		</div>
+		<div class="uname"><%=talk.get('name')%></div>
+		<div class="msg">
+			<%=talk.get('mMsg')%>
+		</div>
+		<div class="date"><span class="date"><%=talk.get('created_at')%></span></div>
+	</div>
+	<% end %>
+<% end %>

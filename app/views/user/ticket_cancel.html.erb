@@ -1,0 +1,54 @@
+<div id="hContainer" class="gray">
+	<% @ticket.each do |tmeet| %>
+	<div class="wrap">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<ul class="nav">
+			  <li class="active"><a href="/user/ticket">내 티켓</a></li>
+			  <li><a href="/user/order">티켓 구매 내역</a></li>
+			</ul>
+		  </div>
+		</div>
+		<div class="dtTitle">아래의 티켓의 예약을 취소 합니다.</div>
+		<div class="bgDt">
+			<div class="rTicketArea">
+				<div class="hPrintTicket">
+					<div class="title"><%=tmeet["uMeet"]["mTitle"]%></div>
+					<div class="description"><span class="ttitle"><%=tmeet["tName"]%></span><%=tmeet["tDescription"]%></div>
+					<div class="sdate"><%=tmeet["uMeet"]["sMonth"]%>.<%=tmeet["uMeet"]["sDay"]%></div>
+					<div class="address"><%=tmeet["uMeet"]["mAddress"]%></div>
+					<div class="code"><%=tmeet["t"]%></div>
+					<%if tmeet["tState"]==10 then%><div class="usestamp"></div><%end%>
+				</div>
+			</div>
+		</div>
+		<table class="dTable">
+			<caption>예약 취소 안내</caption>
+			<tbody>
+				<tr>
+					<th>예약취소</th>
+					<td colspan="3">본 티켓에 대한 예약일, 예약시간이 초기화가 되며, 자동으로 업체에게 예약취소 연락이 가게됩니다.</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="dtTitle small">상위 내용을 확인하신 후 아래의 버튼을 누르시면 취소신청이 완료됩니다.</div>
+		<%= form_tag( "/user/ticket/cancel", :method => "post", :id=>'hTicketCancel', :class => 'form-horizontal') do |f| %>
+			<fieldset class="signupForm">
+				<%= hidden_field_tag :tsId, params[:tid] %>
+				<%= hidden_field_tag :tCode, tmeet["tCode"] %>
+				<%= hidden_field_tag :tName, tmeet["tName"] %>
+				<%= hidden_field_tag :tPrice, tmeet["tPrice"] %>
+				<%= hidden_field_tag :tQuantity, tmeet["tQuantity"] %>
+				<%= hidden_field_tag :mCode, tmeet["mCode"] %>
+				<%= hidden_field_tag :mUserid, tmeet["mUserid"] %>
+				<%= hidden_field_tag :tId, tmeet["tId"] %>
+				<%= hidden_field_tag :tDescription, tmeet["tDescription"] %>
+				<%= hidden_field_tag :tDesignated, tmeet["tDesignated"] %>
+				<%= submit_tag '취소하기',:id=>'btnSave' , :class=>'btn' %>
+			</fieldset>
+		<%end%>
+		<%=link_to "돌아가기", "/user/ticket/"+tmeet["_id"].to_s, :class => "btnBackpageG margin"%>
+		<div class="h50"></div>
+	</div>
+	<%end%>
+</div>

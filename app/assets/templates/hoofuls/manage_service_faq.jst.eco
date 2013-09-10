@@ -1,0 +1,32 @@
+<div class="wrap">
+	<div class="hmsHeader">
+		서비스에 대한 제안사항이나 궁금한 사항 등을 자유롭게 문의 해 주세요.<br />
+		CS관련 워딩..
+	</div>
+	<ul class="hmsMenu">
+		<li class="service">고객센터</li>
+		<li>자주묻는질문</li>
+	</ul>
+	<div class="hmsRight">
+		<table class="dTable">
+			<tbody>
+				<tr>
+					<th>패러글라이딩은 진짜 비행기에서 뛰나요?</th>
+				</tr>
+				<tr>
+					<td>
+					그럼 어디서 뛰나요? 알아맞춰 보세요.
+					</td>
+				</tr>
+				<tr>
+					<th>고소공포증이 있는데, 혼자 뛰나요?</th>
+				</tr>
+				<tr>
+					<td>
+					강사와 함께 2인용 상품을 선택하시면 됩니다.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

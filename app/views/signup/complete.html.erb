@@ -1,0 +1,51 @@
+<div class="tHeader">
+	<div class="wrap"><h1 class="logo"></h1></div>
+</div>
+<div class="wrap slides">
+		<ul>
+			<li>
+				<img src="<%=@user.picture%>" title="" class="profile"/>
+				<div class="wording"><%=@user.name%>님 안녕하세요!<br/>후풀에 오신것을 환영합니다.<br/>지금부터 후풀에 대해 간략히 설명해 드릴게요.</div>
+				<div class="sliderbtn"></div>
+				<div class="sliderbullet">
+					<div class="bullet active"></div><div class="bullet"></div><div class="bullet"></div><div class="bullet"></div><div class="bullet"></div>
+				</div>
+				<div class="sliderbtn slider-next"></div>
+			</li>
+			<li>
+				<img src="http://cdn.hooful.com/newhooful/tutorial_product.png" />
+
+				<div class="wording">레저 스포츠를 저렴한 가격에 구매하시고 예약하실 수 있습니다.</div>
+				<div class="wording small">들뜬 마음을 안고 멀리멀리 찾아갔더니 기다린 시간만 5시간.<br/>많이 힘드셨죠? <br />이제 후풀과 함께 레저 스포츠를 저렴게 구매하고 편하게 예약해 보세요!</div>
+				<div class="sliderbtn slider-prev"></div>
+				<div class="sliderbullet">
+					<div class="bullet"></div><div class="bullet active"></div><div class="bullet"></div><div class="bullet"></div>
+				</div>
+				<div class="sliderbtn slider-next"></div>
+
+			</li>
+			<li>
+				<img src="http://cdn.hooful.com/newhooful/tutorial_groupchat.png" />
+
+				<div class="wording">다른 사람들과 함께 레저를 즐기실 수 있습니다.</div>
+				<div class="wording small">레저를 하고싶은데 함께 할 친구를 찾는것도 일이였죠?<br/>이제 걱정 마세요!<br/>후풀에서 함께 레저를 즐겨보고 싶은 분들과 그룹을 결성할 수 있고,<br />사전에 미리 대화를 하여 함께 계획을 짤 수 있답니다. </div>
+				<div class="sliderbtn slider-prev"></div>
+				<div class="sliderbullet">
+					<div class="bullet"></div><div class="bullet"></div><div class="bullet active"></div><div class="bullet"></div>
+				</div>
+				<div class="sliderbtn slider-next"></div>
+			</li>
+			<li>
+				<img src="http://cdn.hooful.com/newhooful/tutorial_mylog.png" />
+
+				<div class="wording">나의 경험을 기록하고 사람들과 소통할 수 있습니다.</div>
+				<div class="wording small">내가 경험한 레저를 예쁜 티켓으로 모아 볼 수 있어요.<br/>또한 함께 한 분들과 멋진 경험에 대해 이야기 할 수도 있습니다.</div>
+				<div class="sliderbtn slider-prev"></div>
+				<div class="sliderbullet">
+					<div class="bullet"></div><div class="bullet"></div><div class="bullet"></div><div class="bullet active"></div>
+				</div>
+				<div class="sliderbtn"><%flash[:tutorial]='1'%><%=link_to '','/home',:tutorial=>'1'%></div>
+			</li>
+	<div style="clear:both;"></div>
+		</ul/>
+</div>

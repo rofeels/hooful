@@ -1,0 +1,31 @@
+<% if @sales.models.length > 0: %>
+<% sPrice = 0 %>
+<% sTax = 0 %>
+<% hTax = 0 %>
+<% fPrice = 0 %>
+<% for sales in @sales.models: %><tr>
+	<td class="ctr"><%=sales.get('saleTicket')%></td>
+	<td class="ctr"><%=sales.get('uHost').name%></td>
+	<td class="ctr">수단</td>
+	<td class="ctr"><%=sales.get('sPrice').toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+	<td class="ctr"><%=sales.get('sTax').toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+	<td class="ctr"><%=sales.get('hTax').toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+	<td class="ctr"><%=sales.get('fPrice').toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+</tr>		
+<% sPrice += sales.get('sPrice') %>
+<% sTax += sales.get('sTax') %>
+<% hTax += sales.get('hTax') %>
+<% fPrice += sales.get('fPrice') %>
+<% end %>
+<tr>
+  <td class="ctr sum" colspan="3">합계</td>
+  <td class="ctr sum"><%=sPrice.toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+  <td class="ctr sum"><%=sTax.toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+  <td class="ctr sum"><%=hTax.toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+  <td class="ctr sum"><%=fPrice.toString().replace /\B(?=(\d{3})+(?!\d))/g, ","%></td>
+</tr>
+<% else: %>
+<tr>
+  <td colspan="8" class="ctr">팔린 티켓이 없어요.</td>
+</tr>
+<% end %>

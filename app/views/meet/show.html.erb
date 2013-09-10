@@ -1,0 +1,64 @@
+<div id="hContainer" class="gray">
+	<div id="manageMeet">
+		<div class="wrap">
+			<div class="btn-group">
+			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				<span class="mmTitle">전체 활동</span>
+				<span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu"></ul>
+			</div>
+			<ul class="meetview"></ul>
+			<span class="viewTitle">활동보기:</span>
+		</div>
+	</div>
+	<div class="hManage" mCode="" mHost="<%=session[:user_id]%>">
+		<div class="mWithdraw">
+			<div class="wCount">
+				<dl>
+					<dt>누적 총 판매량</dt>
+					<dd><%=@mwith[:accSales]%>&nbsp;건</dd>
+				 </dl>
+				<dl>
+					<dt>누적 사용량</dt>
+					<dd><%=@mwith[:accUse]%>&nbsp;건</dd>
+				 </dl>
+			</div>	
+			<div class="wPrice">
+				<dl>
+					<dt>누적 매출</dt>
+					<dd><%=@mwith[:accSalesPrice]%>&nbsp;원</dd>
+				 </dl>
+				<dl>
+					<dt>출금 완료</dt>
+					<dd><%=@mwith[:accRefundEnd]%>&nbsp;원</dd>
+				 </dl>
+				<dl>
+					<dt>출금 중</dt>
+					<dd><%=@mwith[:accRefunding]%>&nbsp;원</dd>
+				 </dl>
+				<dl class="available">
+					<dt>출금 가능</dt>
+					<dd><%=@mwith[:accRefund]%>&nbsp;원</dd>
+				 </dl>
+				<%if @mwith[:accRefund].to_i>0%><a href="/meet/manage/withdraw" class="btnWithdraw">출금신청</a><%end%>
+				<div class="toQuestion">
+					<a class="btnQuestion">문의하기</a>
+					<span>(궁금하신 사항이 있나요? 후풀에게 문의해 주세요!)</span>
+				</div>
+			</div>	
+		</div>
+		<div id="hManageMenu">
+			<ul class="wrap">
+				<li class="current ulink" type="code">코드입력</li>
+				<li class="ulink" type="reserved">예약관리</li>
+				<li class="ulink" type="service">고객센터</li>
+				<!--<li class="ulink" type="person">인원관리</li>-->
+				<li class="ulink" type="ticket">티켓관리</li>
+				<li class="ulink" type="money">정산관리</li>
+				<!--<li class="ulink" type="report">보고서</li>-->
+			</ul/>
+		</div>
+	</div>
+	<div class="hManageDetail">로딩중..</div>
+</div>

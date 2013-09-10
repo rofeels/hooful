@@ -1,0 +1,20 @@
+<div id="hContainer" class="mypage">
+	<%= render :partial => 'userinfo', :object => @user%>
+	<div class="wrap" id="hMypage">
+		<dl id="uGroup">
+			<!--<dt><i class="grouptalk"></i> 이야기중인 그룹<span class="number">()</span></dt>-->
+			<!--<dd class="friends">
+				<span class="title">함께 아는 친구 · 0</span>
+				<span class="box"></span>
+			</dd>-->
+			<dd class="group" id="groupList">
+				<span class="title">이벤트</span>
+				<span class="box"></span>
+			</dd>
+		</dl>
+		<dl id="uGuestbook">
+			<!--<dt><i class="guestbook"></i> 방명록<span class="number">()</span></dt>-->
+			<dd></dd>
+		</dl>
+	</div>
+</div>

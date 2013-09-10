@@ -1,0 +1,35 @@
+
+<% for guestbook in @guestbooks.models: %>
+	<% if guestbook.get('prev'): %>
+		<div class="more">더보기</div>
+	<% else: %>
+		<div class="guestbook_each <%="right" if guestbook.get('userid') is $('#hUserinfo').attr('userid')%>" gid="<%=guestbook.get('gid')%>">
+			<div class="profile">
+				<a href='/user/<%=guestbook.get('link')%>'>
+					<div class='thumbnail' onfocus='blur();'>
+						<img src='<%=guestbook.get('picture')%>' title='<%=guestbook.get('name')%>'/>
+					</div>
+				</a>
+			</div>
+			<div class="date"><%=guestbook.get('created_at')%></div>
+			<div class="msg">
+				<div class="name tEllipsis"><%=guestbook.get('name')%></div>
+				<div class="meet"><a href="/<%=guestbook.get('mCode')%>" target="_blank"><%=guestbook.get('mTitle')%></a></div>
+				<div class="cat"><a href="/c/<%=guestbook.get('mCategory')%>" target="_blank"><%=guestbook.get('mCatName')%></a></div>
+				<div class="cmt"><%=guestbook.get('gMsg')%></div>
+			</div>
+			<!--<div class="comment">
+				<div class="profile">
+					<a href='/user/<%=Base64.encode64(@vuserid + '#hUser')%>'>
+						<div class='thumbnail' onfocus='blur();'>
+							<img src='<%=@vpicture%>' title='<%=@vname%>'/>
+						</div>
+					</a>
+				</div>
+				<textarea class="rComment" name="rComment"></textarea>
+				<div class="btnCmt">작성</div>
+			</div>-->
+			<div class="arrow"></div>
+		</div>
+	<% end %>
+<% end %>

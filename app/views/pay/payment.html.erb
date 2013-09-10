@@ -1,0 +1,169 @@
+<div id="hContainer" class="gray">
+	<div id="hPaybg">
+		<h2 class="maintitle none">
+			<span class="tline"></span>
+			<span class="gline"></span>
+			<span class="title">아래의 티켓을 구매합니다.</span>
+		</h2>
+		<div class="hSmallTicket">
+			<div class="title"><%=@ticket["title"]%></div>
+			<div class="description"><%=@ticket["description"]%></div>
+			<div class="code">구매완료시 발급</div>
+		</div>
+	</div>
+	<div class="pDetail">
+		<form accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" id="hPayfrm" method="post">
+		  <input type="hidden" name="payment" id="payment" value="reload" />
+		  <input type="hidden" name="payprice" id="payprice" value="<%=@params[:unitprice]%>" />
+		  <input type="hidden" name="ticketInfo" id="ticketInfo" value="<%=@ticketInfo%>" />
+		  <input type="hidden" name="mPayUse" id="mPayUse" value="<%=@pay[:use]%>" />
+		  <input type="hidden" name="mPaytype" id="mPaytype" value="<%=@params[:mPaytype]%>" />
+		  <input type="hidden" name="mCode" id="mCode" value="<%=@params[:mCode]%>" />
+		  <input type="hidden" name="mTitle" id="mTitle" value="<%=@params[:mTitle]%>" />
+		  <input type="hidden" name="mUserid" id="mUserid" value="<%=session[:user_id]%>" />
+		  <input type="hidden" name="mDate" id="mDate" value="<%=@params[:mDate]%>" />
+		  <input type="hidden" name="mTimeS" id="mTimeS" value="<%=@params[:mTimeS]%>" />
+		  <input type="hidden" name="mParticeCheck" id="mParticeCheck" value="<%=@params[:mParticeCheck]%>" />
+		  <dl>
+			<dt>티켓구매정보</dt>
+			<dd>
+				<table summary="티켓 선택" cellpadding="0" cellspacing="0">
+					<caption>티켓 선택</caption>
+					<colgroup>
+						<col width="415px" />
+						<col width="160px" />
+						<col width="135px" />
+						<col width="240px" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>티켓</th>
+							<th>수량</th>
+							<th>티켓 금액</th>
+							<th>결제금액</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @params[:ticket_name].each_with_index do |value, i|
+							  if @params[:ticket_quantity][i] != "0" %>		
+						<tr>
+							<td><%=@params[:ticket_description][i]%></td>
+							<td><%=@params[:ticket_quantity][i]%></td>
+							<td><%=number_to_currency(@params[:ticket_price][i], :locale => :ko)%></td>
+							<td class="payprice"><%=number_to_currency(@params[:ticket_price][i].to_i*@params[:ticket_quantity][i].to_i, :locale => :ko)%></td>
+							<td>
+								<input class="ticket_id" name="ticket_id[]" value="<%=@params[:ticket_id][i]%>" type="hidden" >
+								<input class="ticket_name" name="ticket_name[]" value="<%=@params[:ticket_name][i]%>" type="hidden" >
+								<input class="ticket_price" name="ticket_price[]" value="<%=@params[:ticket_price][i]%>" type="hidden">
+								<input class="ticket_oprice" name="ticket_oprice[]" value="<%=@params[:ticket_oprice][i]%>" type="hidden">
+								<input class="ticket_description" name="ticket_description[]" value="<%=@params[:ticket_description][i]%>" type="hidden">
+							</td>
+						</tr>		
+						<% end
+						end if @params[:ticket_name]%>
+					</tbody>
+				</table>
+			</dd>
+		  </dl>
+		  <dl>
+			<dt>참여신청 정보</dt>
+			<dd>
+				<table class="flat" data-toggle="tooltip" title="참여정보가 맞는지 확인해 주세요">	
+					<tbody>
+						<tr>
+							<th>	휴대전화</th>
+							<td><div class="td_wrap"><input id="phone" name="phone" type="text" value="<%=@user.phone%>"/></div></td>
+						</tr>
+						<tr>
+							<th>생년월일</th>
+							<td><div class="td_wrap"><input id="dob" name="dob" type="text" placeholder="YYYYMMDD" value="<%=@user.dob%>"/></div></td>
+						</tr>
+						<tr>
+							<th>직업(소속)</th>
+							<td><div class="td_wrap"><%= select_tag(:job, options_for_select(["직장인","학생","자유인"], @user.job), :prompt=>'분류' , :style=>"width:85px;") %>
+							<%= text_field_tag :members,@user.members, :maxlength => 25, :class => 'pinput', :placeholder => '소속', :style=>"width:117px;"%>
+
+							</div></td>
+						</tr>
+						<tr>
+							<th>거주지</th>
+							<td><%= text_field_tag :local, @user.local, :placeholder => '거주지', :holder => '거주지', :class => 'hInput', :readonly => true %></td>
+						</tr>
+					</tbody>
+				</table>
+				<span class="inform">입력사항은 개인정보에 자동으로 반영됩니다.</span>
+			</dd>
+		</dl>
+		<% if @pay[:use] == 1 %>
+		  <dl>
+			<dt>결제 수단 선택</dt>
+			<dd>
+				<div class="mPayselect" data-toggle="tooltip" title="결제수단을 선택해 주세요.">
+					<% if @pay[:card] == 1 %>
+						<div class="checkbox active" target = "payMethodType" value="card">카드 결제</div>
+					<% end %>
+					<% if @pay[:phone] == 1 %>
+						<div class="checkbox<% if @pay[:card] != 1 and @pay[:account] != 1 %> active<%end%>" target = "payMethodType" value="801">핸드폰 결제</div>
+					<% end %>
+					<% if @pay[:account] == 1 %>
+						<div class="checkbox<% if @pay[:card] != 1 and @pay[:phone] != 1 %> active<%end%>" target = "payMethodType" value="4">계좌이체</div>
+					<% end %>
+				</div>
+			</dd>
+		</dl>
+		<div id="openPaygate" class="btn_detail">결제</div>
+
+	</form>
+
+	</div>
+	<div id="payBackground" class="modal hide fade">
+		 <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>결제하기</h3>
+		</div>
+		<div id="PGIOscreen" class="modal-body"></div>
+	</div>
+	<form name="PGIOForm" id="hPGfrm">
+	  <input type="hidden" name="mid" value="ndysjo" />
+	  <input type="hidden" name="tid" value="" />
+	  <input id="payMethodType" type="hidden" name="paymethod" value="<% if @pay[:card] != 1 and @pay[:phone] == 1 %>801<%else%>card<%end%>" />
+	  <input type="hidden" name="goodname" value="<%=@params[:mTitle]%>" />
+	  <input type="hidden" name="unitprice" id="payPrice" value="<%=@params[:unitprice]%>" />
+	  <input type="hidden" name="langcode" value="KR" />
+	  <input type="hidden" name="goodcurrency" value="WON" />
+	  <input type="hidden" name="cardquota" value="" />
+	  <input type="hidden" name="cardexpiremonth" />
+	  <input type="hidden" name="cardexpireyear" />
+	  <input type="hidden" name="cardsecretnumber" />
+	  <input type="hidden" name="cardownernumber" />
+	  <input type="hidden" name="cardtype" />
+	  <input type="hidden" name="cardnumber" />
+	  <input type="hidden" name="cardauthcode" />
+	  <input type="hidden" name="socialnumber" value="" />
+	  <input id="rName" type="hidden" name="receipttoname" value="<%=@user.name%>" />
+	  <input id="rEmail" type="hidden" name="receipttoemail" value="<%=session[:user_id]%>" />
+	  <input type="hidden" name="replycode" value="" />
+	  <input type="hidden" name="replyMsg" value="" />
+	  <input type="button" id="callback"/>
+	</form>
+	<script>
+
+		function getPGIOresult() {
+		  return verifyReceived(getPGIOElement("tid"), "callbacksuccess", "callbackfail");
+		}
+		
+		function callbackfail() {
+			alert("paygate system error");
+		}
+		
+		function callbacksuccess() {
+			$("#callback").click()
+		}
+	</script>
+	<%= javascript_include_tag("https://api.paygate.net/ajax/common/OpenPayAPI.js") %>
+<% else %>
+		<div class="blue btn" id="payConfirm">참여확정</div>
+	</form>
+<% end %>
+
+</div>

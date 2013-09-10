@@ -1,0 +1,9 @@
+<div class=spinner>
+  <img src="<%=@picture%>" class="picture"/>
+  <div class=spinner-inner></div>
+  <div class=spinner-mask></div>
+  <div class=spinner-mask-two></div>
+</div>
+
+<div class="play"><%=@userid%>님과 신나게 놀 수 있는 회원님을 찾고있어요.</div>
+<div id="modalResponse" data-dismiss="modal" aria-hidden="true">완료확인</div>

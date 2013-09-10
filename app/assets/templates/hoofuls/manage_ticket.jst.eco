@@ -1,0 +1,87 @@
+<div class="wrap">
+	<ul class="hmStatus">
+		<li>
+			<dl class="hdStatus">
+				<dt>전체매출</dt>
+				<dd><%=@status.models[0].get('total')%><span class="unit">원</span></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="hdStatus">
+				<dt>후풀수수료</dt>
+				<dd><%=@status.models[0].get('sales')%><span class="unit">원</span></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="hdStatus">
+				<dt>수령액</dt>
+				<dd class="money"><%=@status.models[0].get('refund')%><span class="unit">원</span></dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="hManageUser">
+		<div class="hmuHeader">
+			<div class="hdmParticipants">티켓현황</div>
+			<div class="hdmSearch"></div>
+			<div class="hdmFunction alone">
+				<a href="/<%=@mcode%>/edit">
+					<div class="hEdit">
+						<span>edit</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<table class="hTable">
+		<thead>
+			<tr>
+				<th>티켓명</th>
+				<th class="fPrice">요금</th>
+				<th class="fCount">수량</th>
+				<th class="fSales">판매</th>
+				<th class="fRemaining">잔여</th>
+			</tr>
+		</thead>
+		<tbody class="hTicket">
+			<tr>
+				<td class="ctr" colspan="5">티켓정보가 없습니다.</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="hManageUser">
+		<div class="hmuHeader">
+			<div class="hdmParticipants">판매현황</div>
+			<div class="hdmSearch"><input type="text" name="saleSearch" id="saleSearch" /></div>
+			<div class="hdmFunction">
+				<a href="/api/xls_sales.xls?mCode=<%=@mcode%>">
+					<div class="hExcel">
+						<span>excel</span>
+					</div>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="hPrint">
+						<span>print</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<table class="hTable">
+		<thead>
+			<tr>
+				<th>티켓명</th>
+				<th class="fName">구매자</th>
+				<th class="fType">구매수단</th>
+				<th class="fType">구매금액</th>
+				<th class="fMoney">구매 수수료(원)</th>
+				<th class="fMoney">후풀 수수료(원)</th>
+				<th class="fMoney">최종금액(원)</th>
+			</tr>
+		</thead>
+		<tbody class="hSales">
+			<tr>
+				<td class="ctr" colspan="8">팔린 티켓이 없어요.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

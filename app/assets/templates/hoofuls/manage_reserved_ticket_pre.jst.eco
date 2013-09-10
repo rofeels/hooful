@@ -1,0 +1,53 @@
+<% if @ticket.models.length > 0: %>
+<% for tickets in @ticket.models: %>
+<div class="preticket">
+	<img src="<%=tickets.get('uHost').picture%>" alt="<%=tickets.get('uHost').name%>" />
+	<div class="uhost">
+		<strong><%=tickets.get('uHost').name%></strong>
+		<span><%=tickets.get('uHost').phone%></span>
+	</div>
+	<div class="uticket">
+		<strong>티켓: <%=tickets.get('tName')%></strong>
+		<span>예약일: <%=tickets.get('tReserveDate')%>&nbsp;<%if parseInt(tickets.get('tReserveTime').split(".")[0]) > 12:%>PM <%=parseInt(tickets.get('tReserveTime').split(".")[0])-12%><%else:%>AM <%=parseInt(tickets.get('tReserveTime').split(".")[0])%><%end%>:<%if tickets.get('tReserveTime').split(".")[1] is "5":%>30<%else:%>00<%end%></span>
+	</div>
+	<div class="btnarea">
+		<div class="btnbox">
+		<% if tickets.get('tState') is 2: %>
+			<div class="btnReserveOk btnReserv" code="<%=tickets.get('tCode')%>" state="5">예약승인</div>&nbsp;<div class="btnReserveNo btnReserv" code="<%=tickets.get('tCode')%>" state="3">예약불가</div>
+		<% else if tickets.get('tState') is 3: %>
+			<div class="btnReserveOk btnReserv" code="<%=tickets.get('tCode')%>" state="5">예약승인</div>&nbsp;<div class="btnReserveNo btnReserv" code="<%=tickets.get('tCode')%>" state="3">예약불가</div>
+		<% else if tickets.get('tState') is 4: %>
+			<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="5">변경승인</div>&nbsp;<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="3">변경불가</div>
+		<% end %>
+		</div>
+	</div>
+</div>
+<!--<table class="dTable">
+	<caption>예약번호 : <%=tickets.get('tCode')%> - <%=tickets.get('tState')%></caption>
+	<tbody>
+		<tr>
+			<td><%=tickets.get('uHost').name%></td>
+		</tr>
+		<tr>
+			<td><%=tickets.get('tName')%></td>
+		</tr>
+		<tr>
+			<td><%=tickets.get('tReserveDate')%>&nbsp;<%=tickets.get('tReserveTime')%></td>
+		</tr>
+		<tr>
+			<td>
+			<% if tickets.get('tState') is 2: %>
+				<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="5">예약승인</div>&nbsp;<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="3">예약불가</div>
+			<% else if tickets.get('tState') is 3: %>
+				<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="5">예약승인</div>&nbsp;<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="3">예약불가</div>
+			<% else if tickets.get('tState') is 4: %>
+				<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="5">변경승인</div>&nbsp;<div class="btn btnReserv" code="<%=tickets.get('tCode')%>" state="3">변경불가</div>
+			<% end %>
+			</td>
+		</tr>
+	</tbody>
+</table>-->
+<% end %>
+<% else: %>
+예약정보가 없습니다.
+<% end %>

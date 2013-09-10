@@ -1,0 +1,40 @@
+<% @limit = $("#" + @target_val).attr "limit" %>
+<% @valid = $("#" + @target_val).attr "valid" %>
+<% @value = $("#"+ @target_val).val() %>
+  <div class="title">
+  	<i class="left"></i>
+  	<h6><%= @title %></h5>
+  	<i class="right"></i>
+  </div>
+  <ul class="week">
+  	<li>Sun</li>
+  	<li>Mon</li>
+  	<li>Tue</li>
+  	<li>Wed</li>
+  	<li>Thu</li>
+  	<li>Fri</li>
+  	<li>Sat</li>
+  </ul>
+  <ul class="contents">
+    <% if @weekday isnt 0: %>
+      <% for i in [@weekday...0]: %>
+    	  <li class="date disabled"><%=@prev_lastday-i+1%></li>
+      <% end %>
+    <% end %>
+    <% for i in [1...@lastday+1]: %>
+        <% date = @year + "-" + ((if parseInt(@month) < 10 then "0" + @month else @month)) + "-" +  ((if parseInt(i) < 10 then "0" + i else i)) %>
+        <% addclass = ""%>
+        <% addclass += "active" if @value isnt "" and @value.indexOf(date+", ") isnt -1%>
+        <% if @valid: %>
+          <% addclass += "disabled limitdate" if @valid.indexOf(date+", ") is -1%>
+        <% else: %>
+          <% addclass += "disabled limitdate" if @limit and Date.parse(date) < Date.parse(@limit) %>
+        <% end %>
+  	<li class="date <%=addclass%>" date="<%= date%>"><%=i%></li>
+    <% end %>
+    <% if @remain isnt 0: %>
+      <% for i in [@remain...7]: %>
+        <li class="date disabled"><%=i-@remain+1%></li>
+      <% end %>
+    <% end %>
+  </ul>

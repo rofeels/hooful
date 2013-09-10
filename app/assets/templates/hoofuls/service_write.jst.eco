@@ -1,0 +1,25 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3>후풀에게 문의하기</h3>
+</div>
+<div class="modal-body">
+	<fieldset>
+		<form accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" id="hReviewfrm" method="post">
+			<input id="hMethod" name="hMethod" type="hidden" value="generate" />
+			<input id="mWriter" name="mWriter" type="hidden" value="<%=$('#mUserid').val()%>" />
+			<input id="mReviewCode" name="mReviewCode" type="hidden" value="" />
+			<dl data-toggle="tooltip" title="참가했던 활동을 선택해 주세요.">
+				<dt>제목</dt>
+				<dd class="title">
+					<input id="mTitle" maxlength="25" name="mTitle" type="text" value="" />
+				</dd>
+				<dd class="detail">
+					<textarea class="redactor" id="mReview" name="mReview"></textarea>
+				</dd>
+			</dl>
+		</form>
+	</fieldset>
+</div>
+<div class="modal-footer">
+<div class="btn grey">완료</div>
+</div>

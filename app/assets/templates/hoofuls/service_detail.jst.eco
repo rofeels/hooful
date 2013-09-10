@@ -1,0 +1,19 @@
+<div class="modal-body">
+	<div class="profile">
+		<a href='/user/<%=@review_detail.get('userid')%>'>
+			<div class='thumbnail' onfocus='blur();'>
+				<img src='<%=@review_detail.get('picture')%>' title='<%=@review_detail.get('name')%>'/>
+			</div>
+		</a>
+	</div>
+	<div class="top">
+		<div class="name tEllipsis"><%=@review_detail.get('name')%></div>
+		<div class="date"><%=@review_detail.get('stime')%></div>
+		<div class="title"><%=@review_detail.get('title')%></div>
+	</div>
+	<div class="description">
+		<%=@review_detail.get('article')%>
+	</div>
+</div>
+<div class="modal-footer">
+</div>

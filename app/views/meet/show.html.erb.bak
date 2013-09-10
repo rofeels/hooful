@@ -1,0 +1,86 @@
+<div id="hContainer" class="gray">
+	<div id="manageMeet">
+		<div class="wrap">
+		<div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			<span class="mmTitle">전체 활동</span>
+			<span class="caret"></span>
+		  </a>
+		  <ul class="dropdown-menu">
+
+		  </ul>
+		</div>
+		</div>
+	</div>
+	<div class="hManage" mCode="<%=@meet.mCode%>" mHost="<%=@meet.mHost%>">
+		<!--
+		<div class="mInfo">
+			<img class='picture' src='<%=S3ADDR%>meetpic/thumb/<%=@meet.mPicture%>'/>
+			 <h2><%= raw @meet.category_icon%><%=@meet.mTitle%></h2>
+			 <dl class="date">
+				<dt>날짜</dt>
+				<dd><%=@meet.meet_date%></dd>
+			 </dl>
+			 <dl class="people">
+				<dt>인원</dt>
+				<dd><%=@meet.meet_mpeople.html_safe%></dd>
+			 </dl>
+			 <dl class="price">
+				<dt>금액</dt>
+				<dd><%=@meet.meet_price%><%if @meet.mPrice.to_i > 0%><i class="btnWithdraw"></i><% end %></dd>
+			 </dl>
+			 <div class="hFunction">
+				<a href="/<%=@meet.mCode%>/edit">
+				<div class="hfInfo">
+					<span>정보수정</span>
+				</div>
+				</a>
+				<a href="/meet/create">
+				<div class="hfRemake">
+					<span>재개최</span>
+				</div>
+				</a>
+			 </div>
+		</div>
+		-->
+		<div class="mWithdraw">
+			<div class="wCount">
+				<dl>
+					<dt>누적 총 판매량</dt>
+					<dd><%=@mwith[:accSales]%></dd>
+				 </dl>
+				<dl>
+					<dt>누적 사용량</dt>
+					<dd><%=@mwith[:accUse]%></dd>
+				 </dl>
+			</div>	
+			<div class="wPrice">
+				<dl>
+					<dt>누적 매출</dt>
+					<dd><%=@mwith[:accSalesPrice]%></dd>
+				 </dl>
+				<dl>
+					<dt>출금 완료</dt>
+					<dd><%=@mwith[:accRefundEnd]%></dd>
+				 </dl>
+				<dl>
+					<dt>출금 중</dt>
+					<dd><%=@mwith[:accRefunding]%></dd>
+				 </dl>
+				<dl>
+					<dt>출금 가능</dt>
+					<dd><%=@mwith[:accRefund]%></dd>
+				 </dl>
+			</div>	
+		</div>
+		<div id="hManageMenu">
+			<ul class="wrap">
+				<li class="current ulink" type="code">코드입력</li>
+				<li class="ulink" type="person">인원관리</li>
+				<li class="ulink" type="ticket">티켓관리</li>
+				<li class="ulink" type="report">보고서</li>
+			</ul/>
+		</div>
+	</div>
+	<div class="hManageDetail">로딩중..</div>
+</div>

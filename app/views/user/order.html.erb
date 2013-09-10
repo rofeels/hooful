@@ -1,0 +1,64 @@
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<ul class="nav">
+			  <li class="active"><a href="/user/order">티켓 구매 내역</a></li>
+			</ul>
+		  </div>
+		</div>
+		<div class="inform">*&nbsp;티켓은 주문건별로 환불이 가능합니다.</div>
+		<table class="rTable">
+			<colgroup>
+				<col width="17%" />
+				<col width="10%" />
+				<col width="20%" />
+				<col />
+				<col width="10%" />
+				<col width="10%" />
+				<col width="10%" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>주문번호</th>
+					<th>주문일</th>
+					<th>상품</th>
+					<th>티켓</th>
+					<th>수량</th>
+					<th>상태</th>
+					<th>주문금액</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @ticket.count > 0 %>
+				<% @ticket.each do |ticket| %>
+				<% @tinfo = TicketSold.listGroupTicketAll(ticket["mUserid"],ticket["orderId"]) %>
+				<tr>
+					<td class="title" rowspan="<%=@tinfo.count%>"><a href="/user/order/<%=ticket["orderId"]%>"><%=ticket["orderId"]%></a></td>
+					<td class="title" rowspan="<%=@tinfo.count%>"><%=ticket["created_at"]%></td>
+					<td class="title" rowspan="<%=@tinfo.count%>"><%=@tinfo[0]["uMeet"]["mTitle"]%></td>
+					<td class="tname"><%=@tinfo[0]["tName"]%></td>
+					<td class="date"><%=@tinfo[0]["tCount"]%></td>
+					<td class="time"><%=ticketState(ticket["sales"][0]["tState"])%></td>
+					<td class="state" rowspan="<%=@tinfo.count%>"><% if ticket["tEvent"].to_i > 0 %>이벤트<%else%><%=number_to_currency(ticket["payinfo"]["unitprice"], :separator => ",", :format => "%n%u")%><%end%></td>
+				</tr>
+				<% if @tinfo.count.to_i > 0%>
+				<% @tinfo.each_with_index do |tinfo, index| %>
+				<% next if index == 0%>
+				<tr>
+					<td class="tname"><%=tinfo["tName"]%></td>
+					<td class="date"><%=tinfo["tCount"]%></td>
+					<td class="time"><%=ticketState(tinfo["tState"])%></td>
+				</tr>
+				<%end%>
+				<%end%>
+				<%end%>
+			<%else%>
+				<tr class="noresult">
+					<td colspan="5">구매한 티켓이 없습니다.</td>
+				</tr>
+			<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>

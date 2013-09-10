@@ -1,0 +1,17 @@
+<div class="comment_list">
+</div>
+<% if typeof userid is "string" and userid isnt "":%>
+<div class="comment_write">
+	<div class="profile">
+		<a href='/user/<%=@userid%>'>
+			<div class='thumbnail' onfocus='blur();'>
+				<img src='<%=@picture%>' title='<%=@name%>'/>
+			</div>
+		</a>
+	</div>
+	<div class="name tEllipsis"><%=@name%></div>
+	<textarea class="redactor" id="mComment" name="mComment"></textarea>
+	<div class="btn grey">확인</div>
+</div>
+<%end%>
+<input id="rCode" name="rCode" type="hidden" value="<%=@rCode%>">

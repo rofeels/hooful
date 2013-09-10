@@ -1,0 +1,71 @@
+<div class="wrap">
+	<ul class="hmStatus">
+		<li>
+			<dl class="hdStatus">
+				<dt>참여자</dt>
+				<dd><%=@status.models[0].get('partice')%></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="hdStatus">
+				<dt>대기자</dt>
+				<dd><%=@status.models[0].get('waitting')%></dd>
+			</dl>
+		</li>
+		<li>
+			<dl class="hdStatus">
+				<dt>출석률</dt>
+				<dd><%=@status.models[0].get('check')%>%</dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="hManageUser">
+		<div class="hmuHeader">
+			<div class="hdmFile"></div>
+			<div class="hdmParticipants set">참여자 명단</div>
+			<!--<div class="hdmBar">|</div>
+			<div class="hdmWaittings">대기자 명단</div>-->
+			<div class="hdmSearch"><input type="text" name="meetSearch" id="meetSearch" /></div>
+			<div class="hdmFunction">
+				<a href="/api/xls_participants.xls?mCode=<%=@mcode%>">
+					<div class="hExcel">
+						<span>excel</span>
+					</div>
+				</a>
+				<a href="javascript:void(0);">
+					<div class="hPrint">
+						<span>print</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<table class="hTable" id="hTable">
+		<thead>
+			<tr>
+				<th class="fAll"><i class="btnAll" /></th>
+				<th class="fName">이름<i class="hManage iArrowdown set" order="name"></i></th>
+				<th class="fSex">성별<i class="hManage iArrowdown" order="sex"></i></th>
+				<th class="fAge">연령<i class="hManage iArrowdown" order="age"></i></th>
+				<th class="fGroup">소속<i class="hManage iArrowdown" order="group"></i></th>
+				<th class="fLocal">지역<i class="hManage iArrowdown" order="local"></i></th>
+				<th class="fPhone">연락처<i class="hManage iArrowdown" order="phone"></i></th>
+				<th class="fTicket">티켓<i class="hManage iArrowdown" order="ticket"></i></th>
+				<th class="fCheck">사용<i class="hManage iArrowup" order="check"></i></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody class="hPerson">
+			<tr>
+				<td class="ctr" colspan="10">아무도 없습니다.</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="hSidecontrol">
+		<i class="hManage list iChecked"></i>
+		<i class="hManage list iChange"></i>
+		<i class="hManage list iPhone"></i>
+		<i class="hManage list iEmail"></i>
+		<i class="hManage list iRemove"></i>
+	</div>
+</div>

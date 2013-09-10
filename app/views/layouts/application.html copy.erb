@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>후풀(Hooful) - 나를 위한 즐거운 활동</title>
+  <link rel="shortcut icon" href="<%=S3ADDR%>images/favicon.ico">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta charset="UTF-8">
+  <meta name="Robots" content="index.follow" />
+  <meta name="Robots" content="index.nofollow" />
+  <meta name="Title" content="후풀(Hooful)" />
+  <meta name="Description" content="후풀(Hooful) :: 나를 위한 즐거운 활동" />
+  <meta name="Keywords" content="후풀, Hooful, Actable, SNS, 활동, 모임, 관심사" />
+  <%@og = og%>
+  <meta property="og:title" content="<%=@og[:title]%>"/>
+  <meta property="og:site_name" content="<%=@og[:site_name]%>"/>
+  <meta property="og:description" content="<%=@og[:description]%>"/>
+  <meta property="og:image" content="<%=@og[:image]%>"/>
+  <meta name="viewport" content="width=1280px, height=1698px">
+</head>
+<body>
+  <header>
+	<div class="wrap">
+		<!--
+		<div id="hSearch">
+			<div class="nav"><a href="">후풀가이드</a>|<a href="">고객지원</a></div>
+			<%= form_tag( "/search", :method => "post", :id=>'hSearchfrm', :class=>'input-append') do |f| %>
+				<%= text_field_tag :mSearch, params[:mSearch] ? params[:mSearch] : nil%><span class="add-on"><img src="<%=S3ADDR%>images/header_top_search.png" alt="search"/></span>
+			<% end %>
+		</div>
+		<h1 id="hLogo"><a href="/"><img src="<%=S3ADDR%>hooful/hooful_logo.png" alt="hooful"></a><span class="subtitle">나를 위한 즐거운 활동</span></h1>
+		-->
+		<h1 id="hLogo"><a href="/"><img src="<%=S3ADDR%>hooful/hooful_logo.png" alt="hooful"></a></h1>
+		<div id="hMenu">
+			<% if session[:user] %>
+				<div id="hUserNav" >
+					<a href="/user">
+						<img src="<%=session[:user].picture%>" title="" class="profile"/>
+						<span class="name"><%=session[:user].name%></span>
+					</a>
+					<span class="arrow"></span>
+					<ul class="dropdown">
+					    <li><a href="/user/edit">계정설정</a></li>
+					    <li><a href="/signout">로그아웃</a></li>
+					</ul>
+				</div>
+				<div id="hNotice">
+					<div class="unchecked" >2</div>						
+				</div>
+				<div class="create_meet"><a href="/meet/create"><i class="icon"></i>활동 만들기</a></div>
+			<% else %>
+				<div id="hLogin">
+					<a  href="/signin">로그인</a>|
+					<a  href="/signup">회원가입</a>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
+  </header>
+  <div id="hContainer">
+	<%= yield %>
+
+  </div>
+  <footer>
+	<div class="wrap">
+		<p>© Hooful 경기도 용인시 수지구 신봉1로 112-2 514-1102(신봉동, 신봉마을LG 빌리지 5차) (주)오스퀘어 | 노대영</p>
+		<p>사업자등록번호 : 142-81-50856  |  전화번호 : 070-8232-0653</p>
+		<div class="nav"><a href="">후풀가이드</a>|<a href="">고객지원</a>|<a href="">제휴문의</a></div>
+		<div id="hSimbol"><img src="<%=S3ADDR%>hooful/hooful_simbol.png" alt="hooful"></div>
+		<p>copyright © hooful.com. All Right Reserved.<p>
+	</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="wrap">
+	<div id="hContainer">
+		<h1 id="hLogo"><a href="/" title="Hooful"></a></h1>
+		<div id="hStep" class="step2"></div>
+
+		<%= hidden_field_tag :userid, session[:user_id] %>
+		<%= hidden_field_tag :direction, "/signup/step3" %>
+		<h3 class="interest_title">후풀에서 어떤 경험을 하고 싶으신가요?</h3>
+		<div id="hInterests" class="category">
+				<%= raw @category_intro_icon%>
+		</div>
+		<div class="btnNext hbtn">다음</div>
+	</div>
+	<div class="h50"></div>
+</div>

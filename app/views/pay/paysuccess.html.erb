@@ -1,0 +1,21 @@
+<div id="hContainer" class="gray">
+	<div id="hPaybg">
+		<span>티켓 구매가 성공적으로 완료되었습니다.</span>
+
+	</div>
+	<div class="pTicketArea">
+	<% @tickets.each do |ticket| %>
+		<div class="hSmallTicket">
+			<div class="title"><%=@meet.mTitle%></div>
+			<div class="description"><span class="ttitle"><%=ticket.tName%></span><%=ticket.tDescription%></div>
+			<div class="code"><%=ticket.tCode%></div>
+		</div>
+	<% end%>
+	</div>
+		
+	<div class="hDescription">
+		원하는 날에 티켓을 출력해 가거나 코드를 통해 해당 활동에 <br/>참여할 수 있습니다.
+		발급된 코드를 통해 한 번만 참여가 <br/>가능하니 코드를 잘 관리해 주세요.
+		<a class="btn_blank" href="/c/<%=@category.code%>"><%=@category.name%> 알아보기</a>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="profile">
+	<a href='/user/<%=Base64.encode64(@userid + '#hUser')%>'>
+		<div class='thumbnail' onfocus='blur();'>
+			<img src='<%=@picture%>' title='<%=@name%>'/>
+		</div>
+	</a>
+</div>
+<textarea class="redactor" id="gComment" name="gComment"></textarea>
+<div class="btnPost">작성</div>
+<div class="commonMeet">
+	최근 <%=@hostname%>님과 함께한 활동&nbsp;:&nbsp;
+	<div class="btn-group">
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			<span class="mmTitle">
+				<%if @common.models.length is 0:%>아직 함께한 활동이 없어요!<%else:%>
+				첨부하지 않기<%end%></span>
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<% for meet in @common.models: %>
+				<li code="<%=meet.get('mCode')%>" cat="<%=meet.get('mCategory')%>"><%=meet.get('mTitle')%></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div class="arrow"></div>

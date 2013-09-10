@@ -1,0 +1,34 @@
+<%@visitor = User.info(session[:user_id]) if session[:user_id]%>
+<div id="hUserBox">
+	<div id="hUserinfo" class="cover-image" style="background-image:url('<%=userinfo.coverpicture%>');" userid="<%=userinfo.userid%>" username="<%=userinfo.name%>" <%if session[:user_id]%>visitor_id="<%=session[:user_id] %>" visitor_picture="<%=@visitor.picture %>" visitor_name="<%=@visitor.name %>"<%end%>>
+		<div class="wrap">
+			<% if userinfo.userid == session[:user_id] %><a href="/user/edit"><img src="<%=S3ADDR%>newhooful/cover_change_btn.png" class="cover_edit"/></a><%end%>
+			<div class="hProfile">
+				<img src='<%=userinfo.picture%>' title='<%=userinfo.name%>' class='thumbnail'/>
+				<span class="name tEllipsis"><%=userinfo.name%></span>
+				<span class="members"><span class="myinfo home"></span><%=userinfo.local%><span class="myinfo job"></span><%=userinfo.members%></span>
+			</div>
+			<% if userinfo.userid == session[:user_id] %>
+			<div id="hUserMenu">
+				<div><a href="/user/edit" class="setup"><i></i>설정</a></div>
+				<div class="snslist"><%=raw userinfo.snslist_small %></div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+	<div id="hUserMore">
+		<ul class="wrap">
+			<li id="comment">
+				<span>
+					<%=userinfo.comment%>
+					<i class="icon-pencil"></i>
+				</span>
+				<textarea name="comment_edit"><%=userinfo.comment%></textarea>
+			</li>
+			<li><!--<i class="participate"></i>-->히스토리 <span class="number">(<%=raw userinfo.participate_number %>)</span></li>
+			<li><!--<i class="guestbook"></i>-->방명록 <span class="number">(<%=raw userinfo.guestbook_number %>)</span></li>
+		</ul>
+	</div>
+	<div class="arrow"></div>
+	<div class="userLine"></div>
+</div>

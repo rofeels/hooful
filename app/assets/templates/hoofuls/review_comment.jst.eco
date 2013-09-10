@@ -1,0 +1,19 @@
+
+<% for cmt in @cmts.models: %>
+	<% if cmt.get('prev'): %>
+		<div class="more">더보기</div>
+	<% else: %>
+		<div class="comment_each" rid="<%=cmt.get('rid')%>">
+			<div class="profile">
+				<a href='/user/<%=cmt.get('link')%>'>
+					<div class='thumbnail' onfocus='blur();'>
+						<img src='<%=cmt.get('picture')%>' title='<%=cmt.get('name')%>'/>
+					</div>
+				</a>
+			</div>
+			<div class="name tEllipsis"><%=cmt.get('name')%></div>
+			<div class="date"><%=cmt.get('created_at')%></div>
+			<div class="cmt"><%=cmt.get('rMsg')%></div>
+		</div>
+	<% end %>
+<% end %>

@@ -1,0 +1,42 @@
+<% if flash[:notice] %>
+<div class="alert fade in alert-warning">
+	<%=flash[:notice]%><a class="close" data-dismiss="alert">×</a>
+</div>
+<% end %>
+<div id="hContainer" class="gray none">
+	<div id="memberHeader">
+		<h1 id="hLogo"><a href="/home" title="Hooful"></a></h1>
+	</div>
+	<div class="wrap">
+		<div id="cSign">
+			<div class="snsSignin">
+				<%= link_to "Facebook 계정으로 로그인", "/auth/facebook", :class=>'signin btnFacebook'%>
+				<!--<%= link_to "Twitter 계정으로 로그인", "/auth/twitter", :class=>'signin btnTwitter'%>-->
+			</div>
+			<div></div>
+			<div class="signinTitle">
+				<span>or</span>
+				<div class="signDivider"></div>
+			</div>
+			<fieldset class="signinForm">
+				<%= form_tag( :id=>'hSiginfrm', :class => 'form-horizontal') do %>
+				<%= hidden_field_tag :provider, "hooful" %>
+				<div class="input">
+					<div class="iconsign userid"></div>
+					<%= text_field_tag :userid, nil, :placeholder => '이메일', :holder => '이메일', :class => 'hInput' %>
+				</div>
+				<div class="input">
+					<div class="iconsign password"></div>
+					<%= password_field_tag :password, nil, :placeholder => '비밀번호', :holder => '비밀번호', :class => 'hInput' %>
+				</div>
+				<div class="signinTitle">
+					<div class="signDivider"></div>
+				</div>
+				<%= submit_tag '로그인', :class=>'signin btnSignin' %>
+				<a href="/user/reset_password" class="resetPwd">비밀번호를 잊으셨나요?</a>
+				<%= link_to '회원가입', '/signup', :class=>'goSignup'%>
+				<% end %>
+			</fieldset>
+		</div>
+	</div>
+</div>

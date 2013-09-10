@@ -1,0 +1,18 @@
+<% $('.groupContents .groupTitle .mEdit').remove()%>
+<% for member in @members: %>
+	<li class="profile<%if member.host is 1:%> grouphost<%end%>" uid="<%=member.link.replace /^\s+|\s+$/g, ""%>">
+		<a href="/user/<%=member.link%>" target="_blank">
+			<img src="<%=member.picture%>" title="<%=member.name%>" class="thumbnail"/>
+			<span class="name tEllipsis"><%=member.name%></span>
+			<span class="comment tEllipsis"><%=member.members%></span>
+		</a>
+		<span class="status"><i></i></span>
+	</li>
+	<%if member.host is 1 and member.userid is userid:%>
+		<% $('.groupContents .groupTitle').append('<div class="mEdit">수정</div>')%>
+		<% $('#groupTalk').attr('host', member.userid) %>
+	<% end %>
+	<%if member.host is 1:%>
+		<% $('.groupContents .groupTitle .profile').html('<a href="/user/'+member.link+'" target="_blank"><img src="'+member.picture+'" title="'+member.name+'" class="thumbnail"/></a>')%>
+	<% end %>
+<% end %>

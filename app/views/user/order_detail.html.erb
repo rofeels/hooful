@@ -1,0 +1,166 @@
+<div id="hContainer" class="gray">
+	<div class="wrap">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<ul class="nav">
+			  <li class="active"><a href="/user/order">티켓 구매 내역</a></li>
+			</ul>
+		  </div>
+		</div>
+		<div class="inform">티켓은 주문건별로 환불이 가능합니다.</div>
+		
+		<dl class="gHead">
+			<dt><span>상품정보</span></dt>
+			<dd>
+				<table class="rTable margin">
+					<colgroup>
+						<col width="17%" />
+						<col width="10%" />
+						<col />
+						<col />
+						<col />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>주문번호</th>
+							<th>주문일</th>
+							<th>티켓</th>
+							<th>수량</th>
+							<th>금액</th>
+							<th>상태</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% if @ticket.count > 0 %>
+						<% @ticket.each do |ticket| %>
+						<% @chkState = false if ticket[:tState].to_i > 1 %>
+						<tr>
+							<td class="title"><%=ticket[:orderId]%></td>
+							<td class="title"><%=ticket[:created_at].strftime("%Y-%m-%d")%></td>
+							<td class="tname"><%=ticket[:tName]%></td>
+							<td class="date"><%=ticket[:tQuantity]%></td>
+							<td class="time"><%=number_to_currency(ticket[:tPrice], :separator => ",", :format => "%n%u")%></td>
+							<td class="time"><%=ticketState(ticket[:tState])%></td>
+						</tr>
+						<%end%>
+					<%else%>
+						<tr class="noresult">
+							<td colspan="5">구매한 티켓이 없습니다.</td>
+						</tr>
+					<%end%>
+					</tbody>
+				</table>
+			</dd>
+		</dl>
+	
+		<dl class="gHead">
+			<dt><span>결제정보</span></dt>
+			<dd>
+				<table class="rTable margin">
+					<colgroup>
+						<col width="20%" />
+						<col width="15%" />
+						<col />
+						<col width="10%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>결제일</th>
+							<th>결제방법</th>
+							<th>결제금액</th>
+							<th>비고</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="date"><%=@ticket.last[:created_at].strftime("%Y-%m-%d %H:%M:%S")%></td>
+							<td class="time">
+								<% 
+								if @ticket.last[:tEvent].to_i > 0
+									@type = "이벤트"
+								else
+								case @payinfo[:paymethod].to_s
+									when "card" 
+										@type = "신용카드"
+									when "100" 
+										@type = "신용카드" 
+									when "101" 
+										@type = "신용카드" 
+									when "102" 
+										@type = "신용카드" 
+									when "103" 
+										@type = "신용카드"
+									when "4" 
+										@type = "실시간계좌이체"
+									when "801" 
+										@type = "휴대폰"
+								end
+								end %>
+								<%=@type%>
+							</td>
+							<td class="time"><% if @ticket.last[:tEvent].to_i > 0 %>이벤트<%else%><%=number_to_currency(@payinfo[:unitprice], :separator => ",", :format => "%n%u")%><%end%></td>
+							<td><% if @ticket.last[:tEvent].to_i == 0 %><a href="javascript:void(0);" onclick="receiptPopup('<%=@payinfo[:tid]%>')">매출전표</a><%end%></td>
+						</tr>
+					</tbody>
+				</table>
+			</dd>
+		</dl>
+		
+		
+		<% if true and !@ticket.last[:tEvent].to_i %>
+		<table class="dTable">
+			<caption>환불 취소 안내</caption>
+			<tbody>
+				<tr>
+					<th>결제일</th>
+					<td><%=@payinfo[:created_at].strftime("%Y. %m. %d %H:%M:%S")%></td>
+					<th>취소신청일</th>
+					<td><%=Time.now.strftime("%Y. %m. %d")%></td>
+				</tr>
+				<tr>
+					<th>결제수단</th>
+					<td><% case @payinfo[:paymethod].to_s
+							when "card" 
+								@type = "신용카드"
+							when "100" 
+								@type = "신용카드" 
+							when "101" 
+								@type = "신용카드" 
+							when "102" 
+								@type = "신용카드" 
+							when "103" 
+								@type = "신용카드"
+							when "4" 
+								@type = "실시간계좌이체"
+							when "801" 
+								@type = "휴대폰"
+						end %>
+						<%=@type%></td>
+					<th>주문금액</th>
+					<td><%=number_to_currency(@payinfo[:unitprice], :separator => ",", :format => "%n%u")%></td>
+				</tr>
+				<tr>
+					<th>환불금액</th>
+					<td colspan="3"><%=number_to_currency(@payinfo[:unitprice], :separator => ",", :format => "%n%u")%></td>
+				</tr>
+				<tr>
+					<th>환불일정</th>
+					<td colspan="3">일반적으로는 당사자의 취소처리가 완료된 후 3~6일 후 카드사의 취소가 확인됩니다.<br />예매 취소 시점과 해당 카드사의 환불처리기준에 따라 취소금액의 환급방법과 환급일은 다소 차이가 있을 수 있으며, 예매 취소시 기존에 결제하였던 내역을 취소하며 최초 결제하셨던 동일카드로 취소 시점에 따라 취소 수수료와 배송료를 재승인 합니다.</td>
+				</tr>
+			</tbody>
+		</table>
+		<%= form_tag( "/user/order/"+params[:orderid], :method => "post", :multipart => true, :id=>'hTicketCancel', :class => 'form-horizontal') do |f| %>
+			<fieldset class="signupForm">
+				<%= hidden_field_tag :mUserid, session[:user_id] %>
+				<%= hidden_field_tag :tPrice, @payinfo[:unitprice] %>
+				<%= hidden_field_tag :mCode, @payinfo[:mCode] %>
+				<%= hidden_field_tag :orderid, params[:orderid] %>
+				<%= hidden_field_tag :tid, @payinfo[:tid] %>
+				<%= link_to '돌아가기', '/user/order', :class=>'btnBackpageG'%>
+				<%= submit_tag '취소하기',:id=>'btnSave' , :class=>'btnRefund' %>
+			</fieldset>
+		<%end%>
+		<% end %>
+	</div>
+</div>

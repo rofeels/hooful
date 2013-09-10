@@ -1,0 +1,26 @@
+<% for person in @person.models: %>
+<%if !person.get('count'):%>
+
+<%if person.get('userpic') == "hooful":%>
+	<%userpic=@S3ADDR+"userpic/noimage.png"%>
+<% else if person.get('userpic') == "twitter":%>
+	<%userpic="https://api.twitter.com/1/users/profile_image/"+person.get('tuid')+"?size=original"%>
+<% else if person.get('userpic') == "facebook":%>
+	<%userpic="https://graph.facebook.com/"+person.get('fuid')+"/picture?type=large&return_ssl_resources=1"%>
+<% else: %>
+	<%userpic=@S3ADDR+"userpic/noimage.png"%>
+<% end %>
+<div class='hCard'>
+	<div class='profile'>
+		<a href='/user/<%=Base64.encode64(person.get('userid') + '#hUser')%>' target="_blank">
+			<div class='thumbnail' onfocus='blur();'>
+				<img src='<%=userpic%>' title='<%=person.get('name')%>'/>
+			</div>
+			<span class="name tEllipsis"><%=person.get('name')%></span>
+			<span class="comment"><%=person.get('job')%></span>
+		</a>
+	</div>
+</div>
+
+<% end %>
+<% end %>

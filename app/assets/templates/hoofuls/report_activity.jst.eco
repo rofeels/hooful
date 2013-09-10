@@ -1,0 +1,38 @@
+<ul class="hmStatus report">
+	<li>
+		<dl class="hdStatus">
+			<dt>페이지뷰</dt>
+			<dd><%=@person.models[0].get('pageview')%></dd>
+		</dl>
+	</li>
+	<li>
+		<dl class="hdStatus">
+			<dt>공유</dt>
+			<dd><%=@person.models[0].get('share')%></dd>
+		</dl>
+	</li>
+	<li>
+		<dl class="hdStatus">
+			<dt>hoo</dt>
+			<dd><%=@person.models[0].get('hoo')%></dd>
+		</dl>
+	</li>
+	<li>
+		<dl class="hdStatus">
+			<dt>후톡</dt>
+			<dd><%=@person.models[0].get('talk')%></dd>
+		</dl>
+	</li>
+</ul>
+<div id="activityChart">
+	<ul class="menuChart">
+		<li class="partice"><i></i>참여</li>
+		<li class="pageview"><i></i>페이지뷰</li>
+		<li class="share"><i></i>공유</li>
+		<li class="hooicon"><i></i>hoo</li>
+		<li class="hootalk"><i></i>후톡</li>
+	</ul>
+	<div id="chartWrap">
+		<div id="chart"></div>
+	</div>
+</div>

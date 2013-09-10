@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="popup">
+<head>
+  <title>후풀(Hooful) - 나를 위한 즐거운 활동</title>
+  <link rel="shortcut icon" href="<%=S3ADDR%>newhooful/favicon.ico">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <meta charset="UTF-8">
+  <meta name="Robots" content="index.follow" />
+  <meta name="Robots" content="index.nofollow" />
+  <meta name="Title" content="후풀(Hooful)" />
+  <meta name="Description" content="후풀(Hooful) :: 나를 위한 즐거운 활동" />
+  <meta name="Keywords" content="후풀, Hooful, Actable, SNS, 활동, 모임, 관심사" />
+  <%@og = og%>
+  <meta property="og:title" content="<%=@og[:title]%>"/>
+  <meta property="og:site_name" content="<%=@og[:site_name]%>"/>
+  <meta property="og:description" content="<%=@og[:description]%>"/>
+  <meta property="og:image" content="<%=@og[:image]%>"/>
+</head>
+<%= yield %>
+</html>

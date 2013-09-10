@@ -1,0 +1,31 @@
+<% for review in @reviews.models: %>
+	<% if review.get('next'): %>
+		<div class="next">더 보기 &#9660;</div>
+	<% else if review.get('prev'): %>
+		<!--<div class="prev">&#9668;</div>-->
+	<% else: %>
+		<div class="review" rcode="<%=review.get('rcode')%>">		
+			<div class="profile">
+				<a href='/user/<%=review.get('link')%>' target="_blank">
+					<img src='<%=review.get('picture')%>' title='<%=review.get('name')%>' class='thumbnail'/>
+					<span class="name tEllipsis"><%=review.get('name')%></span>
+				</a>
+				<div class="tooltip fade top in">
+					<div class="tooltip-arrow" style="left: 100%;"></div>
+					<div class="tooltip-inner">							
+						<span class="name"><%=review.get('name')%></span>
+						<span class="members"><%=review.get('members')%></span>
+					</div>
+				</div>
+			</div>
+			<ul class="status">
+				<li class="date"><%=review.get('created_at')%></li>
+				<!--<li class="reply"><span class="icon"></span><%=review.get('reviewcmt')%></li>-->
+			</ul>
+			<!--<div class="title tEllipsis"><%=review.get('title')%></div>-->
+			<div class="summary">
+				<%-review.get('review')%><!--<span class="more">more</span>-->
+			</div>
+		</div>
+	<% end %>
+<% end %>

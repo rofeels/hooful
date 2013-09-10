@@ -1,0 +1,161 @@
+<div id="hContainer" class="gray">
+	<%= hidden_field_tag :mHost, @meet.mHost %>
+	<%= hidden_field_tag :mDate, @meet.mDate %>
+	<%= hidden_field_tag :mCode, @meet.mCode %>
+	<%= hidden_field_tag :mUserid, (session[:user_id] if session[:user_id]) %>
+
+	<div class="hDetail">
+		<div class="mInfo">
+			<img class='picture' src='<%=S3ADDR%>meetpic/thumb/<%=@meet.mPicture%>'/>
+			 <h2><%= raw @meet.category_icon%><%=@meet.mTitle%></h2>
+			 <dl class="date">
+				<dt>날짜</dt>
+				<dd><%=@meet.meet_date%></dd>
+			 </dl>
+			 <dl class="place">
+				<dt>장소</dt>
+				<dd><%=@meet.meet_place%></dd>
+			 </dl>
+			 <dl class="people">
+				<dt>인원</dt>
+				<dd><%=@meet.meet_people%></dd>
+			 </dl>
+			 <dl class="price">
+				<dt>금액</dt>
+				<dd><%=@meet.meet_price%></dd>
+			 </dl>
+			 <dl class="time">
+				<dt>시간</dt>
+				<dd><%=@meet.meet_time%></dd>
+			 </dl>
+		</div>
+		<div class="mDetail">
+			<div class="wrap">
+				<div class="left">
+					<dl class="mHost">
+						<dt>업체정보</dt>
+						<dd class='profile'>
+							<ul class="info">
+								<li><a href='/user/<%=@host.link%>' target="_blank">
+									<img src='<%=@host.picture%>' title='<%=@host.name%>' class='thumbnail'/>
+									<span class="name tEllipsis"><%=@host.name%></span>
+									<span class="members"><%=@host.members%></span>
+								</a></li>
+								<li><%=@meet.mSummary%></li>
+								<li><%=raw @host.snslist_all%></li>
+							</ul>
+						</dd>
+					</dl>
+					<dl class="mPlace">
+						<dt>장소</dt>
+						<dd>
+							<div id="hMap" mLat="<%=@meet.mLocation[0].to_s%>" mLng="<%=@meet.mLocation[1].to_s%>"></div>
+						</dd>
+						<span class="normal"><i class="place"></i><%=@meet.mAddress%></span>
+					</dl>
+				</div>
+				<div class="right">
+				<%if (@particestate == 0) and (session[:user_id] != "hooful@hooful.com")%>
+					<%= form_tag( "/payment", :multipart => true, :id=>'hTicketfrm', :class => 'form-horizontal') do %>
+						<table summary="티켓 리스트" cellpadding="0" cellspacing="0" style="display:none">
+							<caption>티켓 리스트</caption>
+							<colgroup>
+								<col width="195px" />
+								<col width="495px" />
+								<col width="120px" />
+								<col width="145px" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>티켓</th>
+									<th>상세설명</th>
+									<th>요금</th>
+									<th>수량</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%= render :partial => 'tickets', :collection => @meet.tickets%>
+							</tbody>
+
+						</table>
+						<input type="hidden" name="unitprice" id="unitprice" value="" />
+						<%= hidden_field_tag :mPayUse, @meet.mPayUse %>
+						<%= hidden_field_tag :mCode, @meet.mCode %>
+						<%= hidden_field_tag :mTitle, @meet.mTitle %>
+						<%= hidden_field_tag :mPaytype, @meet.mPaytype %>
+						<%= hidden_field_tag :mPayState, @particestate %>
+						<%= hidden_field_tag :mDate, @meet.mDate %>
+						<%= hidden_field_tag :mTimeS, @meet.mTimeS %>
+						<%= hidden_field_tag :mParticeCheck, @particecheck %>
+						
+						<div id="groupBlur">
+						<%= submit_tag '결제하기', :class=>"btn_detail #{@particecheck}", :id => 'meetSubmit' %>
+						</div>
+						<%end%>	
+					<%else%>
+						<div class="mGroup">
+							<dl class="wrap">
+							<dd></dd>
+							</dl>
+						</div>	
+					<%end%>
+					<dl class="Hootalk">
+						<dt>대기방</dt>
+						<dd>
+							
+						</dd>
+					</dl>
+					<dl class="mDescription">
+						<dt>상세내용</dt>
+						<dd><%=raw @meet.mDescription%></dd>
+					</dl>
+				</div>
+				<div class="mQuick">
+					<!--<a href ="#" class="btn inverse" data-remote ="true">신고하기</a>-->
+					<!-- 1. Twitter share button START-->
+					  <a href="javascript:void(0)" onclick="twitterPopup('http://www.hooful.com/<%=@meet.mCode%>','<%=@meet.mTitle%>')" class="btnTwitter">Tweet</a>
+					<!-- //1. Twitter share button END-->
+					<!-- 2. Facebook share button START-->
+					  <a href="javascript:void(0)" onclick="facebookPopup('http://www.hooful.com/<%=@meet.mCode%>')" class="btnFacebook">Facebook</a>
+					<!-- //2. Facebook+ share button END-->
+					<!-- 3. Google+ share button START-->
+					<a href="javascript:void(0)" onclick="gplusPopup('http://www.hooful.com/<%=@meet.mCode%>')" class="btnGoogle">Google</a>
+					<!-- //3. Google+ share button END-->
+					<a href ="javascript:void(0)" class="btnEmail" data-remote ="true">E-mail</a>
+				</div>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<div class="clr"></div>
+	</div>
+	<%= javascript_include_tag("https://apis.daum.net/maps/maps3.js?apikey=6361b3de6ad2a80ccd646018d87abaec3a2dfb2e") %>
+	<script>
+			var map = new daum.maps.Map(document.getElementById('hMap'), {
+				center: new daum.maps.LatLng($("#hMap").attr("mLat"), $("#hMap").attr("mLng")),
+				level : 3
+			});
+			var zoomControl = new daum.maps.ZoomControl();
+			map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+			var icon = new daum.maps.MarkerImage(
+				'http://d3o755op057jl1.cloudfront.net/hooful/hoo.png',
+				new daum.maps.Size(30, 30),
+				new daum.maps.Point(15,30)
+			);
+
+			var marker = new daum.maps.Marker({
+				position: new daum.maps.LatLng($("#hMap").attr("mLat"), $("#hMap").attr("mLng")),
+				title: "test"
+			});
+			daum.maps.event.addListener(marker,"click",function(){
+				 window.open("http://local.daum.net/map/look?p="+$("#hMap").attr("mLat")+","+$("#hMap").attr("mLng"), "", 'toolbar=no,  status=no, menubar=no');
+			});
+
+			var infowindow = new daum.maps.InfoWindow({
+				content: '<%=@meet.mPlace%>'
+			});
+			infowindow.open(map, marker);
+		
+			marker.setMap(map);
+	</script>
+</div>

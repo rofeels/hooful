@@ -1,0 +1,33 @@
+<div class="wrap">
+	<h2>예약하기</h2>
+	<h3>예약할 티켓과 수량을 선택해 주세요.</h3>
+	<table class="tReserv">
+		<thead>
+			<tr>
+				<th>선택</th>
+				<th>티켓명</th>
+				<th>활동명</th>
+				<th>유효기간</th>
+				<th>수량</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% for tickets in @ticket: %>
+			<tr class="none" code="<%=tickets.get('tId')%>">
+				<td class="ctr"><div class="checkbox" target = "rTicket" value="1"></div></td>
+				<td class="ctr"><%=tickets.get('tName')%></td>
+				<td class="ctr"><%=tickets.get('uMeet').mTitle%></td>
+				<td class="ctr">~&nbsp;<%=tickets.get('uMeet').sDateE%>&nbsp;까지</td>
+				<td class="ctr cnt">
+					<select name="quantity" class="quantity">
+						<%for cnt in [1..tickets.get('count')]: %>
+							<option value="<%=cnt%>"><%=cnt%>장</option>
+						<%end%>
+					</select>
+				</td>
+			</tr>
+		<%end%>
+		</tbody>
+	</table>
+	<div class="btnNext btn_reservation step1">다음</div>
+</div>

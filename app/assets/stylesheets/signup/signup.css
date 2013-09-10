@@ -1,0 +1,304 @@
+html{width:100%;min-width:1000px;height:100%;}
+body.tutorial{background:#ffffff;width:100%;font-family:NanumGothicWeb,"HelveticaNeue",Helvetica,Arial,sans-serif;min-width:1000px;min-height:900px;background-image:url('http://cdn.hooful.com/newhooful/bg_tutorial.jpg');background-repeat:no-repeat;background-position:center top;background-position:center top;}
+body.signup{background:#ffffff;width:100%;height:100%;font-family:NanumGothicWeb,"HelveticaNeue",Helvetica,Arial,sans-serif;min-width:1000px;min-height:1000px;background-image:url('http://cdn.hooful.com/newhooful/preregist/preregist_bg3.jpg');background-repeat:no-repeat;background-position:center top;background-position:center top;}
+
+.tHeader{position:absolute;top:0;left:0;width:100%;height:45px;margin:0;background-color:rgba(35,31,32,.17);}
+	.tHeader .wrap {margin:0 auto;}
+	.tHeader .logo {display:block;width:100px;height:25px;background:url('http://cdn.hooful.com/newhooful/hooful_logo.png');}
+
+.tutorial .slides {margin-top:145px;overflow:hidden;}
+.tutorial .slides ul{}
+.tutorial .slides ul li{min-height:900px;text-align:center;font-size:30px;line-height:60px;color:#ffffff;text-shadow: 2px 2px 3px #666;font-weight:bold;margin-left:-25px;padding-right:25px;}
+.tutorial .slides ul li .wording{margin:25px 0 40px;}
+.tutorial .slides ul li .wording.small{font-size:16px;line-height:30px;
+margin: -35px 0 60px 0;}
+
+.tutorial .slides ul li .ticket_tutorial{margin-right:55px;}
+.tutorial .bx-controls{text-align:center;}
+.tutorial .sliderbullet{display:inline-block;text-align:center;}
+.tutorial .sliderbullet .bullet{display: inline-block;text-indent:-9999px;display: inline-block;width:11px;height:11px;background:url('http://cdn.hooful.com/newhooful/tutorial_bullet.png') no-repeat;margin:2px;cursor:default}
+.tutorial .sliderbullet .bullet.active{background-position:-11px 0;}
+
+.tutorial .slides ul li .profile{display: inline-block;float: none;width:209px;height:209px;border:9px solid #fff;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;-webkit-box-shadow:5px 5px 5px rgba(0,0,0,.3);-moz-box-shadow:5px 5px 5px rgba(0,0,0,.3);box-shadow:0 0 10px rgba(0,0,0,.3);margin:0;}
+.tutorial .sliderbtn{width:213px;display:inline-block;}
+.tutorial .sliderbtn a{display:inline-block;vertical-align:bottom;text-indent:-9999px;width:165px;height:47px;background:url('http://cdn.hooful.com/newhooful/btn_tbNext.png') no-repeat;margin:0 25px;background-position:0 0;}
+.tutorial .sliderbtn a.bx-prev{width:163px;height:45px;background:url('http://cdn.hooful.com/newhooful/btn_tbBack.png') no-repeat;}
+.tutorial .sliderbtn a:hover,.tutorial .sliderbtn a:active{background-position:0 -47px;}
+.tutorial .sliderbtn a.bx-prev:hover,.tutorial .sliderbtn a.bx-prev:hover:active{background-position:0 -45px;}
+
+	#hLogo{float:left;width:130px;margin:36px 0 0 32px;}
+		#hLogo a{display:block;width:130px;height:33px;background:url('http://cdn.hooful.com/newhooful/preregist/logo_red.png');}
+	.signup #hLogo{float:none;margin:0 auto;width:272px;}
+	.signup #hLogo a{display:inline-block;margin:20px 0 70px 0;width:272px;height:68px;background:url('http://cdn.hooful.com/newhooful/preregist/logo_big_red.png');}
+	#hTitle{float:left;margin:28px 0 0 64px;overflow:hidden;width:547px;height:97px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_title2.png');text-indent:-9999px;}
+
+
+	.signout{float:right;color:#fff;margin-top:-20px;}
+	.wrap{width:1000px;margin:50px auto;}
+	.preregist .wrap{-webkit-box-shadow:5px 5px 5px rgba(0,0,0,.3);-moz-box-shadow:5px 5px 5px rgba(0,0,0,.3);box-shadow:0 0 10px rgba(0,0,0,.3);}
+	#hContainer{clear:both;width:1000px;text-align:center;background:url('http://cdn.hooful.com/newhooful/furley_bg.png');}
+	.signup #hContainer{clear:both;width:1000px;text-align:center;background:none;}
+		#hWord{display:inline-block;margin:52px 0 0 0;width:822px;height:333px;text-indent:-9999px;overflow:hidden;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_word.png');z-index:1;position:relative;}
+		#hDrink{display:inline-block;margin:0 0 0 0;width:305px;height:576px;overflow:hidden;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_drink.png');}
+		.indexbtn{display:block;margin:0 auto;overflow:hidden;text-indent:-9999px;width:292px !important;height:72px;overflow:hidden;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_btn.png');padding:0;border:0;
+-webkit-border-radius: 8px;
+		 -moz-border-radius: 8px;
+			  border-radius: 8px;}
+		.indexbtn.invite{display:inline-block;background-position:0 -72px;}
+		.indexbtn.wall{display:inline-block;background-position:0 -144px;margin-left:20px;}
+		.fbbtn{display:block;margin:0 auto;overflow:hidden;text-indent:-9999px;width:298px !important;height:54px;overflow:hidden;background:url('http://cdn.hooful.com/newhooful/preregist/facebook_btn.png');padding:0;border:0;
+-webkit-border-radius: 8px;
+		 -moz-border-radius: 8px;
+			  border-radius: 8px;}
+		.fbbtn:hover {background-position:0 -54px;}
+		#hDate{font-size:18px;color:#6d6e71;font-weight:bold;display:inline-block;width:100%;margin:40px 0;}
+		#hPoint{width:1000px;margin:0 auto ;background:url('http://cdn.hooful.com/newhooful/preregist/point_bg.jpg');}
+		#hPoint img{display:inline-block;margin-left:300px;margin-bottom:10px;}
+		#hPoint img:first-child{margin:20px 0 20px 360px;}
+		#hPoint img:last-child{margin-bottom:20px;}
+		#hRanking{width:1000px;
+margin: 0 auto 0;min-height:300px;background:url('http://cdn.hooful.com/newhooful/preregist/ranking_bg.png');}
+		#hRanking img.rank_title{margin:43px 0 0 107px;float:left;}
+	.profile.me{margin-top:40px;}
+	.profile{float:left;margin:10px 0 0 70px;height:37px;line-height:37px;font-size:14px;color:#ffffff}
+	.profile:last-child{margin-bottom:50px;}
+	.profile .thumbnail{margin-right:2px;border:0;width:37px;height:37px;-webkit-border-radius: 37px;-moz-border-radius: 37px;border-radius: 37px;padding:0;display:inline-block;}
+	.profile .name{font-weight:bold;font-size:17px;color:#21719e;line-height:37px;text-overflow:ellipsis;}
+	.profile .number{font-weight:bold;font-size:27px;color:#21719e;line-height:37px;}
+	.rank_list{width:100%;clear:both;display:inline-block;margin-top:30px;}
+	.rank_list .profile{line-height:67px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_profile.png');width:384px;height:67px;}
+	.rank_list .thumbnail{margin: -4px 0 0 15px;}
+	.rank_list .name{max-width:100px;overflow:hidden;margin-left:10px;font-size:17px;color:#235f81;display:inline-block;vertical-align: top;line-height:68px;white-space:nowrap;text-overflow:ellipsis;-o-text-overow:ellipsis;}
+	.rank_list .name.last{max-width:50px;}
+	.rank_list .rank{float: right;margin-right:15px;}
+	.rank_list .number{vertical-align: top;line-height:68px;display:inline-block;float: right;
+margin-right: 25px;width:85px;text-align: right;}
+	
+	i.bignum{display:inline-block;background:url('http://cdn.hooful.com/newhooful/preregist/number_big.png');width:44px;height:62px;line-height:68px;}
+	i.smallnum{display:inline-block;background:url('http://cdn.hooful.com/newhooful/preregist/number_small.png');width:16px;height:23px;line-height:68px;}
+	
+	i.smallnum.num2{background-position: 0 -23px;}
+	i.smallnum.num3{background-position: 0 -46px;}
+	i.smallnum.num4{background-position: 0 -69px;}
+	i.smallnum.num5{background-position: 0 -92px;}
+	i.smallnum.num6{background-position: 0 -115px;}
+	i.smallnum.num7{background-position: 0 -138px;}
+	i.smallnum.num8{background-position: 0 -161px;}
+	i.smallnum.num9{background-position: 0 -184px;}
+	i.smallnum.num0{background-position: 0 -207px;}
+
+	
+	i.bignum.num2{background-position: 0 -62px;}
+	i.bignum.num3{background-position: 0 -124px;}
+	i.bignum.num4{background-position: 0 -186px;}
+	i.bignum.num5{background-position: 0 -248px;}
+	i.bignum.num6{background-position: 0 -310px;}
+	i.bignum.num7{background-position: 0 -372px;}
+	i.bignum.num8{background-position: 0 -434px;}
+	i.bignum.num9{background-position: 0 -496px;}
+	i.bignum.num0{background-position: 0 -558px;}
+
+#hStep{width:382px;height:89px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_signup_step.png');margin:0 auto 10px;display:inline-block;}
+#hStep.step2{background-position: 0 -89px;}
+#hStep.step3{background-position: 0 -178px;}
+	#cSignup {width:545px;margin:0 auto 40px;}
+			#cSignup #btnSignup {margin-bottom:60px !important;}
+
+		.hbtn{display:inline-block;width:121px !important;height:33px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_btn_next.png');margin:20px auto;border:0;padding:0;text-indent:-9999px;vertical-align:top;cursor:pointer;}
+		.hbtn.nexttime{background-position:0 -33px;}
+		.hbtn.complete{background-position:0 -66px;}
+		.hbtn:hover{background-position-x:-121px;}
+.complete_word{width:488px;height:140px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_welcome.png');margin:200px 0 85px -150px;display:inline-block;}
+		#certSubmit{margin-left:20px;}
+		#cSignup .signupForm {margin-top:60px;position:relative;}
+		#cSignup .snsSignin {margin-top:60px;color:#58595b;text-align:center;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+		#cSignup #btnAuthcheck, #cSignup #btnAuthsend {font-family:NanumGothicWeb;display:inline-block;width:66px;height:27px;line-height:27px;text-align:center;border:0;background:#d1d3d4;font-size:12.5px;color:#58595b;text-indent:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+		#cSignup #btnAuthcheck:hover, #cSignup #btnAuthsend :hover {background-color:#f47b67;}
+		
+		#cSignup .signin {display:block;line-height:20px;padding:0;text-indent:-9999px;background:url('http://cdn.hooful.com/hooful/btnSns.png') no-repeat;}
+
+		.input-title {text-align:left;margin:0 auto;color:#231f20;font-weight:bold;width:300px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+		#cSignup .signupForm .control-group {position:relative;}
+		#cSignup .signupForm .help-inline {position: absolute;display:block;width: 250px;text-align: left;margin: -62px 0 0 80px;}
+		/*#cSignup .signupForm .input.small .help-inline {margin-left:-110px;}*/
+		#cSignup .signupForm .picture {position:absolute;top:0;left:0;cursor:pointer;}
+		#cSignup .signupForm .picture.profile {margin:-20px 0 35px 0;width:100%;height:200px;position:relative}
+		#cSignup .signupForm .picture.profile img{max-width:200px;max-height:200px;}
+		#cSignup .signupForm .input {display:inline-block;width:307px;height:45px;margin: 0 auto 15px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_input_bg2.png') no-repeat;position:relative;font-family:NanumGothicWeb;}
+			#cSignup .signupForm .input:hover, #cSignup .signupForm .input.set {background-position: 0 -45px;}
+			#cSignup .signupForm .input input {display:inline-block;width:245px;height:25px;margin:8px 0 0 0;border:0;box-shadow:inset 0 0 0;-webkit-box-shadow:inset 0 0 0;-webkit-transition:0;-moz-transition:0;-o-transition:0;transition:0;background-color:transparent;}
+			#cSignup .signupForm .control-group.success input{color:#555555}
+			#cSignup .signupForm .input .btn {position:absolute;right:-107px;top:0;}
+			#cSignup .signupForm .input.authcode {display:none;}
+			#cSignup .signupForm .input-title.authcode {display:none;}
+			#cSignup .signupForm .authmsg {width:300px;margin:0;font-size:11px;}
+			#cSignup .signupForm .authmsg .success {color:#468847;}
+			#cSignup .signupForm .authmsg .error {color:#b94a8;}
+	
+		#cSignup .signupForm .input input::-webkit-input-placeholder{color:#ffffff;font-family:NanumGothicWeb;}
+		#cSignup .signupForm .input input:-moz-placeholder{color:#ffffff;font-family:NanumGothicWeb;}
+		#cSignup .signupForm .input input::-moz-placeholderc{color:#ffffff;font-family:NanumGothicWeb;}
+		#cSignup .signupForm .input input:-ms-input-placeholder{color:#ffffff;font-family:NanumGothicWeb;}
+	
+		#cSignup .signupForm .input:hover input::-webkit-input-placeholder{color:#ffffff;}
+		#cSignup .signupForm .input:hover input:-moz-placeholder{color:#ffffff;}
+		#cSignup .signupForm .input:hover input::-moz-placeholderc{color:#ffffff;}
+		#cSignup .signupForm .input:hover input:-ms-input-placeholder{color:#ffffff;}
+			#cSignup .signupForm .input.small {width:197px;margin-left:-110px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_input_small_bg2.png') }
+			#cSignup .signupForm .input.small input {width:130px;}
+			#cSignup .signupForm .input.small.authcode {width:190px;margin-left:122px;}
+		#cSignup .signupForm .input .iconsign {display:none;width:30px;height:35px;background:url('http://cdn.hooful.com/hooful/icon_sign.png') no-repeat;}
+			#cSignup .signupForm .input .iconsign.name {background-position:0 -35px;}
+				#cSignup .signupForm .input:hover .iconsign.name {background-position:0 -35px;}
+				#cSignup .signupForm .input.set .iconsign.name {background-image:none;}
+			#cSignup .signupForm .input .iconsign.userid {background-position:-30px -35px;}
+				#cSignup .signupForm .input:hover .iconsign.userid {background-position:-30px -35px;}
+				#cSignup .signupForm .input.set .iconsign.userid {background-image:none;}
+			#cSignup .signupForm .input .iconsign.password {background-position:-60px -35px;}
+				#cSignup .signupForm .input:hover .iconsign.password {background-position:-60px -35px;}
+				#cSignup .signupForm .input.set .iconsign.password {background-image:none;}
+			#cSignup .signupForm .input .iconsign.phone {background-position:-90px -35px;}
+				#cSignup .signupForm .input:hover .iconsign.phone {background-position:-90px -35px;}
+				#cSignup .signupForm .input.set .iconsign.phone {background-image:none;}
+		#cSignup .signupForm .sex {width:284px;height:20px;margin:10px auto 25px;text-align:left;}
+		#cSignup .agree {width:100%;height:35px;margin-bottom:20px;}
+		
+		#cSignup .signup.btnFacebook{width:300px;height:56px;background:url('http://cdn.hooful.com/newhooful/btn_facebook.png') no-repeat;background-position:0 -56px;margin-bottom: 15px;}
+		#cSignup .signup.btnFacebook:hover{background-position-x:-300px;}
+
+		#cSignup .signinTitle {width:300px;margin:15px auto -15px;position:relative;}
+			#cSignup .signinTitle span {display:inline-block;width:20px;margin-top:-12px;color:#58595b;text-align:center;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+			#cSignup .signinTitle .signDivider {-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);box-shadow:inset 0 1px 0 rgba(255,255,255,0.4);height:2px;display:inline-block;width: 132px;border-top:1px solid #788b95;}
+		
+		#cSignup .checkbox {padding:0 0 0 25px;background-position:left bottom;color:#231f20;font-size:12px;}
+		#cSignup .checkbox.active{background-position:left 0;}
+		#cSignup .agreetxt , #cSignup .login {width:100%;padding:0;text-align:center;background-position-x:left;color:#636466;font-size:12.5px;line-height:30px;}
+		#cSignup .agreetxt a, #cSignup .login a{color:#d91920}
+		#cSignup .emailSignup {display:block;width:100%;text-align:center;margin:15px 0 30px;font-size:16px;color:#2e3539;}	
+		
+		#cUsercert .certForm{background:url('http://cdn.hooful.com/newhooful/certification_bg.png') no-repeat;width:689px;margin: 30px auto 0;
+padding: 100px 0 0 0;
+height: 996px;}
+
+	#modalResponse{display:none;}
+
+	.checkbox{height:22px;text-indent:0;line-height:22px;display:inline-block;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_input_check.png') right -22px no-repeat;cursor:pointer;padding-right:32px;margin-right:10px;padding-left:0;}
+	/*.checkbox:hover, .checkbox.active{background-position:right 0;}*/
+	.checkbox.active{background-position:right 0;}
+
+.alert{background-color:#F7DDDE !important;}
+.alert .wrap{margin:0 auto;width:300px;}
+	.divider{position:relative;color:#a7a9ac;border-top:1px solid #d1d3d4;-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,1);-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,1);box-shadow:inset 0 1px 0 rgba(255,255,255,1);text-align:center;margin-top:35px;}
+	.divider .or{color:#a7a9ac;background:url('http://cdn.hooful.com/newhooful/furley_bg.png');margin: -13px 0 0 -10px;padding: 0 10px;position: absolute;left:140px;}
+
+#idcard{margin:0 auto 0;float:none;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_idcard.png');width:392px;height:334px;}
+#idcard .wrap{cursor:pointer;width:364px;height:209px;background-color:#f1f1f1;display:inline-block;margin:100px auto 0;}
+#idcard img{display:none;width:364px;height:209px;cursor:pointer;margin-top:100px;}
+#idcard h4{float:left;margin:70px 115px 50px;color:#58595b;font-size:18px;text-decoration:underline;}
+#idcard .subtitle{float:left;color:#808285;font-size:12px;line-height:20px;margin: 5px 25px;}
+
+h3.interest_title{color:#0a77a0;font-size:24px;text-align:center;margin:50px 0 30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+.subscription{font-size:14px;color:#414042;font-weight:bold;line-height:30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+h4.interest_subtitle{color:#0a77a0;font-size:18px;text-align:center;margin:30px 0 40px;line-height:30px;text-shadow:1px 1px 0 rgba(255,255,255,0.5);}
+#cUsercert .group{height: 150px;margin-top: 20px !important;}
+#hInterests{width:500px;margin:10px auto 60px;}
+#hInterests .btnNext{margin:100px auto;cursor:pointer;}
+	#hInterests dl{display:inline-block;}
+	#hInterests dl dd{float:left;position:relative;width:92px;height:92px;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;border:4px solid #7a7979;margin:0 22px 0px 0;background:url('http://cdn.hooful.com/newhooful/preregist/icon_category.png') no-repeat;overflow:hidden;cursor:pointer;background-position:top center;}
+		#hInterests dl dt {position: absolute;margin: 100px 0 0 -4px;text-align: center;font-weight:bold;width:100px;height:25px;line-height:25px;color:#ffffff;font-size:14px;z-index:10;}
+		#hInterests.intro dl dt {right:10px;}
+		#hInterests dl dd .wrap {position:absolute;width:92px;height:92px;top:0;left:0;background:url('http://cdn.hooful.com/hooful/wrap_category.png') no-repeat;z-index:5;}
+		#hInterests dl dd .overwrap {position:absolute;width:92px;height:92px;}
+			#hInterests dl dd .overwrap .wrapfull a {display:block;width:100%;height:100%;}
+			#hInterests dl dd .overwrap .wrapfull {width:92px;height:92px;background-color:rgba(255, 255, 255, 0.75);;display:none;z-index:2;-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px;}
+			#hInterests dl dd .overwrap .wrapfull i.check{width:49px;height:42px;margin-top: 25px;display:inline-block;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_check.png')}
+			#hInterests dl dd .overwrap .wrapinfo {position:absolute;width:100%;height:15px;font-size:13px;color:#6d6e71;top:58px;left:0;display:none;z-index:5;}
+				#hInterests dl dd .overwrap .wrapinfo .wrapline {text-indent:60px;margin-bottom:10px;}
+				#hInterests dl dd .overwrap .wrapinfo span {display:inline-block;line-height:16px;vertical-align:top;margin-right:13px;}
+				#hInterests dl dd .overwrap .wrapinfo span.text {text-indent:5px;text-align:left;}
+				#hInterests dl dd .overwrap .wrapinfo .icon {width:16px;height:16px;background:url('http://cdn.hooful.com/hooful/icon_wrapcategory.png') no-repeat;margin-right:5px;}
+					#hInterests dl dd .overwrap .wrapinfo .icon.date {background-position:0 0;}
+					#hInterests dl dd .overwrap .wrapinfo .icon.talk {background-position:-16px 0;}
+					#hInterests dl dd .overwrap .wrapinfo .icon.like {background-position:-32px 0;}
+			#hInterests dl dd .overwrap .wrapenter {position:absolute;width:100%;height:15px;font-size:14px;color:#3fbad8;top:150px;left:0;text-align:center;text-decoration:underline;display:none;z-index:5;}
+				#hInterests dl dd .overwrap .wrapenter a{font-size:14px;color:#3fbad8;}
+		
+		#hInterests.category dl dd.wrap {background:none;display:block;}
+		#hInterests.category dl dt {display:block;font-size:14px;color:#231f20;}
+		#hInterests.category dl dd.overwrap .wrapfull {display:none;}
+		
+		#hInterests.category dl.set .wrap {display:none;}
+		#hInterests.category dl.set .overwrap .wrapfull {display:block;}
+		
+		#hInterests dl dd.waterskiing{background-position:0 0;}
+		#hInterests dl dd.wakeboard{background-position:0 -100px;}
+		#hInterests dl dd.flyboard{background-position:0 -200px;}
+		#hInterests dl dd.paragliding{background-position:0 -300px;}
+		#hInterests dl dd.wateractivity{background-position:0 -400px;}
+		#hInterests dl dd.rafting{background-position:0 -500px;}
+		#hInterests dl dd.skydiving{background-position:0 -600px;}
+		#hInterests dl dd.bungeejump{background-position:0 -700px;}
+		#hInterests dl dd.skinscuba{background-position:0 -800px;}
+		#hInterests dl dd.yacht{background-position:0 -900px;}
+		#hInterests dl dd.atv{background-position:0 -1000px;}
+		#hInterests dl dd.golf{background-position:0 -1100px;}
+		#hInterests dl dd.survival{background-position:0 -1200px;}
+		#hInterests dl dd.kayak{background-position:0 -1300px}
+		#hInterests dl dd.paddleboarding{background-position:0 -1400px;}
+		#hInterests dl dd.horseriding{background-position:0 -1500px;}
+
+
+
+.group{margin-top:40px;}
+.category.btn-group{margin-bottom:20px;}
+
+.category.btn-group a{padding:0;width:310px;height:28px;line-height:28px;text-indent:30px;text-align:left;border:1px solid #b1b3b6;background-color:#fff;background-image:none;font-size:14px;color:#636466;}
+.category.btn-group a .caret{float:right;width:38px;height:32px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_btngroup.png') no-repeat;border:0;margin:-1px -2px -3px 0;}
+
+.category.btn-group a:hover {background-image:none;background-color:#fff;}
+.category.btn-group a:hover .caret{background-position-y:-33px;}
+.category.btn-group .dropdown-menu{margin-top:-2px;text-align:left;text-indent:30px;width:275px;}
+.category.btn-group .dropdown-menu li{line-height:28px;}
+.category.btn-group .dropdown-menu li:hover, .category.btn-group .dropdown-menu li.active{background-color:#2d3538;color:#ffffff;}
+.group .title input{width:300px;line-height:28px;text-indent:30px;text-align:left;border:1px solid #b1b3b6;background-color:#fff;margin-bottom:70px;font-family:NanumGothicWeb;}
+
+.hSupport {width:90%;height:700px;overflow-y:scroll;min-height:127px;margin:0 auto;position:relative;}
+		.wrap.margin {width:90%;color:#636466;text-align:left;}
+		.hSupport .sHeader {width:100%;height:60px;border-top:5px solid #2d3538;border-bottom:2px solid #d1d3d4;position:absolute;top:60px;left:0;}
+		.hSupport .sHeader.none {border-bottom:0;}
+			.hSupport .sHeader h1 {position:absolute;left:0;top:-10px;color:#2d3538;font-size:20px;font-weight:bold;}
+			.hSupport .sHeader .sMenu {float:right;width:550px;list-style:none;margin-top:10px;}
+				.hSupport .sHeader .sMenu a {color:#2b3335;text-decoration:none;}
+				.hSupport .sHeader .sMenu a:hover,
+				.hSupport .sHeader .sMenu a.set {color:#3fbad8;text-decoration:none;}
+			.hSupport .sHeader li {float:left;width:110px;height:30px;}
+		.hSupport .sTitle {color:#636466;font-weight:bold;}
+
+#cSignup #btnAuthsend{margin-top:4px;width:103px;height:38px;padding:0;text-indent:-9999px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_phone_btn.png');
+-webkit-border-radius: 18px;
+		 -moz-border-radius: 18px;
+			  border-radius: 18px;}
+#cSignup #btnAuthsend:hover{background-position:-103px 0;
+-webkit-transition: none;
+-moz-transition: none;
+-o-transition: none;
+transition: none;
+}
+
+#cSignup #btnAuthsend.send{background-position:0 -38px;}
+#cSignup #btnAuthsend:hover.send{background-position:-103px -38px;}
+#cSignup #btnAuthcheck{margin-top:4px;width:103px;height:38px;padding:0;text-indent:-9999px;background:url('http://cdn.hooful.com/newhooful/preregist/preregist_phone_btn.png');background-position:0 -76px;-webkit-border-radius: 18px;
+		 -moz-border-radius: 18px;
+			  border-radius: 18px;}
+#cSignup #btnAuthcheck:hover{background-position:-103px -76px;
+-webkit-transition: none;
+-moz-transition: none;
+-o-transition: none;
+transition: none;
+}
+
+/*firefox hack*/
+@-moz-document url-prefix()
+{
+	.category.btn-group a .caret{margin:-28px -2px 0 0;}
+}

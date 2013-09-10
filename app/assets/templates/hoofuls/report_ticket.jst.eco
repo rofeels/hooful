@@ -1,0 +1,12 @@
+<div id="activityChart">
+	<ul class="menuChart">
+		<li class="partice"><i></i>참여2</li>
+		<li class="pageview"><i></i>페이지뷰</li>
+		<li class="share"><i></i>공유</li>
+		<li class="hooicon"><i></i>hoo</li>
+		<li class="hootalk"><i></i>후톡</li>
+	</ul>
+	<div id="chartWrap">
+		<div id="chart"></div>
+	</div>
+</div>

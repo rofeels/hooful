@@ -1,0 +1,21 @@
+development:
+  host: 54.249.237.229
+  database: hooful-test
+
+test:
+  host: 54.249.237.229
+  database: hooful-test
+
+# set these environment variables on your prod server
+production:
+  uri: mongodb://54.249.237.229:27017/hooful-test
+  host: 54.249.237.229
+  port: 27017
+  username: hooful
+  password: hooful@nobot
+  database: hooful-test
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019

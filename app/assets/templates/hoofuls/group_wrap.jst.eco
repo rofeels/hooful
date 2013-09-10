@@ -1,0 +1,11 @@
+<div id="groupMake"></div>
+<div id="groupReccommend">
+	<div class="tooltip fade top in">
+		<div class="tooltip-arrow" style="left: 100%;"></div>
+		<div class="tooltip-inner">							
+			<span class="name"><% if typeof userid is "string" and userid isnt "":%><%=@userid%><%else:%>회원<%end%></span>님과 비슷한 성향의 회원을 추천해 드려요!</span>
+		</div>
+	</div>
+</div>
+<div id="groupList">
+</div>

@@ -1,0 +1,4 @@
+<% for cat in @category.models: %>
+  <li class="interest<%if cat.get('code') is $('#mCategory').val():%> active<% end %>"><i class="<%= cat.get('code') %>"></i><%= cat.get('name') %></li>
+  <%if cat.get('code') is $('#mCategory').val():%><% $(".category .dropdown-toggle").html(cat.get('name')+"<span class=\"caret\"></span>")%><% end %>
+<% end %>

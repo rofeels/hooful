@@ -1,0 +1,229 @@
+
+	case type
+	  when "hooful_withdraw_request" then
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		message = NotificationText[:hooful_withdraw_request]
+	  	message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+		message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+
+		NotificationAdmin.each do |key, value|
+			Notification.save(value, "hooful_withdraw_request", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(value)#socket push
+		end
+	  when "hooful_withdraw_complete" then
+		@subject = User.info("hooful@hooful.com")
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		message = NotificationText[:hooful_withdraw_complete]
+		message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+		Notification.save(subject, "hooful_withdraw_complete", "hooful@hooful.com", @subject.picture, @subject.name, mcode, message)
+		Notification.push(subject)#socket push
+	  when "hooful_ask" then
+		@subject = User.info(subject)
+		message = NotificationText[:hooful_ask]
+	  	message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+		NotificationAdmin.each do |key, value|
+			Notification.save(value, "hooful_ask", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(value)#socket push
+		end
+	  when "hooful_reply" then
+		@subject = User.info("hooful@hooful.com")
+		message = NotificationText[:hooful_reply]
+		Notification.save(subject, "hooful_reply", "hooful@hooful.com", @subject.picture, @subject.name, mcode, message)
+		Notification.push(subject)#socket push
+	  when "email" then
+		@subject = User.info(subject)
+		@once = Notification.where(userid: subject, type: "email").exists?
+		if @once == false and @subject.email_auth == nil
+			message = NotificationText[:email]
+			Notification.save(subject, "email", @subject.userid, @subject.picture, @subject.name, @test, message)
+			Notification.push(subject)#socket push
+		end
+	  when "new" then
+		@subject = User.info("hooful@hooful.com")
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		message = NotificationText[:new]
+	  	message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+		Notification.save(@meet.mHost, "new", "hooful@hooful.com", @subject.picture, @subject.name, mcode, message)
+		Notification.push(@meet.mHost)#socket push
+	  when "edit" then
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@partice_list.each do |partice|
+			message = NotificationText[:edit]
+			message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+			Notification.save(partice.mUserid, "edit", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(partice.mUserid)#socket push
+		end
+	  when "partice_host" then
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@notivalid = User.validateNotification(@meet.mHost, "partice_host")
+		if @notivalid == true
+			@subject = User.info(subject)
+			message = NotificationText[:partice_host]
+			message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+			message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+			Notification.save(@meet.mHost, "partice_host", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(@meet.mHost)#socket push
+		end
+	  when "partice_participants" then
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@subject = User.info(subject)
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@partice_list.each do |partice|
+			@notivalid = User.validateNotification(partice.mUserid, "partice_participants")
+			if @notivalid == true and subject != partice.mUserid
+				message = NotificationText[:partice_participants]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+				Notification.save(partice.mUserid, "partice_participants", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(partice.mUserid)#socket push
+			end
+		end
+	  when "hoo_host" then
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@notivalid = User.validateNotification(@meet.mHost, "hoo_host")
+		if @notivalid == true
+			@subject = User.info(subject)
+			@once = Notification.where(userid: @meet.mHost, subject: subject, mcode: mcode, type: "hoo_host").exists?
+			if @once == false
+				message = NotificationText[:hoo_host]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+				Notification.save(@meet.mHost, "hoo_host", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(@meet.mHost)#socket push
+			end
+		end
+	  when "hoo_participants" then
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@hoo_list = Hoolike.where(mCode: mcode)
+		if @hoo_list.length%10 == 0 and @hoo_list.length/10 > 0
+			@hoo_list.each do |hoo|
+				@notivalid = User.validateNotification(hoo.mUserid, "hoo_participants")
+				if @notivalid == true
+					@once = Notification.where(userid: hoo.mUserid, subject: subject, mcode: mcode, type: "hoo_participants").exists?
+					if @once == false and hoo.mUserid != subject
+						message = NotificationText[:hoo_participants]
+						message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+						message = message.gsub(/\{n}+/,@hoo_list.length.to_s)
+						Notification.save(hoo.mUserid, "hoo_participants", @subject.userid, @subject.picture, @subject.name, mcode, message)
+						Notification.push(hoo.mUserid)#socket push
+					end
+				end
+			end
+		end
+	  when "hootalk_host" then
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		if @meet.mHost != subject
+			@notivalid = User.validateNotification(@meet.mHost, "hootalk_host")
+			if @notivalid == true
+				message = NotificationText[:hootalk_host]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				Notification.save(@meet.mHost, "hootalk_host", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(@meet.mHost)#socket push
+			end
+		end
+	  when "hootalk_participants" then
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@subject = User.info(subject)
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@partice_list.each do |partice|
+			@notivalid = User.validateNotification(partice.mUserid, "hootalk_participants")
+			if @notivalid == true and partice.mUserid != subject
+				message = NotificationText[:hootalk_participants]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+				Notification.save(partice.mUserid, "hootalk_participants", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(partice.mUserid)#socket push
+			end
+		end
+	  when "hootalk_writer" then
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@subject = User.info(subject)
+		@arrayS = Array.wrap(nil)
+		@partice_list.each { |h| @arrayS << h.mUserid }
+ 
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@hootalk_list = Meetcmt.where(mCode: mcode).not_in(:mUserid => @arrayS)
+		@hootalk_list = @hootalk_list.uniq{|x| x.mUserid}
+		@hootalk_list.each do |hootalk|
+			if hootalk.mUserid != @meet.mHost
+				message = NotificationText[:hootalk_writer]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				message = message.gsub(/\{subject}+/, "<a href='/users/#{@subject.userid}'>#{@subject.name}</a>")
+				Notification.save(hootalk.mUserid, "hootalk_writer", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(hootalk.mUserid)#socket push
+			end
+		end
+	  when "nday_host" then
+		#Notification.send("nday_host", mHost, mCode)
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@notivalid = User.validateNotification(subject, "nday_host")
+		if @notivalid == true
+			message = NotificationText[:nday_host]
+			message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+			message = message.gsub(/\{n}+/,@meet.leftdate)
+			Notification.save(subject, "nday_host", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(subject)#socket push
+		end
+	  when "nday_participants" then
+		#Notification.send("nday_participants", mHost, mCode)
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@partice_list.each do |partice|
+			@notivalid = User.validateNotification(partice.mUserid, "nday_participants")
+			if @notivalid == true
+				message = NotificationText[:nday_participants]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				message = message.gsub(/\{n}+/,@meet.leftdate)
+				Notification.save(partice.mUserid, "nday_participants", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(partice.mUserid)#socket push
+			end
+		end
+	  when "dday_host" then
+		#Notification.send("dday_host", mHost, mCode)
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@notivalid = User.validateNotification(subject, "dday_host")
+		if @notivalid == true
+			message = NotificationText[:dday_host]
+			message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+			Notification.save(subject, "dday_host", @subject.userid, @subject.picture, @subject.name, mcode, message)
+			Notification.push(subject)#socket push
+		end
+	  when "dday_participants" then
+		#Notification.send("dday_participants", mHost, mCode)
+		@subject = User.info(subject)
+		@meet = Hash.new
+		@meet = Meet.where(:mCode => mcode).first
+		@partice_list = Hoopartice.where(mCode: mcode)
+		@partice_list.each do |partice|
+			@notivalid = User.validateNotification(partice.mUserid, "dday_participants")
+			if @notivalid == true
+				message = NotificationText[:dday_participants]
+				message = message.gsub(/\{object}+/, "<a href='/#{@meet.mCode}'>#{@meet.mTitle}</a>")
+				Notification.save(partice.mUserid, "dday_participants", @subject.userid, @subject.picture, @subject.name, mcode, message)
+				Notification.push(partice.mUserid)#socket push
+			end
+		end
+	  else
+	end

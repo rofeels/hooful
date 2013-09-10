@@ -1,0 +1,11 @@
+<div class="hPrintTicket">
+	<img src="http://cdn.hooful.com/newhooful/ticket.png" class="bgImg" />
+		<div class="title"><%=@ticket[:uMeet][:mTitle]%></div>
+		<div class="description"><span class="ttitle"><%=@ticket[:tName]%></span><%=@ticket[:tDescription]%></div>
+		<div class="sdate"><%=@ticket[:uMeet][:sMonth]%>.<%=@ticket[:uMeet][:sDay]%></div>
+		<div class="address"><%=@ticket[:uMeet][:mAddress]%></div>
+		<div class="code"><%=@ticket[:tCode]%></div>
+		<%if @ticket[:tState]==10 then%><div class="usestamp"></div><%end%>
+	</div>
+</div>
+<a class="btn" onclick="window.print();">인쇄하기</a>

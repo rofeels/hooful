@@ -1,0 +1,118 @@
+
+	<div id="sBanner" class="hooful">
+		<h3 class="left">후풀은 여러분의 의견을 기다립니다.</h3>
+		<p>후풀의 목표는 회원님들의 여가시간을 사람들과 함께 즐거운 일로 가득 채우는 것입니다.<br/>
+이곳에서 여러분의 피드백과 아이디어를 공유해 주세요.</p>
+	</div>
+	<div class="sHooful none">
+		<div class="wrap">
+			<ul class="hMenu">
+				<li><%=link_to "자주묻는질문", "/support/faq"%></li>
+				<li><%=link_to "후풀에게", "/support/hooful", :class=>"set"%></li>
+				<li><%=link_to "이용약관", "/support/terms"%></li>
+				<li><%=link_to "개인정보보호정책", "/support/privacy"%></li>
+			</ul>
+
+		<div class="supportBox">
+		<%= form_tag( {:action => :tohoofulnew}, :id => 'tohoofulnew', :multipart => true, :class => 'form-horizontal') do %>
+			<fieldset id="tohoofulnew">
+				<div class="control-group">
+					<div class="control-title title">
+						제목
+					</div>
+					<div class="controls">
+						<%= text_field_tag :title, nil %>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-title article">
+						내용
+					</div>
+					<div class="controls">
+						<%= text_area_tag :article, nil %>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-title attach">
+						첨부파일
+					</div>
+					<div class="controls">
+						<%= file_field_tag :attach %>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-title email">
+						이메일
+					</div>
+					<div class="controls">
+						<%= email_field_tag :email, (session[:user_id]) ? session[:user_id] : nil %>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= submit_tag '문의하기',:type=>'button', :class => 'btn btnRed', :id => 'tohoofulSubmit' %>
+				</div>
+			</fieldset>
+			<% end %>
+			<div id="askedQuestion">
+				<ul id="askedList">
+					<li class="head">
+						<div class="title">제목</div>
+						<div class="askedDate">문의 일시</div>
+						<div class="answeredDate">답변 일시</div>
+					</li>
+					<% 
+					if @questions
+						@questions.each do |q| %>
+							<li class="asked" idx="<%=q.id%>">
+								<div class="title qTitle"><%=q.title%></div>
+								<div class="aDate qTitle"><%=q.created_at.to_s[0..9]%></div>
+								<div class="aDate qTitle"><%=q.answerTime%></div>
+								<div class="answer" idx="<%=q.id%>" style="display:none;">
+									<div class="msgbox left">
+										<div class="msg">
+										<%if q.attach%>
+										첨부파일 : <a href="http://cdn.hooful.com/tohooful/<%=q.attach%>" target="_blank"><%=q.attach%></a><br /> 
+										<%end%>
+											<%=q.article.html_safe%>
+										</div>
+									</div>
+									<% if @listset %>
+									<div class="msgbox right">
+										<div class="msg">
+											<%= q.userid %>님의 질문입니다.
+											<% if q.attach %>
+												<a href="<%=S3ADDR.to_s + q.attach.to_s%>" target="_blank">이미지 보기</a>
+											<% end %>
+											<%= form_tag( {:action => :tohoofuladmin}, :id => 'tohoofuladmin', :multipart => true, :class => 'form-horizontal') do %>
+											<fieldset id="tohoofuladmin">
+												<%= hidden_field_tag :qid, q.id.to_s %>
+												<%= text_area_tag :articleAdmin, (q.answer) ? q.answer.gsub(/<br>/, "\n") : "답변이 없습니다" %>
+												<%= submit_tag (q.answer) ? '답변수정' : '답변등록', :class => 'btn btnRed', :id => 'tohoofulAdminSubmit' %>
+											</fieldset>
+											<% end %>
+										</div>
+									</div>
+									
+									<% elsif q.answer %>
+									<div class="msgbox right">
+										<img src="/images/text_balloon_right_p.png" alt="balloon_right" class="arrow"/>
+										<div class="msg">
+											<%=q.answer.html_safe%>
+										</div>
+									</div>
+									<% end %>
+								</div>
+								<div class="divider"></div>
+							</li>
+					<% end
+					else %>
+					<li class="noQuestion">
+						질문이 없습니다.
+					</li>
+					<% end %>
+				</ul>
+			</div>
+			<div style="height:200px;"></div>
+		</div>
+	</div>
+	</div>

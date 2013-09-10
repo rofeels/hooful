@@ -1,0 +1,53 @@
+<% for group in @group.models: %>
+	<% if group.get('next'): %>
+		<div class="more">더 보기 &#9660;</div>
+	<% else: %>
+		<%if group.get('_id') isnt $("#userGroup").val() :%>
+		<dl gid="<%=group.get('_id')%>">
+			<dt>
+				<div class="host profile">
+					<a href="/user/<%=group.get('gHost').link%>">
+						<img src="<%=group.get('gHost').picture%>" title="<%=group.get('gHost').name%>" class="thumbnail" />
+					</a>
+					<div class="tooltip fade top in">
+						<div class="tooltip-arrow" style="left: 100%;"></div>
+						<div class="tooltip-inner">							
+							<span class="name"><%=group.get('gHost').name%></span>
+							<span class="members"><%=group.get('gHost').members%></span>
+						</div>
+					</div>
+				</div>
+				<div class="title tEllipsis">
+					<%=group.get('gTitle')%>
+				</div>
+				<div class="btn participate" gid="<%=group.get('_id')%>" valid="<%=group.get('gMembers').length%>"></div>
+			</dt>
+			<dd>
+				<%if group.get('mAddress') is "미정" or  group.get('gDate') is "미정" :%><i class="wating"></i><%else:%><i class="complete"></i><%end%>
+				<div class="place">장소: <%=group.get('mPlace')%><span class="address">상세주소: <%=group.get('mAddress')%></span></div>
+				<div class="date">출발일: <%=group.get('gDate')%></div>
+				<div class="number">인원: <%=group.get('gMembers').length%>/10</div>
+				<div class="members"><span>그룹멤버</span>
+					<% if group.get('gMembers').length > 7:%><div class="arrow left"></div><div class="arrow right"></div><%end%>
+					<ul <% if group.get('gMembers').length > 7:%>class="slide"<%end%>>
+					<% for members in group.get('gMembers'): %>
+						<li class="profile">
+							<a href="/user/<%=members.link%>">
+								<img src="<%=members.picture%>" title="<%=members.name%>" class="thumbnail"/>
+							</a>
+							<div class="tooltip fade top in">
+								<div class="tooltip-arrow" style="left: 100%;"></div>
+								<div class="tooltip-inner">							
+									<span class="name"><%=members.name%></span>
+									<span class="members"><%=members.members%></span>
+								</div>
+							</div>
+						</li>
+					<% end %>
+				</ul>
+				</div>
+			<dd>
+		</dl>
+		<% end %>
+	<% end %>
+<% end %>

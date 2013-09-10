@@ -1,0 +1,39 @@
+<% @limit = $("#" + @target_val).attr "limit" %>
+<% @valid = $("#" + @target_val).attr "valid" %>
+<% @value = $("#"+ @target_val).val() %>
+  <div class="title">
+  	<i class="left"></i>
+  	<h6><%= @title %></h5>
+  	<i class="right"></i>
+  </div>
+  <ul class="week">
+  	<li>일요일</li>
+  	<li>월요일</li>
+  	<li>화요일</li>
+  	<li>수요일</li>
+  	<li>목요일</li>
+  	<li>금요일</li>
+  	<li>토요일</li>
+  </ul>
+  <ul class="contents">
+    <% if @weekday isnt 0: %>
+      <% for i in [@weekday...0]: %>
+    	  <li class="date disabled"><%=@prev_lastday-i+1%></li>
+      <% end %>
+    <% end %>
+    <% for i in [1...@lastday+1]: %>
+        <% date = @year + "-" + ((if parseInt(@month) < 10 then "0" + @month else @month)) + "-" +  ((if parseInt(i) < 10 then "0" + i else i)) %>
+        <% addclass = ""%>
+        <% if @valid: %>
+          <% addclass += "disabled limitdate" if @valid.indexOf(date+", ") is -1%>
+        <% else: %>
+          <% addclass += "disabled limitdate" if @limit and Date.parse(date) < Date.parse(@limit) %>
+        <% end %>
+  	<li class="date <%=addclass%>" date="<%= date%>"><%=i%><span class="price"><%=@money.models[i].get('price')+'원' if @money.models[i].get('price') > 0%></span></li>
+    <% end %>
+    <% if @remain isnt 0: %>
+      <% for i in [@remain...7]: %>
+        <li class="date disabled"><%=i-@remain+1%></li>
+      <% end %>
+    <% end %>
+  </ul>

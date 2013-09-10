@@ -1,0 +1,1 @@
+class Hooful.Models.Meetcmts extends Backbone.Model

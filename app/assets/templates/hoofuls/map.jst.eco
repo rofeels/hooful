@@ -1,0 +1,81 @@
+<div class="map_search input-append">
+	<input id="mAddress" name="mAddress" value="" type="text"><span class="ad-on"><img src="http://d3o755op057jl1.cloudfront.net/hooful/icon_search_mini.png" alt="search"></span>
+</div>
+<div id="hMap"></div>
+<script>
+
+	var position = new daum.maps.LatLng(37.5010226, 127.0396037); 
+	var map = new daum.maps.Map(document.getElementById('hMap'), { 
+		center: position, 
+		level: 3
+	});
+	
+	var zoomControl = new daum.maps.ZoomControl();
+	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+	var marker = new daum.maps.Marker({
+		position: position
+	});
+	marker.setMap(map);
+	daum.maps.event.addListener(map, "click", function(MouseEvent){
+		var latLng = MouseEvent.latLng;
+		var latitude = latLng.getLat();
+		var longitude = latLng.getLng();
+
+		var po = new daum.maps.LatLng(latitude, longitude);
+		marker.setVisible(false);
+		marker = new daum.maps.Marker({
+			position : po 
+		});
+		marker.setMap(map); 
+		map.setCenter(po);
+				
+					
+		$("#mLat").val(latitude);
+		$("#mLng").val(longitude);
+		
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({ latLng: new google.maps.LatLng(latitude,longitude) }, function(results, status) {
+		    if (status == google.maps.GeocoderStatus.OK && results.length) {
+		      if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+		      	results[0].formatted_address = results[0].formatted_address.replace("대한민국 ","");
+		      		$("#mAddress").val(results[0].formatted_address);
+				}
+		    }
+		});		
+
+	});	
+	$("#mAddress").next('.ad-on').click(function(){
+		var loc = $("#mAddress").val();
+		if(!loc){
+			alert("주소를 입력해 주세요.");
+			$("#mAddress").focus();
+			return false;
+		}
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({ address: loc }, function(results, status) {
+		    if (status == google.maps.GeocoderStatus.OK && results.length) {
+		      if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+		        results[0].formatted_address = results[0].formatted_address.replace("대한민국 ","");
+		        $("#mAddress").val(results[0].formatted_address);
+		        lat = Math.round(results[0].geometry.location.lat()*10000000)/10000000;
+		        lng = Math.round(results[0].geometry.location.lng()*10000000)/10000000;
+
+			var po = new daum.maps.LatLng(lat, lng);
+			map.setCenter(po);
+			
+			if(marker != null)  marker.setVisible(false); 
+
+			marker = new daum.maps.Marker({ 
+				position: po
+			}); 
+			marker.setMap(map); 
+			map.setCenter(po);
+			
+			$("#mLat").val(lat);
+			$("#mLng").val(lng);
+			}
+		    }
+		 });
+	});
+</script>

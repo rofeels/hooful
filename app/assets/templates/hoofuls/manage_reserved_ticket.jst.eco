@@ -1,0 +1,64 @@
+<% if @ticket.models.length > 0: %>
+<% for tickets in @ticket.models: %>
+<div class="rTicketBox">
+	<table class="rtTable">
+		<caption>예약번호 : <%=tickets.get('tCode')%> - <%=tickets.get('tState')%></caption>
+		<caption class="right">예약신청시간 : 
+		<% if tickets.get('updated_at') > 0: %>
+		<%=tickets.get('updated_at').split('T')[0]%>&nbsp;<%=tickets.get('updated_at').split('T')[1].split('+')[0]%>
+		<% else: %>
+		<%=tickets.get('created_at').split('T')[0]%>&nbsp;<%=tickets.get('created_at').split('T')[1].split('+')[0]%>
+		<% end %>
+		</caption>
+		<tbody>
+			<tr class="top"><td colspan="5"></td></tr>
+			<tr>
+				<th>예약자</th>
+				<td><%=tickets.get('uHost').name%></td>
+				<th>연락처</th>
+				<td><%=tickets.get('uHost').phone%></td>
+			</tr>
+			<tr>
+				<th>티켓</th>
+				<td colspan="3"><%=tickets.get('tName')%></td>
+			</tr>
+			<tr>
+				<th>예약일</th>
+				<td colspan="3">
+				<% if tickets.get('tReserveDateEx'): %>	
+					<span class="dateEx"><%=tickets.get('tReserveDateEx')%>&nbsp;
+					<%if parseInt(tickets.get('tReserveTimeEx').split(".")[0]) > 12:%>PM <%=parseInt(tickets.get('tReserveTimeEx').split(".")[0])-12%><%else:%>AM <%=parseInt(tickets.get('tReserveTimeEx').split(".")[0])%><%end%>:<%if tickets.get('tReserveTimeEx').split(".")[1] is "5":%>30<%else:%>00<%end%></span><br /><span class="dateNow">->&nbsp;</span>
+				<% end %>
+				<% if tickets.get('tReserveDate'): %>	
+					<span class="dateNow"><%=tickets.get('tReserveDate')%>&nbsp;
+					<%if parseInt(tickets.get('tReserveTime').split(".")[0]) > 12:%>PM <%=parseInt(tickets.get('tReserveTime').split(".")[0])-12%><%else:%>AM <%=parseInt(tickets.get('tReserveTime').split(".")[0])%><%end%>:<%if tickets.get('tReserveTime').split(".")[1] is "5":%>30<%else:%>00<%end%></span>
+				<% end %>
+				</td>
+			</tr>
+			<tr>
+				<th>추가메세지</th>
+				<td colspan="3"><%=tickets.get('tReserveText')%></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="thost">
+		<div class="btnbox">
+			<img src="<%=tickets.get('uHost').picture%>" alt="<%=tickets.get('uHost').name%>" />
+			<% if tickets.get('tState') is 2: %>
+				<div class="btnReserveOk btnReserv no" code="<%=tickets.get('tCode')%>" state="5">예약승인</div><div class="btnReserveNo btnReserv no" code="<%=tickets.get('tCode')%>" state="3">예약불가</div>
+			<% else if tickets.get('tState') is 3: %>
+				<div class="ticketStatus state3"></div>
+			<% else if tickets.get('tState') is 4: %>
+				<div class="btnReserveChangeOk btnReserv no" code="<%=tickets.get('tCode')%>" state="5">변경승인</div><div class="btnReserveChangeNo btnReserv no" code="<%=tickets.get('tCode')%>" state="3">변경불가</div>
+			<% else if tickets.get('tState') is 5: %>
+				<div class="ticketStatus state5"></div>
+			<% else if tickets.get('tState') is 10: %>
+				<div class="ticketStatus used"></div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<% end %>
+<% else: %>
+<div class="rTicketBox empty">티켓정보가 없습니다.</div>
+<% end %>

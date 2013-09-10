@@ -1,0 +1,34 @@
+<div class='hCard' code='<%=card.mCode%>' host='<%=card.mHost%>'>
+	<%=raw card.labelPaid%>
+	<%=raw card.labelDday%>
+	<a href='/<%=card.mCode%>'><img class='picture' src='<%=S3ADDR%>meetpic/thumb/<%=card.mPicture%>'/></a>
+	<h3 class='title tEllipsis'><a href='/<%=card.mCode%>'><%=card.mTitle%></a></h3>
+	<ul class='info'>
+		<li class='date'><i class="icon"></i><%=card.card_date%></li>
+		<li class='time'><i class="icon"></i><%=card.card_time%></li>
+		<li class='price'><i class="icon"></i><%=card.meet_price%></li>
+		<li class='location'><i class="icon"></i><%=card.card_place%></li>
+		<!--<li class='participation'><i class="icon"></i>
+			<%=card.partice_cnt%><span class="tVague"></span>
+		</li>-->
+	</ul>
+	<div class='group'><%=card.meet_group%>개의 그룹에서 이야기 중</div>
+	<%card_host = card.host%>
+	<div class='profile'>
+		<a href='/user/<%=card_host.userid%>'>
+			<div class='thumbnail' onfocus='blur();'>
+				<img src='<%=card_host.picture%>' title='<%=card_host.name%>'/>
+			</div>
+			<span class="name tEllipsis"><%=card_host.name%></span>
+			<span class="comment"><%=card_host.members%></span>
+		</a>
+	</div>
+	<!--<div class="hoo">	
+		<img src="<%=S3ADDR%>hooful/hoo.png" alt="hoo"/>
+		<div class="balloon">
+			<img src="<%=S3ADDR%>hooful/hoo_balloon_left.png">
+			<span class="number"><%=card.hoo%></span>
+			<img src="<%=S3ADDR%>hooful/hoo_balloon_right.png">
+		</div>
+	</div>-->
+</div>

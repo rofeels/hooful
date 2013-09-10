@@ -1,0 +1,8 @@
+<div class='NotInGroup'>
+	<div>
+		<i class="check_big"></i>
+		<p>해당 그룹에 참여해야 대화가 가능해요</p>
+		<div class='btn partice'>그룹에 참여하기</div>
+		<div class='btn goback'>돌아가기</div>
+	</div>
+</div>

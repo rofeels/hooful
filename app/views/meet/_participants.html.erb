@@ -1,0 +1,9 @@
+<%participants_info = participants.userinfo%>
+<div class="profile">
+	<a href='/user/<%=participants_info.userid%>'>
+		<div class='thumbnail' onfocus='blur();'>
+			<img src='<%=participants_info.picture%>' title='<%=participants_info.name%>'/>
+		</div>
+		<span class="name tEllipsis"><%=participants_info.name%></span>
+	</a>
+</div>

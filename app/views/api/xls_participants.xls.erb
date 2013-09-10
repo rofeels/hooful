@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40"
+  xmlns:encoding="utf-8">
+  <Styles>
+	  <Style ss:ID="bg">
+  	   <Interior ss:Color="#ffffff" ss:Pattern="Solid" />
+	  </Style>
+	  <Style ss:ID="sTitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Size="25" ss:Bold="1" />
+	  </Style>
+	  <Style ss:ID="sSubtitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Size="15" ss:Bold="1" />
+	  </Style>
+
+	  <Style ss:ID="sMinorTitle">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Bold="1" />
+  	   <Interior ss:Color="#ffffff" ss:Pattern="Solid" />
+	  </Style>
+
+	  <Style ss:ID="sTh">
+		<Alignment ss:Horizontal="Center" />
+		<Font ss:Bold="1" />
+  	    <Interior ss:Color="#c0c0c0" ss:Pattern="Solid" />
+	    <Borders>
+		  <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+ 	    </Borders>
+	  </Style>
+	  <Style ss:ID="sTd">
+	    <Borders>
+		  <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+		  <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+ 	    </Borders>
+	  </Style>
+	  <Style ss:ID="sTdCenter" ss:Parent="sTd">
+		<Alignment ss:Horizontal="Center" />
+	  </Style>
+  </Styles>
+  <Worksheet ss:Name="참가자 명단">
+    <Table ss:StyleID="bg">
+	  <Column ss:Index="2" ss:AutoFitWidth="1" ss:Width="100"/>
+	  <Column ss:Index="3" ss:AutoFitWidth="1" ss:Width="200"/>
+	  <Column ss:Index="4" ss:AutoFitWidth="1" ss:Width="80"/>
+	  <Column ss:Index="8" ss:AutoFitWidth="1" ss:Width="80"/>
+
+	  <Row>
+      </Row>
+      <Row ss:Height="30">
+        <Cell ss:StyleID="sTitle" ss:MergeAcross="11"><Data ss:Type="String">"<%=@meet.mTitle%>" 참가자 명단</Data></Cell>
+      </Row>
+      <Row>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sMinorTitle"><Data ss:Type="String">일정</Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mDate%> <%=@meet.mTimeS%>:00</Data></Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sMinorTitle"><Data ss:Type="String">장소</Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mPlace%></Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell ss:MergeAcross="10"><Data ss:Type="String"><%=@meet.mAddress%></Data></Cell>
+      </Row>
+      <Row>
+      </Row>
+      <Row ss:Height="25">
+        <Cell ss:StyleID="sSubtitle" ss:MergeAcross="1"><Data ss:Type="String">참여자 명단</Data></Cell>
+      </Row>
+
+      <Row>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">번호</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">이름</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">아이디</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">연락처</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">성별</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">나이</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">지역</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">참여일자</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">회원여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">결제여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">출석여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">비고</Data></Cell>
+      </Row>
+	<% if @p_partice_c.to_i > 0  %>
+	<% @p_partice.each_with_index do |p, i| %>
+	  <%
+		uSex = (p[:uHost].sex.to_s == "1") ? "남" : "여"
+		mCreate = p[:created_at].to_s[0..9]
+		mAuth = (p[:uHost].acct_auth.to_s == "2") ? "회원" : "비회원"
+		mPaid = (p[:mPaid].to_s == "2") ? "결제" : "미결제"
+		mCheck = (p[:mCheck].to_s == "1") ? "출석" : ""
+	  %>
+      <Row>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=(i+1).to_s%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:uHost].name%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:uHost].userid%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].phone%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=uSex%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].dob%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].local%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mCreate%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mAuth%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mPaid%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mCheck%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"></Data></Cell>
+      </Row>
+	<% end %>
+	<% end %>
+      <Row>
+      </Row>
+      <Row ss:Height="25">
+        <Cell ss:StyleID="sSubtitle" ss:MergeAcross="1"><Data ss:Type="String">대기자 명단</Data></Cell>
+      </Row>
+      <Row>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">번호</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">이름</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">아이디</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">연락처</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">성별</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">나이</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">지역</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">참여일자</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">회원여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">결제여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">출석여부</Data></Cell>
+        <Cell ss:StyleID="sTh"><Data ss:Type="String">비고</Data></Cell>
+      </Row>
+	<% if @p_waiting_c.to_i > 0 %>
+	<% @p_waiting.each_with_index do |p, i| %>
+	  <%
+		uSex = (p[:uHost].sex.to_s == "1") ? "남" : "여"
+		mCreate = p[:created_at].to_s[0..9]
+		mAuth = (p[:uHost].acct_auth.to_s == "2") ? "회원" : "비회원"
+		mPaid = (p[:mPaid].to_s == "2") ? "결제" : "미결제"
+		mCheck = (p[:mCheck].to_s == "1") ? "출석" : ""
+	  %>
+      <Row>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=(i+1).to_s%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:uHost].name%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"><%=p[:uHost].userid%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].phone%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=uSex%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].dob%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=p[:uHost].local%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mCreate%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mAuth%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mPaid%></Data></Cell>
+        <Cell ss:StyleID="sTdCenter"><Data ss:Type="String"><%=mCheck%></Data></Cell>
+        <Cell ss:StyleID="sTd"><Data ss:Type="String"></Data></Cell>
+      </Row>
+	<% end %>
+	<% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

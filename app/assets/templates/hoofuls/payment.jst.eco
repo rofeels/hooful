@@ -1,0 +1,146 @@
+<div class="wrap">
+		<form accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" id="hPayfrm" method="post">
+		<h3>티켓선택</h3>
+		<input type="hidden" name="ticketInfo" id="ticketInfo" value="" />
+		<table summary="티켓 선택" cellpadding="0" cellspacing="0">
+				<caption>티켓 선택</caption>
+				<colgroup>
+					<col width="185px" />
+					<col />
+					<col width="180px" />
+					<col width="110px" />
+					<col width="230px" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>그룹</th>
+						<th>상세설명</th>
+						<th>요금</th>
+						<th>남은수량</th>
+						<th>티켓선택</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for tickets in @tickets.models: %><tr>
+						<td><%=tickets.get('tName')%></td>
+						<td><%=tickets.get('tDescription')%></td>
+						<td><%=tickets.get('tPriceC')%></td>
+						<td><%=tickets.get('tQuantity')%></td>
+						<td><%if tickets.get('tQuantity') isnt '0':%>
+								<select class="ticket_quantity" name="ticket_quantity[]">
+								<option value="0">선택</option>
+								<%for i in [1..tickets.get('tLimit')]:%>
+									<option value="<%=i%>"><%=i%> 장</option>
+								<%end%>
+								</select>
+							<%else:%>
+								품절
+							<%end%>
+							<input class="ticket_id" name="ticekt_id[]" value="<%=tickets.get('_id')%>" type="hidden" >
+							<input class="ticket_name" name="ticekt_name[]" value="<%=tickets.get('tName')%>" type="hidden" >
+							<input class="ticket_price" name="ticekt_price[]" value="<%=tickets.get('tPrice')%>" type="hidden">
+							<input class="ticket_description" name="ticket_description[]" value="<%=tickets.get('tDescription')%>" type="hidden">
+							<input class="ticekt_designated" name="ticekt_designated[]" value="<%=tickets.get('tDesignated')%>" type="hidden">
+						</td>
+					</tr>		
+					<% end %>	
+				</tbody>
+			</table>
+		<h3>참여신청 정보</h3>
+		<dl>
+			<dt>휴대전화</dt>
+			<dd><input id="phone" name="phone" type="text" value="<%=$('#userinfo').val().split("/")[0]%>"/></dd>
+			<dt>생년월일</dt>
+			<dd><input id="dob" name="dob" type="text" placeholder="YYYYMMDD" value="<%=$('#userinfo').val().split("/")[1]%>"/></dd>
+			<dt>직업</dt>
+			<dd>
+				<select id="job" name="job">
+					<option value="">직업을 선택해 주세요.</option>
+					<option value="사회인" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[2] is "사회인"%>>사회인</option>
+					<option value="학생" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[2] is "학생"%>>학생</option>
+					<option value="자유인" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[2] is "자유인"%>>자유인</option>
+				</select>
+			<dt>거주지</dt>
+			<dd>
+				<select id="local" name="local">
+					<option value="">지역을 선택해 주세요.</option>
+					<option value="서울" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "서울"%>>서울</option>
+					<option value="인천" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "인천"%>>인천</option>
+					<option value="대전" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "대전"%>>대전</option>
+					<option value="대구" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "대구"%>>대구</option>
+					<option value="광주" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "광주"%>>광주</option>
+					<option value="울산" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "울산"%>>울산</option>
+					<option value="부산" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "부산"%>>부산</option>
+					<option value="경기도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "경기도"%>>경기도</option>
+					<option value="강원도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "강원도"%>>강원도</option>
+					<option value="경상도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "경상도"%>>경상도</option>
+					<option value="전라도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "전라도"%>>전라도</option>
+					<option value="충청도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "충청도"%>>충청도</option>
+					<option value="제주도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "제주도"%>>제주도</option>
+					<option value="울릉도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "울릉도"%>>울릉도</option>
+					<option value="독도" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "독도"%>>독도</option>
+					<option value="기타" <%="selected=\"selected\"" if $('#userinfo').val().split("/")[3] is "기타"%>>기타</option>
+				</select>			
+			</dd>
+			<dt></dt>
+			<dd>* 입력사항은 개인정보에 자동으로 반영됩니다.</dd>
+		</dl>
+		<% if @payuse is '1' :%>
+		<h3>결제수단</h3>
+		<div class="mPayselect">
+			<% if @pay.card is 1 :%>
+				<div class="checkbox active" target = "payMethodType" value="card">카드 결제</div>
+			<% end %>
+			<% if @pay.phone is 1 :%>
+				<div class="checkbox<% if @pay.card isnt 1 :%> active<%end%>" target = "payMethodType" value="801">핸드폰 결제</div>
+			<% end %>
+		</div>
+		<div id="openPaygate" class="blue btn" data-toggle="modal" data-target="#payBackground" >결제</div>
+		</form>
+		<div id="payBackground" class="modal hide fade">
+			 <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3>결제하기</h3>
+			</div>
+			<div id="PGIOscreen" class="modal-body"></div>
+		</div>
+		<form name="PGIOForm" id="hPGfrm">
+		  <input type="hidden" name="mid" value="ndysjo" />
+		  <input id="payMethodType" type="hidden" name="paymethod" value="<% if @pay.card isnt 1 and @pay.phone is 1 :%>801<%else:%>card<%end%>" />
+		  <input type="hidden" name="goodname" value="<%=@title%>" />
+		  <input type="hidden" name="unitprice" id="payPrice" value="" />
+		  <input type="hidden" name="langcode" value="KR" />
+		  <input type="hidden" name="goodcurrency" value="WON" />
+		  <input type="hidden" name="cardquota" value="" />
+		  <input type="hidden" name="cardexpiremonth" />
+		  <input type="hidden" name="cardexpireyear" />
+		  <input type="hidden" name="cardsecretnumber" />
+		  <input type="hidden" name="cardownernumber" />
+		  <input type="hidden" name="cardtype" />
+		  <input type="hidden" name="cardnumber" />
+		  <input type="hidden" name="cardauthcode" />
+		  <input id="rName" type="hidden" name="receipttoname" value="" />
+		  <input id="rEmail" type="hidden" name="receipttoemail" value="" />
+		  <input type="hidden" name="replycode" value="" />
+		  <input type="hidden" name="replyMsg" value="" />
+		  <input type="button" id="callback"/>
+		</form>
+		<script>
+
+			function getPGIOresult() {
+			  return verifyReceived(getPGIOElement("tid"), "callbacksuccess", "callbackfail");
+			}
+			
+			function callbackfail() {
+				alert("paygate system error");
+			}
+			
+			function callbacksuccess() {
+				$("#callback").click()
+			}
+		</script>
+		<% else: %>
+			<div class="blue btn" id="payConfirm">참여확정</div>
+		</form>
+		<% end %>
+	</div>
